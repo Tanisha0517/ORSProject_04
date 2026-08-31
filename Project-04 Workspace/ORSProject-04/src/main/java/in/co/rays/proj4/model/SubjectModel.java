@@ -86,8 +86,25 @@ public class SubjectModel extends BaseModel<SubjectBean> {
 
 	@Override
 	public String getWhereClause(SubjectBean bean) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuffer sql = new StringBuffer("");
+
+		if (bean != null) {
+			if (bean.getId() > 0) {
+				sql.append(" and id = " + bean.getId());
+			}
+			if (bean.getName() != null && bean.getName().length() > 0) {
+				sql.append(" and name like '" + bean.getName() + "%'");
+			}
+			if (bean.getDescription() != null && bean.getDescription().length() > 0) {
+				sql.append(" and description like '" + bean.getDescription() + "%'");
+			}
+
+			if (bean.getCourseId()  > 0) {
+				sql.append(" and course_id like '" + bean.getCourseId() + "%'");
+			}
+			
+		}
+		return sql.toString();
 	}
 
 	@Override

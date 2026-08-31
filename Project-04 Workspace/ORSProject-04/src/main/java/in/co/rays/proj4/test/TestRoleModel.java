@@ -2,8 +2,12 @@ package in.co.rays.proj4.test;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
+import in.co.rays.proj4.bean.MarksheetBean;
 import in.co.rays.proj4.bean.RoleBean;
+import in.co.rays.proj4.model.MarksheetModel;
 import in.co.rays.proj4.model.RoleModel;
 
 public class TestRoleModel {
@@ -13,8 +17,9 @@ public class TestRoleModel {
 	public static void main(String[] args) {
 //		testAdd();
 //		testUpdate();
-		testFindByPk();
+//		testFindByPk();
 //		testFindByName();
+		testSearch();
 	}
 
 	private static void testAdd() {
@@ -78,5 +83,25 @@ public class TestRoleModel {
 		System.out.println(bean.getDescription());
 
 	}
+	
+	
+	public static void testSearch() {
+
+		RoleModel model = new RoleModel();
+		RoleBean bean = new RoleBean();
+
+		List<RoleBean> list = model.search(bean, 1, 5);
+
+		Iterator<RoleBean> it = list.iterator();
+		while (it.hasNext()) {
+			bean = it.next();
+			System.out.println(bean.getId());
+			System.out.println(bean.getName());
+			System.out.println(bean.getDescription());
+			System.out.println("----------------");
+		}
+
+	}
+
 	
 }

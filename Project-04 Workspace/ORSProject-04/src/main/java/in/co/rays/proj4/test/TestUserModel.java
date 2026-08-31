@@ -4,10 +4,10 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
-import in.co.rays.proj4.bean.RoleBean;
 import in.co.rays.proj4.bean.UserBean;
-import in.co.rays.proj4.model.RoleModel;
 import in.co.rays.proj4.model.UserModel;
 
 public class TestUserModel {
@@ -19,7 +19,8 @@ public class TestUserModel {
 //		testUpdate();
 //		testFindByPk();
 //		testLogin();
-		testAuthenticate();
+//		testAuthenticate();
+		testSearch();
 	}
 
 	private static void testAdd() throws Exception {
@@ -216,6 +217,30 @@ public class TestUserModel {
 			System.out.println("User found"); // or //details print later
 		} else {
 			System.out.println("User not found");
+		}
+
+	}
+	
+	public static void testSearch() {
+
+		UserModel model = new UserModel();
+		UserBean bean = new UserBean();
+		
+//		bean.setFirstName("virat");
+
+		List<UserBean> list = model.search(bean, 1, 5);
+
+		Iterator<UserBean> it = list.iterator();
+		while (it.hasNext()) {
+			bean = it.next();
+			System.out.println(bean.getId());
+			System.out.println(bean.getFirstName());
+			System.out.println(bean.getLastName());
+			System.out.println(bean.getLogin());
+			System.out.println(bean.getPassword());
+			System.out.println(bean.getDob());
+			System.out.println(bean.getMobileNo());
+			System.out.println("----------------");
 		}
 
 	}

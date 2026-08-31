@@ -13,7 +13,20 @@ public class FacultyModel extends BaseModel<FacultyBean> {
 
 	@Override
 	public long add(FacultyBean bean) throws ApplicationException, DuplicateRecordException {
+		int pk = 0;
+		
 		Connection conn = null;
+		FacultyBean existBean = findByEmail(bean.getEmail());
+
+		if (existBean != null) {
+			throw new DuplicateRecordException("faculty already exist");
+		}
+
+		CollegeModel cmodel = new CollegeModel();
+		CollegeBean cbean = cmodel.findByPK(bean.getCollegeId());
+		if (cbean != null) {
+			bean.setCollegeName(cbean.getName());
+		}
 
 		try {
 
@@ -53,6 +66,18 @@ public class FacultyModel extends BaseModel<FacultyBean> {
 	public void update(FacultyBean bean) throws ApplicationException, DuplicateRecordException {
 		Connection conn = null;
 
+		FacultyBean existBean = findByEmail(bean.getEmail());
+
+		if (existBean != null && existBean.getId() != bean.getId()) {
+			throw new DuplicateRecordException("faculty already exist");
+		}
+
+		CollegeModel cmodel = new CollegeModel();
+		CollegeBean cbean = cmodel.findByPK(bean.getCollegeId());
+		if (cbean != null) {
+			bean.setCollegeName(cbean.getName());
+		}
+		
 		try {
 
 			conn = JDBCDataSource.getConnection();
@@ -86,7 +111,7 @@ public class FacultyModel extends BaseModel<FacultyBean> {
 		}
 	}
 
-	public FacultyBean findByName(String email) {
+	public FacultyBean findByEmail(String email) {
 
 		FacultyBean bean = findByUniqueColumn("email", email);
 
@@ -96,8 +121,43 @@ public class FacultyModel extends BaseModel<FacultyBean> {
 
 	@Override
 	public String getWhereClause(FacultyBean bean) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuffer sql = new StringBuffer("");
+
+		if (bean != null) {
+			if (bean.getId() > 0) {
+				sql.append(" and id = " + bean.getId());
+			}
+			if (bean.getCollegeId() > 0) {
+				sql.append(" and college_id = " + bean.getCollegeId());
+			}
+			if (bean.getCollegeName() != null && bean.getCollegeName().length() > 0) {
+				sql.append(" and college_name like '" + bean.getCollegeName() + "%'");
+			}
+			if (bean.getFirstName() != null && bean.getFirstName().length() > 0) {
+				sql.append(" and first_name like '" + bean.getFirstName() + "%'");
+			}
+			if (bean.getLastName() != null && bean.getLastName().length() > 0) {
+				sql.append(" and last_name like '" + bean.getLastName() + "%'");
+			}
+			if (bean.getEmail() != null && bean.getEmail().length() > 0) {
+				sql.append(" and email like '" + bean.getEmail() + "%'");
+			}
+			if (bean.getMobileNo() != null && bean.getMobileNo().length() > 0) {
+				sql.append(" and mobile_no like '" + bean.getMobileNo() + "%'");
+			}
+			if (bean.getAddress() != null && bean.getAddress().length() > 0) {
+				sql.append(" and address like '" + bean.getAddress() + "%'");
+			}
+			if (bean.getGender() != null && bean.getGender().length() > 0) {
+				sql.append(" and gender like '" + bean.getGender() + "%'");
+			}
+			if (bean.getDateOfBirth() != null && bean.getDateOfBirth().getTime() > 0) {
+				sql.append(" and dob like '" + new java.sql.Date(bean.getDateOfBirth().getTime()) + "%'");
+			}
+			
+		}
+
+		return sql.toString();
 	}
 
 	@Override

@@ -2,6 +2,8 @@ package in.co.rays.proj4.test;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import in.co.rays.proj4.bean.CollegeBean;
 import in.co.rays.proj4.bean.CourseBean;
@@ -17,7 +19,8 @@ public class TestCourseModel {
 //		testDelete();
 //		testUpdate();
 //		testFindByPk();
-		testFindByName();
+//		testFindByName();
+		testSearch();
 
 	}
 
@@ -103,5 +106,28 @@ public class TestCourseModel {
 		System.out.println(bean.getDescription());
 		System.out.println(bean.getCreatedBy());
 		System.out.println(bean.getModifiedBy());
+	}
+	
+	public static void testSearch() {
+
+		CourseModel model = new CourseModel();
+		CourseBean bean = new CourseBean();
+
+//		bean.setFirstName("virat");
+
+		List<CourseBean> list = model.search(bean, 1, 5);
+
+		Iterator<CourseBean> it = list.iterator();
+		while (it.hasNext()) {
+			bean = it.next();
+			System.out.println(bean.getId());
+			System.out.println(bean.getName());
+			System.out.println(bean.getDuration());
+			System.out.println(bean.getDescription());
+			System.out.println(bean.getCreatedBy());
+			System.out.println(bean.getModifiedBy());
+			System.out.println("----------------");
+		}
+
 	}
 }

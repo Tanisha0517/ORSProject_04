@@ -4,10 +4,14 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import in.co.rays.proj4.bean.CourseBean;
+import in.co.rays.proj4.bean.RoleBean;
 import in.co.rays.proj4.bean.StudentBean;
 import in.co.rays.proj4.model.CourseModel;
+import in.co.rays.proj4.model.RoleModel;
 import in.co.rays.proj4.model.StudentModel;
 
 public class TestStudentModel {
@@ -18,7 +22,8 @@ public class TestStudentModel {
 //		testAdd();
 //		testUpdate();
 //		testFindByPk();
-		testFindByName();
+//		testFindByEmailId();
+		testSearch();
 
 	}
 
@@ -95,13 +100,13 @@ public class TestStudentModel {
 
 	}
 
-	public static void testFindByName() {
+	public static void testFindByEmailId() {
 
 		StudentModel model = new StudentModel();
 
 		StudentBean bean = new StudentBean();
 
-		bean = model.findByName("shivani@gmail.com");
+		bean = model.findByEmailId("shivani@gmail.com");
 
 		System.out.println(bean.getId());
 		System.out.println(bean.getCollegeId());
@@ -112,5 +117,31 @@ public class TestStudentModel {
 		System.out.println(bean.getMobileNo());
 		System.out.println(bean.getEmail());
 	}
+	
+	public static void testSearch() {
+
+		StudentModel model = new StudentModel();
+		StudentBean bean = new StudentBean();
+
+//		bean.setFirstName("virat"); 
+
+		List<StudentBean> list = model.search(bean, 1, 5);
+
+		Iterator<StudentBean> it = list.iterator();
+		while (it.hasNext()) {
+			bean = it.next();
+			System.out.println(bean.getId());
+			System.out.println(bean.getCollegeId());
+			System.out.println(bean.getCollegeName());
+			System.out.println(bean.getFirstName());
+			System.out.println(bean.getLastName());
+			System.out.println(bean.getDob());
+			System.out.println(bean.getMobileNo());
+			System.out.println(bean.getEmail());
+			System.out.println("----------------");
+		}
+
+	}
+
 
 }

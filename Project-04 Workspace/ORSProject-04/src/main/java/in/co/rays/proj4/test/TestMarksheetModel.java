@@ -2,10 +2,14 @@ package in.co.rays.proj4.test;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import in.co.rays.proj4.bean.CourseBean;
+import in.co.rays.proj4.bean.FacultyBean;
 import in.co.rays.proj4.bean.MarksheetBean;
 import in.co.rays.proj4.model.CourseModel;
+import in.co.rays.proj4.model.FacultyModel;
 import in.co.rays.proj4.model.MarksheetModel;
 
 public class TestMarksheetModel {
@@ -15,8 +19,9 @@ public class TestMarksheetModel {
 	public static void main(String[] args) {
 //		testAdd();
 //		testUpdate();
-		testFindByName();
+//		testFindByRollNo();
 //		testFindByPk();
+		testSearch();
 	}
 
 	private static void testAdd() {
@@ -95,13 +100,13 @@ public class TestMarksheetModel {
 
 	}
 
-	public static void testFindByName() {
+	public static void testFindByRollNo() {
 
 		MarksheetModel model = new MarksheetModel();
 
 		MarksheetBean bean = new MarksheetBean();
 
-		bean = model.findByName("R003");
+		bean = model.findByRollNo("R003");
 
 		System.out.println(bean.getId());
 		System.out.println(bean.getRollNo());
@@ -110,5 +115,29 @@ public class TestMarksheetModel {
 		System.out.println(bean.getPhysics());
 		System.out.println(bean.getChemistry());
 		System.out.println(bean.getMaths());
+	}
+	
+	public static void testSearch() {
+
+		MarksheetModel model = new MarksheetModel();
+		MarksheetBean bean = new MarksheetBean();
+
+//		bean.setFirstName("virat"); 
+
+		List<MarksheetBean> list = model.search(bean, 1, 5);
+
+		Iterator<MarksheetBean> it = list.iterator();
+		while (it.hasNext()) {
+			bean = it.next();
+			System.out.println(bean.getId());
+			System.out.println(bean.getRollNo());
+			System.out.println(bean.getStudentId());
+			System.out.println(bean.getName());
+			System.out.println(bean.getPhysics());
+			System.out.println(bean.getChemistry());
+			System.out.println(bean.getMaths());
+			System.out.println("----------------");
+		}
+
 	}
 }

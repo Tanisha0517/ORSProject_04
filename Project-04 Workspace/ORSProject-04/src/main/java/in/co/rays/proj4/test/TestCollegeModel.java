@@ -2,11 +2,15 @@ package in.co.rays.proj4.test;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import in.co.rays.proj4.bean.CollegeBean;
 import in.co.rays.proj4.bean.RoleBean;
+import in.co.rays.proj4.bean.UserBean;
 import in.co.rays.proj4.model.CollegeModel;
 import in.co.rays.proj4.model.RoleModel;
+import in.co.rays.proj4.model.UserModel;
 
 public class TestCollegeModel {
 
@@ -16,7 +20,8 @@ public class TestCollegeModel {
 //		testAdd();
 //		testUpdate();
 //		testFindByPk();
-		testFindByName();
+//		testFindByName();
+		testSearch();
 	}
 
 	private static void testAdd() {
@@ -106,6 +111,29 @@ public class TestCollegeModel {
 		System.out.println(bean.getState());
 		System.out.println(bean.getCity());
 		System.out.println(bean.getPhoneNo());
+
+	}
+
+	public static void testSearch() {
+
+		CollegeModel model = new CollegeModel();
+		CollegeBean bean = new CollegeBean();
+
+//		bean.setFirstName("virat");
+
+		List<CollegeBean> list = model.search(bean, 1, 5);
+
+		Iterator<CollegeBean> it = list.iterator();
+		while (it.hasNext()) {
+			bean = it.next();
+			System.out.println(bean.getId());
+			System.out.println(bean.getName());
+			System.out.println(bean.getAddress());
+			System.out.println(bean.getState());
+			System.out.println(bean.getCity());
+			System.out.println(bean.getPhoneNo());
+			System.out.println("----------------");
+		}
 
 	}
 }
