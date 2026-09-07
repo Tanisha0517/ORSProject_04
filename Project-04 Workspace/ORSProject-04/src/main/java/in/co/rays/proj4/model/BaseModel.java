@@ -32,7 +32,7 @@ public abstract class BaseModel<T extends BaseBean> {
 
 		try {
 			conn = JDBCDataSource.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement("select max(id) from " + getTable());
+			PreparedStatement pstmt = conn.prepareStatement("SELECT MAX(ID) FROM " + getTable());
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				pk = rs.getInt(1);
@@ -40,7 +40,6 @@ public abstract class BaseModel<T extends BaseBean> {
 			rs.close();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			throw new DatabaseException("Exception : Exception in getting PK");
 		} finally {
 			JDBCDataSource.closeConnection(conn);
@@ -49,9 +48,7 @@ public abstract class BaseModel<T extends BaseBean> {
 
 	}
 
-//	--------------------------delete----------------------------------
-
-	public void delete(int id) throws Exception {
+	public void delete(int id) throws DatabaseException {
 		Connection conn = null;
 
 		try {
@@ -59,21 +56,17 @@ public abstract class BaseModel<T extends BaseBean> {
 			conn.setAutoCommit(false);
 			PreparedStatement pstmt = conn.prepareStatement("delete from " + getTable() + " where id = ?");
 			pstmt.setInt(1, id);
-
 			int i = pstmt.executeUpdate();
+			System.out.println("record deleted: " + i);
 			conn.commit();
-
-			System.out.println("Record deleted successfully");
-
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 			JDBCDataSource.trnRollBack(conn);
 		} finally {
 			JDBCDataSource.closeConnection(conn);
 		}
-	}
 
-//	-----------------------------findByPk()----------------------------------------------
+	}
 
 	public T findByPK(long pk) throws ApplicationException {
 
@@ -98,8 +91,6 @@ public abstract class BaseModel<T extends BaseBean> {
 		}
 		return bean;
 	}
-
-//	----------------------------------------findByUniqueColumn()----------------------------------------
 
 	public T findByUniqueColumn(String column, String value) {
 
@@ -139,7 +130,7 @@ public abstract class BaseModel<T extends BaseBean> {
 			pageNo = (pageNo - 1) * pageSize; // <==== index formula
 			sql.append(" Limit " + pageNo + ", " + pageSize);
 		}
-
+		System.out.println("sql===> " + sql.toString());
 		try {
 			conn = JDBCDataSource.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
