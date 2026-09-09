@@ -1,19 +1,11 @@
 package in.co.rays.proj4.controller;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
-import in.co.rays.proj4.bean.RoleBean;
 import in.co.rays.proj4.bean.UserBean;
-import in.co.rays.proj4.model.RoleModel;
 import in.co.rays.proj4.model.UserModel;
 import in.co.rays.proj4.util.DataUtility;
-
-@WebServlet("/ctl/UserListCtl")
+@WebServlet("/UserListCtl")
 public class UserListCtl extends BaseListCtl<UserBean, UserModel> {
 
 	@Override
@@ -21,12 +13,12 @@ public class UserListCtl extends BaseListCtl<UserBean, UserModel> {
 		UserBean bean = new UserBean();
 		bean.setFirstName(DataUtility.getString(request.getParameter("firstName")));
 		bean.setLastName(DataUtility.getString(request.getParameter("lastName")));
-		bean.setLogin(DataUtility.getString(request.getParameter("login")));
-		bean.setPassword(DataUtility.getString(request.getParameter("password")));
-		bean.setConfirmPassword(DataUtility.getString(request.getParameter("confirmPassword")));
-		bean.setDob(DataUtility.getDate(request.getParameter("dob")));
-		bean.setMobileNo(DataUtility.getString(request.getParameter("mobileNo")));
-		bean.setGender(DataUtility.getString(request.getParameter("gender")));
+//		bean.setLogin(DataUtility.getString(request.getParameter("login")));
+//		bean.setPassword(DataUtility.getString(request.getParameter("password")));
+//		bean.setConfirmPassword(DataUtility.getString(request.getParameter("confirmPassword")));
+//		bean.setDob(DataUtility.getDate(request.getParameter("dob")));
+//		bean.setMobileNo(DataUtility.getString(request.getParameter("mobileNo")));
+//		bean.setGender(DataUtility.getString(request.getParameter("gender")));
 		return bean;
 	}
 

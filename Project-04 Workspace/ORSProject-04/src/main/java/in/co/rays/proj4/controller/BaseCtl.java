@@ -40,6 +40,7 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	}
 
 	protected void preload(HttpServletRequest request) {
+
 	}
 
 	protected B populateBean(HttpServletRequest request) {
@@ -113,6 +114,8 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		preload(request);
 
 		if ("POST".equals(request.getMethod())) {
 			if (validate(request) == false) {

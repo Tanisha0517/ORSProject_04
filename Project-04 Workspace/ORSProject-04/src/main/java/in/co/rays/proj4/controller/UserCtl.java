@@ -3,15 +3,29 @@ package in.co.rays.proj4.controller;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 
+import java.util.List;
+
 import in.co.rays.proj4.bean.RoleBean;
 import in.co.rays.proj4.bean.UserBean;
+import in.co.rays.proj4.model.RoleModel;
 import in.co.rays.proj4.model.UserModel;
 import in.co.rays.proj4.util.DataUtility;
 import in.co.rays.proj4.util.DataValidator;
 
-@WebServlet("/ctl/UserCtl")
+@WebServlet("/UserCtl")
 public class UserCtl extends BaseCtl<UserBean, UserModel> {
 
+	@Override
+	//Dynamic Preload 
+	protected void preload(HttpServletRequest request) {
+		RoleModel rmodel = new RoleModel();
+		List<RoleBean> roleList = rmodel.list();
+		request.setAttribute("roleList", roleList); //key,value
+
+		super.preload(request);
+	}
+
+	@Override
 	protected boolean validate(HttpServletRequest request) {
 
 		boolean pass = true;
@@ -43,6 +57,11 @@ public class UserCtl extends BaseCtl<UserBean, UserModel> {
 			request.setAttribute("gender", "gender is required");
 			pass = false;
 		}
+
+		if (DataValidator.isNull(request.getParameter("roleId"))) {
+			request.setAttribute("roleId", "role is required");
+			pass = false;
+		}
 		if (DataValidator.isNull(request.getParameter("dob"))) {
 			request.setAttribute("dob", "dob is required");
 			pass = false;
@@ -61,7 +80,7 @@ public class UserCtl extends BaseCtl<UserBean, UserModel> {
 
 		UserBean bean = new UserBean();
 
-		bean.setRoleId(RoleBean.STUDENT);
+		bean.setRoleId(DataUtility.getInt(request.getParameter("roleId")));
 		bean.setFirstName(DataUtility.getString(request.getParameter("firstName")));
 		bean.setLastName(DataUtility.getString(request.getParameter("lastName")));
 		bean.setLogin(DataUtility.getString(request.getParameter("login")));
@@ -69,7 +88,7 @@ public class UserCtl extends BaseCtl<UserBean, UserModel> {
 		bean.setConfirmPassword(DataUtility.getString(request.getParameter("confirmPassword")));
 		bean.setGender(DataUtility.getString(request.getParameter("gender")));
 		bean.setDob(DataUtility.getDate(request.getParameter("dob")));
-		bean.setMobileNo(DataUtility.getString(request.getParameter("mobileNo")));
+//		bean.setMobileNo(DataUtility.getString(request.getParameter("mobileNo")));
 
 		populateDTO(bean, request); // Its work is to set only 4 attributes
 

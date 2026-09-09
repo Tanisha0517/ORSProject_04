@@ -43,14 +43,14 @@
 				<tr>
 					<th>Login<font color="red">*</font></th>
 					<td><input type="text" name="login" value=""
-						placeholder="enter an emial"></td>
+						placeholder="enter valid login id"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("login", request)%></td>
 				</tr>
 
 				<tr>
 					<th>Password<font color="red">*</font></th>
 					<td><input type="password" name="password" value=""
-						placeholder="enter an password"></td>
+						placeholder="enter password"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("password", request)%></td>
 				</tr>
 

@@ -1,45 +1,47 @@
-<%@page import="in.co.rays.proj4.bean.RoleBean"%>
-<%@page import="in.co.rays.proj4.model.RoleModel"%>
 <%@page import="in.co.rays.proj4.util.ServletUtility"%>
 <%@page import="in.co.rays.proj4.controller.BaseCtl"%>
+<%@page import="in.co.rays.proj4.bean.CollegeBean"%>
 <%@page import="in.co.rays.proj4.controller.ORSView"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="Header.jsp"%>
-	<%
+
+<%
 	int pageNo = ServletUtility.getPageNo(request);
 	int pageSize = ServletUtility.getPageSize(request);
 	int index = ((pageNo - 1) * pageSize) + 1;
-	List<UserBean> list = ServletUtility.getList(request);
-	Iterator<UserBean> it = list.iterator();
+	List<CollegeBean> list = ServletUtility.getList(request);
+	Iterator<CollegeBean> it = list.iterator();
 	String _suc = ServletUtility.getSuccessMessage(request);
 	String _err = ServletUtility.getErrorMessage(request);
 	%>
 
-	<form action="<%=ORSView.USER_LIST_CTL%>" method="post">
+	<form action="<%=ORSView.COLLEGE_LIST_CTL%>" method="post">
 		<div align="center">
 
-			<h1>User List</h1>
+			<h1>College List</h1>
 
-			<h3 style="color: green"><%=_suc%></h3>
-			<h3 style="color: red"><%=_err%></h3>
+			<h3 style="color: green"><%=_suc != null ? _suc : ""%></h3>
+			<h3 style="color: red"><%=_err != null ? _err : ""%></h3>
 
 			<input type="hidden" name="pageNo" value="<%=pageNo%>"> <input
 				type="hidden" name="pageSize" value="<%=pageSize%>">
 
 			<table>
 				<tr>
-					<td><input type="text" name="firstName" value=""
-						placeholder="search by firstName"></td>
-					<td><input type="text" name="lastName" value=""
-						placeholder="search by lastName"></td>
+					<td><input type="text" name="name" value=""
+						placeholder="search by name"></td>
+					<td><input type="text" name="city" value=""
+						placeholder="search by city"></td>
 					<td><input type="submit" name="operation"
 						value="<%=BaseCtl.OP_SEARCH%>"></td>
 				</tr>
@@ -51,28 +53,26 @@
 					<th><input type="checkbox"
 						onclick="document.querySelectorAll('input[name=ids]').forEach(c=>c.checked=this.checked)"></th>
 					<th>S.No</th>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>Login</th>
-					<th>DOB</th>
-					<th>RoleName</th>
+					<th>Name</th>
+					<th>Address</th>
+					<th>State</th>
+					<th>City</th>
+					<th>Phone No</th>
 				</tr>
 
 				<%
 				while (it.hasNext()) {
-					UserBean bean = it.next();
-					RoleModel rmodel = new RoleModel();
-					RoleBean rbean = rmodel.findByPK(bean.getRoleId());
+					CollegeBean bean = it.next();
 				%>
 				<tr align="center" style="background-color: lightgrey">
 					<td><input type="checkbox" name="ids"
 						value="<%=bean.getId()%>"></td>
 					<td><%=index++%></td>
-					<td><%=bean.getFirstName()%></td>
-					<td><%=bean.getLastName()%></td>
-					<td><%=bean.getLogin()%></td>
-					<td><%=bean.getDob()%></td>
-					<td><%=rbean.getName()%></td>
+					<td><%=bean.getName()%></td>
+					<td><%=bean.getAddress()%></td>
+					<td><%=bean.getState()%></td>
+					<td><%=bean.getCity()%></td>
+					<td><%=bean.getPhoneNo()%></td>
 				</tr>
 				<%
 				}
@@ -92,6 +92,7 @@
 			</tr>
 		</table>
 	</form>
-	<%@ include file="Footer.jsp"%>
+
+
 </body>
 </html>

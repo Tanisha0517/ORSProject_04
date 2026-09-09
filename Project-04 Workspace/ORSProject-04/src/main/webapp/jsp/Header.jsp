@@ -27,9 +27,29 @@
 					<h3><b><%=welcomeMsg + userBean.getFirstName() + "(" + roleName + ")"%></b></h3>
 					<a href="<%=ORSView.ROLE_CTL%>"><b>Add Role</b></a> | 
 					<a href="<%=ORSView.ROLE_LIST_CTL%>"><b>Role List</b></a> | 
+					
 					<a href="<%=ORSView.USER_CTL%>"><b>Add User</b></a> | 
 					<a href="<%=ORSView.USER_LIST_CTL%>"><b>User List</b></a> | 
-					<a href="LoginCtl?operation=logout"><b>Logout</b> </a>
+					
+					<a href="<%=ORSView.COLLEGE_CTL%>"><b>Add College</b></a> | 
+					<a href="<%=ORSView.COLLEGE_LIST_CTL%>"><b>College List</b></a> |
+					
+					<a href="<%=ORSView.STUDENT_CTL%>"><b>Add Student</b></a> | 
+					<a href="<%=ORSView.STUDENT_LIST_CTL%>"><b>Student List</b></a> | 
+					
+					<a href="<%=ORSView.MARKSHEET_CTL%>"><b>Add MarkSheet</b></a> | 
+					<a href="<%=ORSView.MARKSHEET_LIST_CTL%>"><b>MarkSheet List</b></a> | 
+					
+					<a href="<%=ORSView.COURSE_CTL%>"><b>Add Course</b></a> | 
+					<a href="<%=ORSView.COURSE_LIST_CTL%>"><b>Course List</b></a> | 
+					
+					<a href="<%=ORSView.SUBJECT_CTL%>"><b>Add Subject</b></a> | 
+					<a href="<%=ORSView.SUBJECT_LIST_CTL%>"><b>Subject List</b></a> | 
+					
+					<a href="<%=ORSView.FACULTY_CTL%>"><b>Add Faculty</b></a> | 
+					<a href="<%=ORSView.FACULTY_LIST_CTL%>"><b>Faculty List</b></a> | 
+					 
+					<a href="LoginCtl?operation=logout"><b>Logout</b> </a><!-- Query String -->
 				</div> <%
                 }
                 %> 

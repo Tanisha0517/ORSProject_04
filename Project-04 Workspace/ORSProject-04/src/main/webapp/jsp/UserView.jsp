@@ -1,18 +1,23 @@
+<%@page import="in.co.rays.proj4.bean.RoleBean"%>
+<%@page import="java.util.List"%>
+<%@page import="in.co.rays.proj4.controller.UserCtl"%>
+<%@page import="in.co.rays.proj4.controller.LoginCtl"%>
 <%@page import="in.co.rays.proj4.util.ServletUtility"%>
 <%@page import="in.co.rays.proj4.controller.BaseCtl"%>
 <%@page import="in.co.rays.proj4.controller.ORSView"%>
+<%@page import="in.co.rays.proj4.util.HTMLUtility"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-
-<%@ include file="Header.jsp"%>
+	<%@ include file="Header.jsp"%>
 	<%
 	String _suc = ServletUtility.getSuccessMessage(request);
 	String _err = ServletUtility.getErrorMessage(request);
+	List<RoleBean> roleList = (List) request.getAttribute("roleList");
 	%>
 
 	<form action="<%=ORSView.USER_CTL%>" method="post">
@@ -27,65 +32,81 @@
 			<table>
 
 				<tr>
-					<th>First Name<font color="red">*</font></th>
+					<th>FirstName<font color="red">*</font></th>
 					<td><input type="text" name="firstName" value=""
-						placeholder="enter first name"></td>
+						placeholder="enter your firstName"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("firstName", request)%></td>
 				</tr>
 
 				<tr>
-					<th>Last Name<font color="red">*</font></th>
+					<th>LastName<font color="red">*</font></th>
 					<td><input type="text" name="lastName" value=""
-						placeholder="enter last name"></td>
+						placeholder="enter your lastName"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("lastName", request)%></td>
 				</tr>
-				
+
 				<tr>
-					<th>Login Id<font color="red">*</font></th>
+					<th>Login<font color="red">*</font></th>
 					<td><input type="text" name="login" value=""
-						placeholder="enter login"></td>
+						placeholder="enter an emial"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("login", request)%></td>
 				</tr>
-				
+
 				<tr>
 					<th>Password<font color="red">*</font></th>
 					<td><input type="password" name="password" value=""
-						placeholder="enter password"></td>
+						placeholder="enter an password"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("password", request)%></td>
 				</tr>
-				
+
 				<tr>
-					<th>Confirm Password<font color="red">*</font></th>
+					<th>ConfirmPassword<font color="red">*</font></th>
 					<td><input type="password" name="confirmPassword" value=""
-						placeholder="enter confirm password"></td>
+						placeholder="re-enter your password"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("confirmPassword", request)%></td>
 				</tr>
-				
+
 				<tr>
-					<th>DOB<font color="red">*</font></th>
-					<td><input type="date" name="dob" value=""
-						placeholder="enter dob"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("dob", request)%></td>
+					<th>Role<font color="red">*</font></th>
+					<!-- <td><select class='form-control' name='roleId'>
+							<option selected value=''>-------------Select------------</option>
+							<%
+							for (RoleBean rbean : roleList) {
+							%>
+							<option value='<%=rbean.getKey()%>'><%=rbean.getValue()%></option>
+							<%
+							}
+							%>
+					</select></td>
+					 -->
+					 
+					 <td><%=HTMLUtility.getList("roleId", "" ,roleList) %></td>
+					 <!-- name, role list object -->
+					 
+					 
+					<td style="color: red"><%=ServletUtility.getErrorMessage("roleId", request)%></td>
 				</tr>
-				
-				<tr>
-					<th>Mobile Number<font color="red">*</font></th>
-					<td><input type="text" name="mobileNo" value=""
-						placeholder="enter mobile no"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("mobileNo", request)%></td>
-				</tr>
-				
+
 				<tr>
 					<th>Gender<font color="red">*</font></th>
-					<td><input type="text" name="gender" value=""
-						placeholder="enter gender"></td>
+					<td><select class='form-control' name='gender'>
+							<option selected value=''>-------------Select------------</option>
+							<option value='female'>female</option>
+							<option value='male'>male</option>
+					</select></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("gender", request)%></td>
+				</tr>
+
+				<tr>
+					<th>DOB<font color="red">*</font></th>
+					<td><input type="date" name="dob" value=""></td>
+					<td style="color: red"><%=ServletUtility.getErrorMessage("dob", request)%></td>
 				</tr>
 
 				<tr>
 					<th></th>
 					<td><input type="submit" name="operation"
-						value="<%=BaseCtl.OP_SAVE%>"></td>
+						value="<%=UserCtl.OP_SAVE%>"></td>
 				</tr>
 
 			</table>
@@ -94,6 +115,5 @@
 
 	</form>
 	<%@ include file="Footer.jsp"%>
-
 </body>
 </html>

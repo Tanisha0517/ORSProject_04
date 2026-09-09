@@ -1,6 +1,5 @@
 package in.co.rays.proj4.controller;
 
-//All Paths are defined(set) in this class of all views and controllers 
 public interface ORSView {
 
 	public String APP_CONTEXT = "/ORSProject-04";
@@ -39,46 +38,46 @@ public interface ORSView {
 
 	public String ERROR_CTL = "/ctl/MarksheetCtl";
 
-	public String MARKSHEET_CTL = APP_CONTEXT + "/ctl/MarksheetCtl";
-	public String MARKSHEET_LIST_CTL = APP_CONTEXT + "/ctl/MarksheetListCtl";
-	public String USER_CTL = APP_CONTEXT + "/ctl/UserCtl";
-	public String USER_LIST_CTL = APP_CONTEXT + "/ctl/UserListCtl";
-	public String COLLEGE_CTL = APP_CONTEXT + "/ctl/CollegeCtl";
-	public String COLLEGE_LIST_CTL = APP_CONTEXT + "/ctl/CollegeListCtl";
-	public String STUDENT_CTL = APP_CONTEXT + "/ctl/StudentCtl";
-	public String STUDENT_LIST_CTL = APP_CONTEXT + "/ctl/StudentListCtl";
+	public String MARKSHEET_CTL = APP_CONTEXT + "/MarksheetCtl";
+	public String MARKSHEET_LIST_CTL = APP_CONTEXT + "/MarksheetListCtl";
+	public String USER_CTL = APP_CONTEXT + "/UserCtl";
+	public String USER_LIST_CTL = APP_CONTEXT + "/UserListCtl";
+	public String COLLEGE_CTL = APP_CONTEXT + "/CollegeCtl";
+	public String COLLEGE_LIST_CTL = APP_CONTEXT + "/CollegeListCtl";
+	public String STUDENT_CTL = APP_CONTEXT + "/StudentCtl";
+	public String STUDENT_LIST_CTL = APP_CONTEXT + "/StudentListCtl";
 	public String ROLE_CTL = APP_CONTEXT + "/RoleCtl";
 	public String ROLE_LIST_CTL = APP_CONTEXT + "/RoleListCtl";
-	public String COURSE_CTL = APP_CONTEXT + "/ctl/CourseCtl";
-	public String COURSE_LIST_CTL = APP_CONTEXT + "/ctl/CourseListCtl";
-	public String SUBJECT_CTL = APP_CONTEXT + "/ctl/SubjectCtl";
-	public String SUBJECT_LIST_CTL = APP_CONTEXT + "/ctl/SubjectListCtl";
+	public String COURSE_CTL = APP_CONTEXT + "/CourseCtl";
+	public String COURSE_LIST_CTL = APP_CONTEXT + "/CourseListCtl";
+	public String SUBJECT_CTL = APP_CONTEXT + "/SubjectCtl";
+	public String SUBJECT_LIST_CTL = APP_CONTEXT + "/SubjectListCtl";
 	public String USER_REGISTRATION_CTL = APP_CONTEXT + "/UserRegistrationCtl";
 	public String LOGIN_CTL = APP_CONTEXT + "/LoginCtl";
 	public String WELCOME_CTL = APP_CONTEXT + "/WelcomeCtl";
 	public String LOGOUT_CTL = APP_CONTEXT + "/LoginCtl";
-	public String GET_MARKSHEET_CTL = APP_CONTEXT + "/ctl/GetMarksheetCtl";
-	public String CHANGE_PASSWORD_CTL = APP_CONTEXT + "/ctl/ChangePasswordCtl";
-	public String MY_PROFILE_CTL = APP_CONTEXT + "/ctl/MyProfileCtl";
+	public String GET_MARKSHEET_CTL = APP_CONTEXT + "/GetMarksheetCtl";
+	public String CHANGE_PASSWORD_CTL = APP_CONTEXT + "/ChangePasswordCtl";
+	public String MY_PROFILE_CTL = APP_CONTEXT + "/MyProfileCtl";
 	public String FORGET_PASSWORD_CTL = APP_CONTEXT + "/ForgetPasswordCtl";
-	public String MARKSHEET_MERIT_LIST_CTL = APP_CONTEXT + "/ctl/MarksheetMeritListCtl";
-	public String UPLOAD_PHOTO_CTL = APP_CONTEXT + "/ctl/uploadphoto";
+	public String MARKSHEET_MERIT_LIST_CTL = APP_CONTEXT + "/MarksheetMeritListCtl";
+	public String UPLOAD_PHOTO_CTL = APP_CONTEXT + "/uploadphoto";
 
 	public String FACULTY_VIEW = PAGE_FOLDER + "/FacultyView.jsp";
 	public String FACULTY_LIST_VIEW = PAGE_FOLDER + "/FacultyListView.jsp";
-	public String FACULTY_CTL = APP_CONTEXT + "/ctl/FacultyCtl";
-	public String FACULTY_LIST_CTL = APP_CONTEXT + "/ctl/FacultyListCtl";
+	public String FACULTY_CTL = APP_CONTEXT + "/FacultyCtl";
+	public String FACULTY_LIST_CTL = APP_CONTEXT + "/FacultyListCtl";
 
-	public String STUDENT_REPORT_CTL = APP_CONTEXT + "/ctl/StudentReportCtl";
-	public String COLLEGE_REPORT_CTL = APP_CONTEXT + "/ctl/CollegeReportCtl";
-	public String USER_REPORT_CTL = APP_CONTEXT + "/ctl/UserReportCtl";
-	public String ROLE_REPORT_CTL = APP_CONTEXT + "/ctl/RoleReportCtl";
-	public String COURSE_REPORT_CTL = APP_CONTEXT + "/ctl/CourseReportCtl";
-	public String SUBJECT_REPORT_CTL = APP_CONTEXT + "/ctl/SubjectReportCtl";
-	public String MARKSHEET_REPORT_CTL = APP_CONTEXT + "/ctl/MarksheetReportCtl";
-	public String FACULTY_REPORT_CTL = APP_CONTEXT + "/ctl/FacultyReportCtl";
-	public String PRODUCT_CTL = APP_CONTEXT + "/ctl/ProductCtl";
-	public String PRODUCT_LIST_CTL = APP_CONTEXT + "/ctl/ProductListCtl";
+	public String STUDENT_REPORT_CTL = APP_CONTEXT + "/StudentReportCtl";
+	public String COLLEGE_REPORT_CTL = APP_CONTEXT + "/CollegeReportCtl";
+	public String USER_REPORT_CTL = APP_CONTEXT + "/UserReportCtl";
+	public String ROLE_REPORT_CTL = APP_CONTEXT + "/RoleReportCtl";
+	public String COURSE_REPORT_CTL = APP_CONTEXT + "/CourseReportCtl";
+	public String SUBJECT_REPORT_CTL = APP_CONTEXT + "/SubjectReportCtl";
+	public String MARKSHEET_REPORT_CTL = APP_CONTEXT + "/MarksheetReportCtl";
+	public String FACULTY_REPORT_CTL = APP_CONTEXT + "/FacultyReportCtl";
+	public String PRODUCT_CTL = APP_CONTEXT + "/ProductCtl";
+	public String PRODUCT_LIST_CTL = APP_CONTEXT + "/ProductListCtl";
 
 	public String COURSE_REPORT_VIEW = "/reports/CourseListReport.jrxml";
 	public String STUDENT_REPORT_VIEW = "/reports/StudentListReport.jrxml";
