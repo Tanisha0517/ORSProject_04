@@ -12,15 +12,15 @@ import in.co.rays.proj4.model.UserModel;
 import in.co.rays.proj4.util.DataUtility;
 import in.co.rays.proj4.util.DataValidator;
 
-@WebServlet("/UserCtl")
+@WebServlet("/ctl/UserCtl")
 public class UserCtl extends BaseCtl<UserBean, UserModel> {
 
 	@Override
 	//Dynamic Preload 
 	protected void preload(HttpServletRequest request) {
-		RoleModel rmodel = new RoleModel();
-		List<RoleBean> roleList = rmodel.list();
-		request.setAttribute("roleList", roleList); //key,value
+		RoleModel rmodel = new RoleModel(); // role model ka object bnaya or list method ko call kia
+		List<RoleBean> roleList = rmodel.list(); //list ko rolelist nm k object m hold kia 
+		request.setAttribute("roleList", roleList); //or usko request attribute m key value m set kia
 
 		super.preload(request);
 	}

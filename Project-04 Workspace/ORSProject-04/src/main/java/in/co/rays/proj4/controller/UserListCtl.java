@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import in.co.rays.proj4.bean.UserBean;
 import in.co.rays.proj4.model.UserModel;
 import in.co.rays.proj4.util.DataUtility;
-@WebServlet("/UserListCtl")
+@WebServlet("/ctl/UserListCtl")
 public class UserListCtl extends BaseListCtl<UserBean, UserModel> {
 
 	@Override

@@ -18,6 +18,7 @@
 	String _suc = ServletUtility.getSuccessMessage(request);
 	String _err = ServletUtility.getErrorMessage(request);
 	List<RoleBean> roleList = (List) request.getAttribute("roleList");
+// Userview pr request.getattrubte se roleList ko get kia
 	%>
 
 	<form action="<%=ORSView.USER_CTL%>" method="post">

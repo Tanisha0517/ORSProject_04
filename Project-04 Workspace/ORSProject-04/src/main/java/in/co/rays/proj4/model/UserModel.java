@@ -111,7 +111,8 @@ public class UserModel extends BaseModel<UserBean> {
 	}
 
 	public UserBean authenticate(String login, String password) throws ApplicationException {
-		UserBean bean = findByLogin(login);
+		UserBean bean = findByLogin(login); //usi m humne findByLogin method ko call kia h usko bean m hold kr dia h 
+		
 		if (bean != null && bean.getPassword().equals(password)) {
 			return bean;
 		} else {

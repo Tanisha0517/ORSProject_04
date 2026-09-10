@@ -92,7 +92,8 @@ public class LoginCtl extends BaseCtl<UserBean, UserModel> {
 				return;
 			} else {
 //				request.setAttribute("error", "Invalid login or password");
-				ServletUtility.setErrorMessage("Invalid login or password", request);
+				ServletUtility.setErrorMessage("Invalid login or password", request); //msg, request
+				//expression tag m print kia 
 			}
 		}
 

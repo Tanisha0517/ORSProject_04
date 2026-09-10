@@ -49,7 +49,7 @@
 					<a href="<%=ORSView.FACULTY_CTL%>"><b>Add Faculty</b></a> | 
 					<a href="<%=ORSView.FACULTY_LIST_CTL%>"><b>Faculty List</b></a> | 
 					 
-					<a href="LoginCtl?operation=logout"><b>Logout</b> </a><!-- Query String -->
+					<a href="<%=ORSView.LOGIN_CTL %>?operation=logout"><b>Logout</b> </a>
 				</div> <%
                 }
                 %> 

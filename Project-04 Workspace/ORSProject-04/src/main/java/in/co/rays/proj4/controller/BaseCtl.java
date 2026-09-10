@@ -85,6 +85,7 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 
 		if (id > 0 || op != null) {
 			BaseBean bean = getModel().findByPK(id);
+//			request.setAttribute("bean", bean);
 			ServletUtility.setBean(bean, request);
 		}
 
