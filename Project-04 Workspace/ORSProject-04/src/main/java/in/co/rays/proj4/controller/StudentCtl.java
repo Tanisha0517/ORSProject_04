@@ -67,6 +67,7 @@ public class StudentCtl extends BaseCtl<StudentBean, StudentModel> {
 
 		StudentBean bean = new StudentBean();
 
+		bean.setId(DataUtility.getLong(request.getParameter("id")));
 		bean.setCollegeId(DataUtility.getInt(request.getParameter("collegeId")));
 		bean.setCollegeName(DataUtility.getString(request.getParameter("collegeName")));
 		bean.setFirstName(DataUtility.getString(request.getParameter("firstName")));

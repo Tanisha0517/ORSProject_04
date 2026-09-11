@@ -90,6 +90,8 @@
 					<th>Gender</th>
 
 					<th>DOB</th>
+					
+					<th>Edit</th>
 
 					
 
@@ -127,6 +129,8 @@
 					<td><%=bean.getGender()%></td>
 
 					<td><%=bean.getDateOfBirth()%></td>
+					
+					<td><a href="<%=ORSView.FACULTY_CTL + "?id=" + bean.getId()%>">Edit</a></td>
 
 					
 

@@ -41,9 +41,9 @@ public class UserCtl extends BaseCtl<UserBean, UserModel> {
 		if (DataValidator.isNull(request.getParameter("login"))) {
 			request.setAttribute("login", "login is required");
 			pass = false;
-		} else if (!DataValidator.isEmail(request.getParameter("login"))) {
-			request.setAttribute("login", "login is not in valid formate");
-			pass = false;
+		} else if (!request.getParameter("login").matches("[A-Za-z][A-Za-z0-9_]*")) {
+		    request.setAttribute("login", "login is not in valid formate");
+		    pass = false;
 		}
 		if (DataValidator.isNull(request.getParameter("password"))) {
 			request.setAttribute("password", "password is required");
@@ -80,6 +80,7 @@ public class UserCtl extends BaseCtl<UserBean, UserModel> {
 
 		UserBean bean = new UserBean();
 
+		bean.setId(DataUtility.getLong(request.getParameter("id")));
 		bean.setRoleId(DataUtility.getInt(request.getParameter("roleId")));
 		bean.setFirstName(DataUtility.getString(request.getParameter("firstName")));
 		bean.setLastName(DataUtility.getString(request.getParameter("lastName")));

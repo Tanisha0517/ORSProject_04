@@ -6,6 +6,8 @@
 <%@page import="in.co.rays.proj4.controller.BaseCtl"%>
 <%@page import="in.co.rays.proj4.controller.ORSView"%>
 <%@page import="in.co.rays.proj4.util.HTMLUtility"%>
+<%@page import="in.co.rays.proj4.bean.UserBean"%>
+<%@page import="in.co.rays.proj4.util.DataUtility"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,14 +20,24 @@
 	String _suc = ServletUtility.getSuccessMessage(request);
 	String _err = ServletUtility.getErrorMessage(request);
 	List<RoleBean> roleList = (List) request.getAttribute("roleList");
-// Userview pr request.getattrubte se roleList ko get kia
+    // Userview pr request.getattrubte se roleList ko get kia
+    
+    /* UserBean bean = (UserBean) request.getAttribute("bean"); */
 	%>
+	
+	<jsp:useBean id="bean" class="in.co.rays.proj4.bean.UserBean"
+		scope="request"></jsp:useBean>
 
 	<form action="<%=ORSView.USER_CTL%>" method="post">
 
+    <input type="hidden" name="id"
+			value="<%=DataUtility.getStringData(bean.getId())%>">
+
 		<div align="center">
 
-			<h1>Add User</h1>
+			<h1>
+				<%=bean != null && bean.getId() > 0 ? "Update User" : "Add User"%>
+			</h1>
 
 			<h3 style="color: green"><%=_suc%></h3>
 			<h3 style="color: red"><%=_err%></h3>
@@ -34,35 +46,35 @@
 
 				<tr>
 					<th>FirstName<font color="red">*</font></th>
-					<td><input type="text" name="firstName" value=""
+					<td><input type="text" name="firstName" value="<%=DataUtility.getStringData(bean.getFirstName())%>"
 						placeholder="enter your firstName"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("firstName", request)%></td>
 				</tr>
 
 				<tr>
 					<th>LastName<font color="red">*</font></th>
-					<td><input type="text" name="lastName" value=""
+					<td><input type="text" name="lastName" value="<%=DataUtility.getStringData(bean.getLastName())%>"
 						placeholder="enter your lastName"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("lastName", request)%></td>
 				</tr>
 
 				<tr>
 					<th>Login<font color="red">*</font></th>
-					<td><input type="text" name="login" value=""
+					<td><input type="text" name="login" value="<%=DataUtility.getStringData(bean.getLogin())%>"
 						placeholder="enter an emial"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("login", request)%></td>
 				</tr>
 
 				<tr>
 					<th>Password<font color="red">*</font></th>
-					<td><input type="password" name="password" value=""
+					<td><input type="password" name="password" value="<%=DataUtility.getStringData(bean.getPassword())%>"
 						placeholder="enter an password"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("password", request)%></td>
 				</tr>
 
 				<tr>
 					<th>ConfirmPassword<font color="red">*</font></th>
-					<td><input type="password" name="confirmPassword" value=""
+					<td><input type="password" name="confirmPassword" value="<%=DataUtility.getStringData(bean.getPassword())%>"
 						placeholder="re-enter your password"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("confirmPassword", request)%></td>
 				</tr>
@@ -81,7 +93,7 @@
 					</select></td>
 					 -->
 					 
-					 <td><%=HTMLUtility.getList("roleId", "" ,roleList) %></td>
+					 <td><%=HTMLUtility.getList("roleId", DataUtility.getStringData(bean.getRoleId()) ,roleList) %></td>
 					 <!-- name, role list object -->
 					 
 					 
@@ -100,14 +112,14 @@
 
 				<tr>
 					<th>DOB<font color="red">*</font></th>
-					<td><input type="date" name="dob" value=""></td>
+					<td><input type="date" name="dob" value="<%=DataUtility.getStringData(bean.getDob())%>"></td>
 					<td style="color: red"><%=ServletUtility.getErrorMessage("dob", request)%></td>
 				</tr>
 
 				<tr>
 					<th></th>
 					<td><input type="submit" name="operation"
-						value="<%=UserCtl.OP_SAVE%>"></td>
+						value="<%=bean != null && bean.getId() > 0 ? "Update" : BaseCtl.OP_SAVE%>"></td>
 				</tr>
 
 			</table>

@@ -58,6 +58,7 @@
 					<th>Physics</th>
                     <th>Chemistry</th>
                     <th>Maths</th>
+                    <th>Edit</th>
 				</tr>
 
 				<%
@@ -73,6 +74,7 @@
 					<td><%=bean.getPhysics()%></td>
 					<td><%=bean.getChemistry()%></td>
 					<td><%=bean.getMaths()%></td>
+					<td><a href="<%=ORSView.MARKSHEET_CTL + "?id=" + bean.getId()%>">Edit</a></td>
 				</tr>
 				<%
 				}

@@ -51,6 +51,7 @@ public class SubjectCtl extends BaseCtl<SubjectBean, SubjectModel> {
 
 		SubjectBean bean = new SubjectBean();
 
+		bean.setId(DataUtility.getLong(request.getParameter("id")));
 		bean.setName(DataUtility.getString(request.getParameter("name")));
 		bean.setDescription(DataUtility.getString(request.getParameter("description")));
 		bean.setCourseId(DataUtility.getLong(request.getParameter("courseId")));

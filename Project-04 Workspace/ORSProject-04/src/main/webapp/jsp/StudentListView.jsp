@@ -97,6 +97,8 @@
 					<th>Mobile No</th>
 
 					<th>Email</th>
+					
+					<th>Edit</th>
 
 				</tr>
 
@@ -126,6 +128,8 @@
 					<td><%=bean.getMobileNo()%></td>
 
 					<td><%=bean.getEmail()%></td>
+					
+					<td><a href="<%=ORSView.STUDENT_CTL + "?id=" + bean.getId()%>">Edit</a></td>
 
 				</tr>
 

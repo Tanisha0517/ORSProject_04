@@ -14,7 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 
 @WebServlet("/ctl/FacultyCtl")
-public class FacultyCtl extends BaseCtl<FacultyBean, FacultyModel>{
+public class FacultyCtl extends BaseCtl<FacultyBean, FacultyModel> {
 
 	@Override
 	protected void preload(HttpServletRequest request) {
@@ -34,12 +34,12 @@ public class FacultyCtl extends BaseCtl<FacultyBean, FacultyModel>{
 			request.setAttribute("collegeId", "college id is required");
 			pass = false;
 		}
-		
-		if (DataValidator.isNull(request.getParameter("collegeName"))) {
-			request.setAttribute("collegeName", "college name is required");
-			pass = false;
-		}
-		
+
+//		if (DataValidator.isNull(request.getParameter("collegeName"))) {
+//			request.setAttribute("collegeName", "college name is required");
+//			pass = false;
+//		}
+
 		if (DataValidator.isNull(request.getParameter("firstName"))) {
 			request.setAttribute("firstName", "first name is required");
 			pass = false;
@@ -48,7 +48,7 @@ public class FacultyCtl extends BaseCtl<FacultyBean, FacultyModel>{
 			request.setAttribute("lastName", "last name is required");
 			pass = false;
 		}
-		
+
 		if (DataValidator.isNull(request.getParameter("email"))) {
 			request.setAttribute("email", "email id is required");
 			pass = false;
@@ -58,7 +58,7 @@ public class FacultyCtl extends BaseCtl<FacultyBean, FacultyModel>{
 			request.setAttribute("address", "address is required");
 			pass = false;
 		}
-		
+
 		if (DataValidator.isNull(request.getParameter("gender"))) {
 			request.setAttribute("gender", "gender is required");
 			pass = false;
@@ -67,7 +67,6 @@ public class FacultyCtl extends BaseCtl<FacultyBean, FacultyModel>{
 			request.setAttribute("dob", "date of birth is required");
 			pass = false;
 		}
-		
 
 		return pass;
 	}
@@ -77,17 +76,16 @@ public class FacultyCtl extends BaseCtl<FacultyBean, FacultyModel>{
 
 		FacultyBean bean = new FacultyBean();
 
+		bean.setId(DataUtility.getLong(request.getParameter("id")));
 		bean.setCollegeId(DataUtility.getInt(request.getParameter("collegeId")));
-		bean.setCollegeName(DataUtility.getString(request.getParameter("collegeName")));
+//		bean.setCollegeName(DataUtility.getString(request.getParameter("collegeName")));
 		bean.setFirstName(DataUtility.getString(request.getParameter("firstName")));
 		bean.setLastName(DataUtility.getString(request.getParameter("lastName")));
 		bean.setEmail(DataUtility.getString(request.getParameter("email")));
 		bean.setMobileNo(DataUtility.getString(request.getParameter("mobileNo")));
 		bean.setAddress(DataUtility.getString(request.getParameter("address")));
 		bean.setGender(DataUtility.getString(request.getParameter("gender")));
-	    bean.setDateOfBirth(DataUtility.getDate(request.getParameter("dob")));
-		
-	
+		bean.setDateOfBirth(DataUtility.getDate(request.getParameter("dob")));
 
 		populateDTO(bean, request); // Its work is to set only 4 attributes
 
@@ -103,5 +101,5 @@ public class FacultyCtl extends BaseCtl<FacultyBean, FacultyModel>{
 	protected FacultyModel getModel() {
 		return new FacultyModel();
 	}
-	
+
 }

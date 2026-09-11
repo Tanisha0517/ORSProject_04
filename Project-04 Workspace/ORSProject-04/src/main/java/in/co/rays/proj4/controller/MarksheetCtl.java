@@ -13,7 +13,7 @@ import in.co.rays.proj4.util.DataValidator;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 
-@WebServlet("/MarksheetCtl")
+@WebServlet("/ctl/MarksheetCtl")
 public class MarksheetCtl extends BaseCtl<MarksheetBean, MarksheetModel> {
 
 	@Override
@@ -67,6 +67,7 @@ public class MarksheetCtl extends BaseCtl<MarksheetBean, MarksheetModel> {
 
 		MarksheetBean bean = new MarksheetBean();
 
+		bean.setId(DataUtility.getLong(request.getParameter("id")));
 		bean.setRollNo(DataUtility.getString(request.getParameter("rollNo")));
 		bean.setStudentId(DataUtility.getInt(request.getParameter("studentId")));
 		bean.setName(DataUtility.getString(request.getParameter("name")));

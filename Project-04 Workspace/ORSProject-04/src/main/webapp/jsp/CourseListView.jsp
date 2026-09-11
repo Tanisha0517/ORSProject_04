@@ -55,6 +55,7 @@
 					<th>Name</th>
 					<th>Description</th>
 					<th>Duration</th>
+					<th>Edit</th>
 				</tr>
 
 				<%
@@ -68,6 +69,8 @@
 					<td><%=bean.getName()%></td>
 					<td><%=bean.getDescription()%></td>
 					<td><%=bean.getDuration()%></td>
+					<td><a href="<%=ORSView.COURSE_CTL + "?id=" + bean.getId()%>">Edit</a></td>
+					
 				</tr>
 				<%
 				}

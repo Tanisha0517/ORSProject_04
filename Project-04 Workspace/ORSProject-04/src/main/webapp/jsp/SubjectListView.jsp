@@ -93,6 +93,8 @@
 					<th>Description</th>
 
 					<th>Course</th>
+					
+					<th>Edit</th>
 
 				</tr>
 
@@ -117,6 +119,9 @@
 					<td><%=bean.getDescription()%></td>
 
 					<td><%=bean.getCourseId()%></td>
+					
+					<td><a href="<%=ORSView.SUBJECT_CTL + "?id=" + bean.getId()%>">Edit</a></td>
+					
 
 				</tr>
 

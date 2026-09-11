@@ -12,6 +12,9 @@
 
 <%@page import="in.co.rays.proj4.util.HTMLUtility"%>
 
+<%@page import="in.co.rays.proj4.util.DataUtility"%>
+<%@page import="in.co.rays.proj4.bean.SubjectBean"%>
+
 <!DOCTYPE html>
 
 <html>
@@ -35,14 +38,25 @@
 	String _err = ServletUtility.getErrorMessage(request);
 
 	List<CourseBean> courseList = (List) request.getAttribute("courseList");
+	
+	/* SubjectBean bean = (SubjectBean) request.getAttribute("bean"); */
 
 	%>
+	
+	 <jsp:useBean id="bean" class="in.co.rays.proj4.bean.SubjectBean"
+		scope="request"></jsp:useBean>
 
 	<form action="<%=ORSView.SUBJECT_CTL%>" method="post">
-
+     
+     <input type="hidden" name="id"
+			value="<%=DataUtility.getStringData(bean.getId())%>">
+			
 		<div align="center">
 
-			<h1>Add Subject</h1>
+			
+			<h1>
+				<%=bean != null && bean.getId() > 0 ? "Update Subject" : "Add Subject"%>
+			</h1>
 
 			<h3 style="color: green"><%=_suc%></h3>
 
@@ -54,7 +68,7 @@
 
 					<th>Name<font color="red">*</font></th>
 
-					<td><input type="text" name="name" value=""
+					<td><input type="text" name="name" value="<%=DataUtility.getStringData(bean.getName())%>"
 
 						placeholder="enter subject name"></td>
 
@@ -66,7 +80,7 @@
 
 					<th>Description<font color="red">*</font></th>
 
-					<td><input type="text" name="description" value=""
+					<td><input type="text" name="description" value="<%=DataUtility.getStringData(bean.getDescription())%>"
 
 						placeholder="enter description"></td>
 
@@ -78,7 +92,7 @@
 
 					<th>Course<font color="red">*</font></th>
 
-					<td><%=HTMLUtility.getList("courseId", "", courseList) %></td>
+					<td><%=HTMLUtility.getList("courseId", DataUtility.getStringData(bean.getCourseId()), courseList) %></td>
 
 					<td style="color: red"><%=ServletUtility.getErrorMessage("courseId", request)%></td>
 
@@ -90,8 +104,7 @@
 
 					<td><input type="submit" name="operation"
 
-						value="<%=SubjectCtl.OP_SAVE%>"></td>
-
+                    value="<%=bean != null && bean.getId() > 0 ? "Update" : BaseCtl.OP_SAVE%>"></td>
 				</tr>
 
 			</table>
