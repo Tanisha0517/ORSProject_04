@@ -1,4 +1,5 @@
- package in.co.rays.proj4.util;
+
+package in.co.rays.proj4.util;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -93,7 +94,8 @@ public class DataUtility {
 		}
 		return timeStamp;
 	}
-
+	
+	
 	// Converts milliseconds (long value) into a Timestamp object.
 	// The long value represents time in milliseconds since January 1, 1970.
 	// If conversion fails, it returns null.

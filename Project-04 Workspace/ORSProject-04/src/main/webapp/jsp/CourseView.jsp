@@ -7,9 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Course</title>
+<!-- Bootstrap CSS/JS already loaded via Header.jsp, isliye yahan dobara nahi liya -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body>
+<body class="bg-light">
 
 <%@ include file="Header.jsp"%>
 	<%
@@ -17,59 +20,94 @@
 	String _err = ServletUtility.getErrorMessage(request);
 	/* CourseBean bean = (CourseBean) request.getAttribute("bean"); */
 	%>
-	
+
 	 <jsp:useBean id="bean" class="in.co.rays.proj4.bean.CourseBean"
 		scope="request"></jsp:useBean>
-		
 
-	<form action="<%=ORSView.COURSE_CTL%>" method="post">
+	<!-- FIX: extra bottom padding taaki fixed/sticky Footer Save button ko
+	     overlap na kare -->
+	<div class="container pt-5" style="padding-bottom: 100px !important;">
+		<div class="row justify-content-center">
+			<div class="col-md-10 col-lg-7">
 
-     <input type="hidden" name="id"
-			value="<%=DataUtility.getStringData(bean.getId())%>">
+				<div class="card shadow-lg border-0">
 
-		<div align="center">
+					<div class="card-header bg-white text-center py-3">
+						<h3 class="mb-1 text-primary">
+							<i class="bi bi-journal-bookmark-fill"></i>
+							<%=bean != null && bean.getId() > 0 ? "Update Course" : "Add Course"%>
+						</h3>
+						<small class="text-muted">Manage ORS courses</small>
+					</div>
 
-			<h1>
-				<%=bean != null && bean.getId() > 0 ? "Update Course" : "Add Course"%>
-			</h1>
+					<div class="card-body p-4">
 
-			<h3 style="color: green"><%=_suc%></h3>
-			<h3 style="color: red"><%=_err%></h3>
+						<%
+						if (_suc != null && _suc.length() > 0) {
+						%>
+						<div class="alert alert-success"><i
+							class="bi bi-check-circle-fill"></i> <%=_suc%></div>
+						<%
+						}
+						if (_err != null && _err.length() > 0) {
+						%>
+						<div class="alert alert-danger"><i
+							class="bi bi-exclamation-triangle-fill"></i> <%=_err%></div>
+						<%
+						}
+						%>
 
-			<table>
+						<form action="<%=ORSView.COURSE_CTL%>" method="post">
 
-				<tr>
-					<th>Name<font color="red">*</font></th>
-					<td><input type="text" name="name" value="<%=DataUtility.getStringData(bean.getName())%>"
-						placeholder="enter course name"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("name", request)%></td>
-				</tr>
+							<input type="hidden" name="id"
+								value="<%=DataUtility.getStringData(bean.getId())%>">
 
-				<tr>
-					<th>Description<font color="red">*</font></th>
-					<td><input type="text" name="description" value="<%=DataUtility.getStringData(bean.getDescription())%>"
-						placeholder="enter course description"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("description", request)%></td>
-				</tr>
-				
-				<tr>
-					<th>Duration<font color="red">*</font></th>
-					<td><input type="text" name="duration" value="<%=DataUtility.getStringData(bean.getDuration())%>"
-						placeholder="enter duration"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("duration", request)%></td>
-				</tr>
+							<!-- Name full width -->
+							<div class="mb-3">
+								<label class="form-label fw-bold"><i
+									class="bi bi-journal-text text-primary"></i> Name <span
+									class="text-danger">*</span></label> <input type="text"
+									name="name" class="form-control"
+									value="<%=DataUtility.getStringData(bean.getName())%>"
+									placeholder="enter course name">
+								<small class="text-danger"><%=ServletUtility.getErrorMessage("name", request)%></small>
+							</div>
 
-				<tr>
-					<th></th>
-					<td><input type="submit" name="operation"
-						value="<%=bean != null && bean.getId() > 0 ? "Update" : BaseCtl.OP_SAVE%>"></td>
-				</tr>
+							<!-- Description full width -->
+							<div class="mb-3">
+								<label class="form-label fw-bold"><i
+									class="bi bi-align-start text-success"></i> Description <span
+									class="text-danger">*</span></label> <input type="text"
+									name="description" class="form-control"
+									value="<%=DataUtility.getStringData(bean.getDescription())%>"
+									placeholder="enter course description">
+								<small class="text-danger"><%=ServletUtility.getErrorMessage("description", request)%></small>
+							</div>
 
-			</table>
+							<!-- Duration full width -->
+							<div class="mb-4">
+								<label class="form-label fw-bold"><i
+									class="bi bi-clock-fill text-warning"></i> Duration <span
+									class="text-danger">*</span></label> <input type="text"
+									name="duration" class="form-control"
+									value="<%=DataUtility.getStringData(bean.getDuration())%>"
+									placeholder="enter duration">
+								<small class="text-danger"><%=ServletUtility.getErrorMessage("duration", request)%></small>
+							</div>
 
+							<div class="text-center">
+								<input type="submit" name="operation"
+									class="btn btn-primary px-4"
+									value="<%=bean != null && bean.getId() > 0 ? "Update" : BaseCtl.OP_SAVE%>">
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
+	</div>
 
-	</form>
 	<%@ include file="Footer.jsp"%>
 
 </body>

@@ -1,0 +1,72 @@
+package in.co.rays.proj4.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import in.co.rays.proj4.bean.StudentBean;
+import in.co.rays.proj4.exception.ApplicationException;
+import in.co.rays.proj4.exception.DuplicateRecordException;
+import in.co.rays.proj4.util.JDBCDataSource;
+
+public class StudentModel extends BaseModel<StudentBean> {
+
+	@Override
+	public long add(StudentBean bean) throws ApplicationException, DuplicateRecordException {
+		Connection conn = null;
+
+		try {
+
+			conn = JDBCDataSource.getConnection();
+			conn.setAutoCommit(false);
+			PreparedStatement pstmt = conn
+					.prepareStatement("insert into " + getTable() + " values(?,?,?,?,?,?,?,?,?,?)");
+			pstmt.setInt(1, nextPK());
+			pstmt.setString(2, bean.getFirstName());
+			pstmt.setString(3, bean.getLastName());
+			pstmt.setDate(4, new java.sql.Date(bean.getDob().getTime()));
+			pstmt.setString(5, bean.getMobileNo());
+			pstmt.setString(6, bean.getEmail());
+			pstmt.setInt(7, bean.getCollegeId());
+			pstmt.setString(8, bean.getCollegeName());
+			pstmt.setString(9, bean.getCreatedBy());
+			pstmt.setString(10, bean.getModifiedBy());
+			pstmt.setTimestamp(9, bean.getCreatedDateTime());
+			pstmt.setTimestamp(10, bean.getModifiedDateTime());
+
+			pstmt.executeUpdate();
+			conn.commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			JDBCDataSource.trnRollBack(conn);
+		} finally {
+			JDBCDataSource.closeConnection(conn);
+		}
+
+		return bean.getId();
+	}
+
+	@Override
+	public void update(StudentBean bean) throws ApplicationException, DuplicateRecordException {
+
+	}
+
+	@Override
+	public String getWhereClause(StudentBean bean) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getTable() {
+		// TODO Auto-generated method stub
+		return "student";
+	}
+
+	@Override
+	public StudentBean getBean() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

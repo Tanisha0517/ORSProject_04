@@ -1,0 +1,40 @@
+package in.co.rays.proj4.bean;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class StudentBean extends BaseBean{
+
+	
+	
+	
+	@Override
+	public String getValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	@Override
+	public void setResultset(ResultSet rs) {
+		try {
+			super.setResultset(rs);
+			this.setFirstName(rs.getString("first_name"));
+			this.setLastName(rs.getString("last_name"));
+			this.setLogin(rs.getString("login"));
+			this.setPassword(rs.getString("password"));
+			this.setDob(rs.getDate("dob"));
+			this.setMobileNo(rs.getString("mobile_no"));
+			this.setRoleId(rs.getLong("role_id"));
+			this.setUnsuccessfulLogin(rs.getInt("unsuccessful_login"));
+			this.setGender(rs.getString("gender"));
+			this.setLastLogin(rs.getTimestamp("last_login"));
+			this.setUserLock(rs.getString("user_lock"));
+			this.setRegisteredIp(rs.getString("registered_ip"));
+			this.setLastLoginIp(rs.getString(" last_login_ip"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

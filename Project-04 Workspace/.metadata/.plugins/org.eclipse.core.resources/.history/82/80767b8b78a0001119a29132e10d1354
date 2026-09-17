@@ -1,0 +1,34 @@
+package in.co.rays.proj4.test;
+
+import java.sql.Timestamp;
+
+import in.co.rays.proj4.bean.CourseBean;
+import in.co.rays.proj4.model.CourseModel;
+
+public class TestCourseModel {
+
+	public static CourseModel model = new CourseModel();
+
+	public static void main(String[] args) throws Exception {
+//		testAdd();
+		testDelete();
+	}
+
+	private static void testDelete() throws Exception {
+		model.delete(2);
+
+	}
+
+	private static void testAdd() {
+		CourseBean bean = new CourseBean();
+
+		bean.setName("Java");
+		bean.setDuration("6 Months");
+		bean.setDescription("Java Programming Course");
+		bean.setCreatedBy("admin");
+		bean.setModifiedBy("admin");
+		bean.setCreatedDateTime(new Timestamp(System.currentTimeMillis()));
+		bean.setModifiedDateTime(new Timestamp(System.currentTimeMillis()));
+		model.add(bean);
+	}
+}

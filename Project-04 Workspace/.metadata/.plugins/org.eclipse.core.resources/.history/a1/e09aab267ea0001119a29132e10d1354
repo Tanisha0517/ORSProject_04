@@ -1,0 +1,72 @@
+package in.co.rays.proj4.test;
+
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import in.co.rays.proj4.bean.StudentBean;
+import in.co.rays.proj4.model.StudentModel;
+
+public class TestStudentModel {
+
+	public static StudentModel model = new StudentModel();
+
+	public static void main(String[] args) throws ParseException {
+//		testAdd();
+		testUpdate();
+
+	}
+
+	private static void testUpdate() throws ParseException {
+
+		StudentBean bean = new StudentBean();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		bean.setFirstName("Priya");
+		bean.setLastName("Verma");
+		bean.setDob(sdf.parse("2003-08-21"));
+		bean.setMobileNo("9876543211");
+		bean.setEmail("priya.verma@gmail.com");
+		bean.setCollegeId(2);
+		bean.setCollegeName("Medicaps University");
+		bean.setCreatedBy("admin");
+		bean.setModifiedBy("admin");
+		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));
+		bean.setModifiedDateTime(new Timestamp(new Date().getTime()));
+		model.add(bean);
+
+	}
+
+	private static void testAdd() throws ParseException {
+
+		StudentBean bean = new StudentBean();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+//		bean.setFirstName("Rahul");
+//		bean.setLastName("Sharma");
+//		bean.setDob(sdf.parse("2002-05-15"));
+//		bean.setMobileNo("9876543210");
+//		bean.setEmail("rahul.sharma@gmail.com");
+//		bean.setCollegeId(1);
+//		bean.setCollegeName("IET DAVV");
+//		bean.setCreatedBy("admin");
+//		bean.setModifiedBy("admin");
+//		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));
+//		bean.setModifiedDateTime(new Timestamp(new Date().getTime()));
+
+		bean.setFirstName("Priya");
+		bean.setLastName("Verma");
+		bean.setDob(sdf.parse("2003-08-21"));
+		bean.setMobileNo("9876543211");
+		bean.setEmail("priya.verma@gmail.com");
+		bean.setCollegeId(2);
+		bean.setCollegeName("Medicaps University");
+		bean.setCreatedBy("admin");
+		bean.setModifiedBy("admin");
+		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));
+		bean.setModifiedDateTime(new Timestamp(new Date().getTime()));
+		model.add(bean);
+
+	}
+}

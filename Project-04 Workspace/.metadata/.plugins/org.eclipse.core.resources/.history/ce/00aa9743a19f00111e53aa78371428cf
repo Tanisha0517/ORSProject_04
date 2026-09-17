@@ -1,0 +1,10 @@
+package in.co.rays.proj4.test;
+
+
+import in.co.rays.proj4.model.UserModel;
+
+public class TestUserModel {
+
+	public static UserModel model = new UserModel();
+	
+}

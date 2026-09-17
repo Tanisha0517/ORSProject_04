@@ -1,0 +1,39 @@
+package in.co.rays.proj4.model;
+
+import in.co.rays.proj4.bean.FacultyBean;
+import in.co.rays.proj4.exception.ApplicationException;
+import in.co.rays.proj4.exception.DuplicateRecordException;
+
+public class FacultyModel extends BaseModel<FacultyBean> {
+
+	@Override
+	public long add(FacultyBean bean) throws ApplicationException, DuplicateRecordException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void update(FacultyBean bean) throws ApplicationException, DuplicateRecordException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getWhereClause(FacultyBean bean) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getTable() {
+		// TODO Auto-generated method stub
+		return "st_faculty";
+	}
+
+	@Override
+	public FacultyBean getBean() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

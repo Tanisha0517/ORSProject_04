@@ -1,0 +1,18 @@
+package in.co.rays.proj4.test;
+
+import in.co.rays.proj4.bean.MarksheetBean;
+import in.co.rays.proj4.model.MarksheetModel;
+
+public class TestMarksheetModel {
+
+	public static MarksheetModel model = new MarksheetModel();
+
+	public static void main(String[] args) {
+		testAdd();
+	}
+
+	private static void testAdd() {
+		MarksheetBean bean = new MarksheetBean();
+
+	}
+}

@@ -28,9 +28,9 @@ public class LoginCtl extends BaseCtl<UserBean, UserModel> {
 		if (DataValidator.isNull(request.getParameter("login"))) {
 			pass = false;
 			request.setAttribute("login", "login is required");
-		}  else if (!request.getParameter("login").matches("[A-Za-z][A-Za-z0-9_]*")) {
-		    pass = false;
-		    request.setAttribute("login", "Invalid login");
+		}  else if (!DataValidator.isEmail(request.getParameter("login"))) {
+			pass = false;
+			request.setAttribute("login", "Enter valid login id ");
 		}
 		if (DataValidator.isNull(request.getParameter("password"))) {
 			pass = false;

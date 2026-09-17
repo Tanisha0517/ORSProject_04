@@ -1,0 +1,36 @@
+package in.co.rays.proj4.test;
+
+import java.sql.Timestamp;
+import java.util.Date;
+
+import in.co.rays.proj4.bean.StudentBean;
+import in.co.rays.proj4.model.StudentModel;
+
+public class TestStudentModel {
+
+	public static StudentModel model = new StudentModel();
+
+	public static void main(String[] args) {
+		testAdd();
+	}
+
+	private static void testAdd() {
+
+		StudentBean bean = new StudentBean();
+
+		bean.setFirstName(null);
+		bean.setLastName(null);
+		bean.setDob(null);
+		bean.setMobileNo(null);
+		bean.setEmail(null);
+		bean.setCollegeId(0);
+		bean.setCollegeName(null);
+		bean.setCreatedBy(null);
+		bean.setModifiedBy(null);
+		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));
+		bean.setModifiedDateTime(new Timestamp(new Date().getTime()));
+
+		model.add(bean);
+
+	}
+}

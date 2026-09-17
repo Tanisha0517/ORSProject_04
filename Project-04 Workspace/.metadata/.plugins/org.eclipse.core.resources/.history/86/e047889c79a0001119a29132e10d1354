@@ -1,0 +1,45 @@
+package in.co.rays.proj4.test;
+
+import java.sql.Timestamp;
+import java.util.Date;
+
+import in.co.rays.proj4.bean.MarksheetBean;
+import in.co.rays.proj4.model.MarksheetModel;
+
+public class TestMarksheetModel {
+
+	public static MarksheetModel model = new MarksheetModel();
+
+	public static void main(String[] args) {
+		testAdd();
+	}
+
+	private static void testAdd() {
+
+		MarksheetBean bean = new MarksheetBean();
+
+//		bean.setRollNo("R001");
+//		bean.setStudentId(1);
+//		bean.setName("Rahul Sharma");
+//		bean.setPhysics(85);
+//		bean.setChemistry(78);
+//		bean.setMaths(92);
+//		bean.setCreatedBy("admin");
+//		bean.setModifiedBy("admin");
+//		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));
+//		bean.setModifiedDateTime(new Timestamp(new Date().getTime()));
+		
+		
+		bean.setRollNo("R002");
+	    bean.setStudentId(2);
+	    bean.setName("Priya Verma");
+	    bean.setPhysics(91);
+	    bean.setChemistry(88);
+	    bean.setMaths(95);
+	    bean.setCreatedBy("admin");
+	    bean.setModifiedBy("admin");
+	    bean.setCreatedDateTime(new Timestamp(new Date().getTime()));
+	    bean.setModifiedDateTime(new Timestamp(new Date().getTime()));
+		model.add(bean);
+	}
+}

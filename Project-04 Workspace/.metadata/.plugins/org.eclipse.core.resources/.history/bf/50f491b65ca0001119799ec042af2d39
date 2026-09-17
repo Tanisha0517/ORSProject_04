@@ -1,0 +1,33 @@
+package in.co.rays.proj4.test;
+
+import java.sql.Timestamp;
+
+import in.co.rays.proj4.bean.FacultyBean;
+import in.co.rays.proj4.model.FacultyModel;
+
+public class TestFacultyModel {
+
+	public static FacultyModel model = new FacultyModel();
+
+	public static void main(String[] args) throws Exception {
+		testAdd();
+	}
+
+	private static void testAdd() throws Exception {
+		FacultyBean bean = new FacultyBean();
+
+		bean.setCollegeId(1);
+		bean.setCollegeName("IET DAVV");
+		bean.setFirstName("Rahul");
+		bean.setLastName("Sharma");
+		bean.setEmail("rahul.sharma@gmail.com");
+		bean.setMobileNo("9876543210");
+		bean.setAddress("Indore, Madhya Pradesh");
+		bean.setGender("Male");
+		bean.setCreatedBy("admin");
+		bean.setModifiedBy("admin");
+		bean.setCreatedDateTime(new Timestamp(System.currentTimeMillis()));
+		bean.setModifiedDateTime(new Timestamp(System.currentTimeMillis()));
+		model.add(bean);
+	}
+}

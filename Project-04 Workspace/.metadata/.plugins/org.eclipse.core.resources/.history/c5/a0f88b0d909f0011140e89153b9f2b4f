@@ -1,0 +1,21 @@
+package in.co.rays.proj4.test;
+
+import in.co.rays.proj4.bean.RoleBean;
+import in.co.rays.proj4.model.RoleModel;
+
+public class TestRoleModel {
+
+	public static RoleModel model = new RoleModel();
+
+	public static void main(String[] args) {
+		testAdd();
+	}
+
+	private static void testAdd() {
+		
+		RoleBean bean = new RoleBean();
+		model.add(bean);
+
+	}
+
+}

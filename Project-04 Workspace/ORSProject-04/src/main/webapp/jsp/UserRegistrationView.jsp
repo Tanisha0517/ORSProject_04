@@ -2,92 +2,416 @@
 <%@page import="in.co.rays.proj4.util.ServletUtility"%>
 <%@page import="in.co.rays.proj4.controller.BaseCtl"%>
 <%@page import="in.co.rays.proj4.controller.ORSView"%>
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+.
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Registration</title>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
+
 <body>
-	<%@ include file="Header.jsp"%>
-	<%
-	String _suc = ServletUtility.getSuccessMessage(request);
-	String _err = ServletUtility.getErrorMessage(request);
-	%>
 
-	<form action="<%=ORSView.USER_REGISTRATION_CTL%>" method="post">
+    <%@ include file="Header.jsp"%>
 
-		<div align="center">
 
-			<h1>Registration</h1>
+    <%
 
-			<h3 style="color: green"><%=_suc%></h3>
-			<h3 style="color: red"><%=_err%></h3>
+    String _suc = ServletUtility.getSuccessMessage(request);
 
-			<table>
+    String _err = ServletUtility.getErrorMessage(request);
 
-				<tr>
-					<th>FirstName<font color="red">*</font></th>
-					<td><input type="text" name="firstName" value=""
-						placeholder="enter your firstName"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("firstName", request)%></td>
-				</tr>
+    %>
 
-				<tr>
-					<th>LastName<font color="red">*</font></th>
-					<td><input type="text" name="lastName" value=""
-						placeholder="enter your lastName"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("lastName", request)%></td>
-				</tr>
 
-				<tr>
-					<th>Login<font color="red">*</font></th>
-					<td><input type="text" name="login" value=""
-						placeholder="enter valid login id"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("login", request)%></td>
-				</tr>
+    <!-- REGISTRATION BACKGROUND -->
 
-				<tr>
-					<th>Password<font color="red">*</font></th>
-					<td><input type="password" name="password" value=""
-						placeholder="enter password"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("password", request)%></td>
-				</tr>
+    <div class="position-relative overflow-hidden bg-light"
+         style="min-height: 80vh; padding-top: 40px; padding-bottom: 50px;">
 
-				<tr>
-					<th>ConfirmPassword<font color="red">*</font></th>
-					<td><input type="password" name="confirmPassword" value=""
-						placeholder="re-enter your password"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("confirmPassword", request)%></td>
-				</tr>
 
-				<tr>
-					<th>Gender<font color="red">*</font></th>
-					<td><select class='form-control' name='gender'>
-							<option selected value=''>-------------Select------------</option>
-							<option value='female'>female</option>
-							<option value='male'>male</option>
-					</select></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("gender", request)%></td>
-				</tr>
+        <!-- BACKGROUND ACADEMIC ICONS -->
 
-				<tr>
-					<th>DOB<font color="red">*</font></th>
-					<td><input type="date" name="dob" value=""></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("dob", request)%></td>
-				</tr>
+        <i class="bi bi-book position-absolute text-primary"
+           style="
+           font-size: 120px;
+           opacity: 0.06;
+           top: 30px;
+           left: 7%;">
+        </i>
 
-				<tr>
-					<th></th>
-					<td><input type="submit" name="operation"
-						value="<%=UserRegistrationCtl.OP_SIGN_UP%>">
-				</tr>
 
-			</table>
+        <i class="bi bi-mortarboard-fill position-absolute text-primary"
+           style="
+           font-size: 150px;
+           opacity: 0.06;
+           top: 50px;
+           right: 7%;">
+        </i>
 
-		</div>
 
-	</form>
-	<%@ include file="Footer.jsp"%>
+        <i class="bi bi-laptop position-absolute text-primary"
+           style="
+           font-size: 120px;
+           opacity: 0.05;
+           bottom: 30px;
+           left: 8%;">
+        </i>
+
+
+        <i class="bi bi-journal-bookmark-fill position-absolute text-primary"
+           style="
+           font-size: 120px;
+           opacity: 0.05;
+           bottom: 40px;
+           right: 9%;">
+        </i>
+
+
+        <!-- REGISTRATION CARD -->
+        <!-- FIX: card width thoda badhaya (col-lg-7) taaki 2-column rows me fields
+             sahi se fit ho jayein aur card zyada lamba na dikhe -->
+
+        <div class="container position-relative">
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-9 col-lg-7">
+
+
+                    <div class="card shadow-lg border-0">
+
+
+                        <!-- CARD HEADER -->
+
+                        <div class="card-header bg-white text-center py-3">
+
+                            <h3 class="mb-1 text-primary">
+
+                                <i class="bi bi-person-plus-fill"></i>
+
+                                Registration
+
+                            </h3>
+
+                            <small class="text-muted">
+
+                                Create your ORS account
+
+                            </small>
+
+                        </div>
+
+
+                        <!-- CARD BODY -->
+
+                        <div class="card-body p-4">
+
+
+                            <!-- SUCCESS MESSAGE -->
+
+                            <% if (_suc != null && !_suc.isEmpty()) { %>
+
+                                <div class="alert alert-success" role="alert">
+
+                                    <i class="bi bi-check-circle-fill"></i>
+
+                                    <%= _suc %>
+
+                                </div>
+
+                            <% } %>
+
+
+                            <!-- ERROR MESSAGE -->
+
+                            <% if (_err != null && !_err.isEmpty()) { %>
+
+                                <div class="alert alert-danger" role="alert">
+
+                                    <i class="bi bi-exclamation-triangle-fill"></i>
+
+                                    <%= _err %>
+
+                                </div>
+
+                            <% } %>
+
+
+                            <form action="<%=ORSView.USER_REGISTRATION_CTL%>"
+                                  method="post">
+
+
+                                <!-- FIRST NAME + LAST NAME : ab ek hi row me side-by-side,
+                                     card ki height kam karne ke liye -->
+                                <div class="row">
+
+                                    <div class="col-md-6 mb-3">
+
+                                        <label class="form-label fw-bold">
+
+                                            <i class="bi bi-person-fill text-primary"></i>
+
+                                            First Name
+
+                                            <font color="red">*</font>
+
+                                        </label>
+
+
+                                        <input type="text"
+                                               name="firstName"
+                                               value=""
+                                               placeholder="Enter your first name"
+                                               class="form-control">
+
+
+                                        <div class="text-danger mt-1">
+
+                                            <%=ServletUtility.getErrorMessage("firstName", request)%>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-6 mb-3">
+
+                                        <label class="form-label fw-bold">
+
+                                            <i class="bi bi-person-fill text-success"></i>
+
+                                            Last Name
+
+                                            <font color="red">*</font>
+
+                                        </label>
+
+
+                                        <input type="text"
+                                               name="lastName"
+                                               value=""
+                                               placeholder="Enter your last name"
+                                               class="form-control">
+
+
+                                        <div class="text-danger mt-1">
+
+                                            <%=ServletUtility.getErrorMessage("lastName", request)%>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- LOGIN -->
+
+                                <div class="mb-3">
+
+                                    <label class="form-label fw-bold">
+
+                                        <i class="bi bi-person-circle text-info"></i>
+
+                                        Login
+
+                                        <font color="red">*</font>
+
+                                    </label>
+
+
+                                    <input type="email"
+                                           name="login"
+                                           value=""
+                                           placeholder="Enter valid login ID"
+                                           class="form-control">
+
+
+                                    <div class="text-danger mt-1">
+
+                                        <%=ServletUtility.getErrorMessage("login", request)%>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- PASSWORD + CONFIRM PASSWORD : side-by-side -->
+                                <div class="row">
+
+                                    <div class="col-md-6 mb-3">
+
+                                        <label class="form-label fw-bold">
+
+                                            <i class="bi bi-lock-fill text-warning"></i>
+
+                                            Password
+
+                                            <font color="red">*</font>
+
+                                        </label>
+
+
+                                        <input type="password"
+                                               name="password"
+                                               value=""
+                                               placeholder="Enter password"
+                                               class="form-control">
+
+
+                                        <div class="text-danger mt-1">
+
+                                            <%=ServletUtility.getErrorMessage("password", request)%>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-6 mb-3">
+
+                                        <label class="form-label fw-bold">
+
+                                            <i class="bi bi-shield-lock-fill text-danger"></i>
+
+                                            Confirm Password
+
+                                            <font color="red">*</font>
+
+                                        </label>
+
+
+                                        <input type="password"
+                                               name="confirmPassword"
+                                               value=""
+                                               placeholder="Re-enter your password"
+                                               class="form-control">
+
+
+                                        <div class="text-danger mt-1">
+
+                                            <%=ServletUtility.getErrorMessage("confirmPassword", request)%>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- GENDER + DOB : side-by-side -->
+                                <div class="row">
+
+                                    <div class="col-md-6 mb-3">
+
+                                        <label class="form-label fw-bold">
+
+                                            <i class="bi bi-gender-ambiguous text-success"></i>
+
+                                            Gender
+
+                                            <font color="red">*</font>
+
+                                        </label>
+
+
+                                        <select class="form-control"
+                                                name="gender">
+
+                                            <option selected value="">
+                                                -------Select-------
+                                            </option>
+
+                                            <option value="female">
+                                                Female
+                                            </option>
+
+                                            <option value="male">
+                                                Male
+                                            </option>
+
+                                        </select>
+
+
+                                        <div class="text-danger mt-1">
+
+                                            <%=ServletUtility.getErrorMessage("gender", request)%>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-6 mb-4">
+
+                                        <label class="form-label fw-bold">
+
+                                            <i class="bi bi-calendar-event-fill text-primary"></i>
+
+                                            DOB
+
+                                            <font color="red">*</font>
+
+                                        </label>
+
+
+                                        <input type="date"
+                                               name="dob"
+                                               value=""
+                                               class="form-control">
+
+
+                                        <div class="text-danger mt-1">
+
+                                            <%=ServletUtility.getErrorMessage("dob", request)%>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- SIGN UP BUTTON -->
+
+                                <div class="text-center">
+
+                                    <input type="submit"
+                                           name="operation"
+                                           value="<%=UserRegistrationCtl.OP_SIGN_UP%>"
+                                           class="btn btn-primary px-4">
+
+                                </div>
+
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <%@ include file="Footer.jsp"%>
+
 </body>
+
 </html>

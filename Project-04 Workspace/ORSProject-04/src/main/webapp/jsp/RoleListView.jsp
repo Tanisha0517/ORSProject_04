@@ -11,9 +11,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Role List</title>
+<!-- Bootstrap CSS/JS already loaded via Header.jsp, isliye yahan dobara nahi liya -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
+	<%@ include file="Header.jsp"%>
 
 	<%
 	int pageNo = ServletUtility.getPageNo(request);
@@ -26,68 +29,104 @@
 	%>
 
 	<form action="<%=ORSView.ROLE_LIST_CTL%>" method="post">
-		<div align="center">
 
-			<h1>Role List</h1>
+		<!-- FIX: extra bottom padding taaki fixed/sticky Footer Previous/Delete/Next
+		     buttons ko neeche se overlap na kare -->
+		<div class="container pt-5" style="padding-bottom: 100px !important;">
+			<div class="card shadow-sm border-0">
 
-			<h3 style="color: green"><%=_suc != null ? _suc : ""%></h3>
-			<h3 style="color: red"><%=_err != null ? _err : ""%></h3>
+				<div class="card-header bg-white text-center border-bottom py-4">
+					<h2 class="text-primary fw-bold mb-0">
+						<i class="fa-solid fa-user-shield"></i> Role List
+					</h2>
+				</div>
 
-			<input type="hidden" name="pageNo" value="<%=pageNo%>"> <input
-				type="hidden" name="pageSize" value="<%=pageSize%>">
+				<div class="card-body p-4">
 
-			<table>
-				<tr>
-					<td><input type="text" name="name" value=""
-						placeholder="search by role"></td>
-					<td><input type="text" name="description" value=""
-						placeholder="search by description"></td>
-					<td><input type="submit" name="operation"
-						value="<%=BaseCtl.OP_SEARCH%>"></td>
-				</tr>
-			</table>
+					<%
+					if (_suc != null && _suc.length() > 0) {
+					%>
+					<div class="alert alert-success text-center py-2"><%=_suc%></div>
+					<%
+					}
+					if (_err != null && _err.length() > 0) {
+					%>
+					<div class="alert alert-danger text-center py-2"><%=_err%></div>
+					<%
+					}
+					%>
 
-			<table border="1px" width="100%">
+					<input type="hidden" name="pageNo" value="<%=pageNo%>">
+					<input type="hidden" name="pageSize" value="<%=pageSize%>">
 
-				<tr style="background-color: skyblue">
-					<th><input type="checkbox"
-						onclick="document.querySelectorAll('input[name=ids]').forEach(c=>c.checked=this.checked)"></th>
-					<th>S.No</th>
-					<th>Name</th>
-					<th>Description</th>
-					<th>Edit</th>
-				</tr>
+					<div class="row g-2 mb-4">
+						<div class="col-md-4">
+							<input type="text" name="name" value="" class="form-control"
+								placeholder="search by role">
+						</div>
+						<div class="col-md-4">
+							<input type="text" name="description" value=""
+								class="form-control" placeholder="search by description">
+						</div>
+						<div class="col-md-2">
+							<input type="submit" name="operation"
+								class="btn btn-primary w-100" value="<%=BaseCtl.OP_SEARCH%>">
+						</div>
+					</div>
 
-				<%
-				while (it.hasNext()) {
-					RoleBean bean = it.next();
-				%>
-				<tr align="center" style="background-color: lightgrey">
-					<td><input type="checkbox" name="ids"
-						value="<%=bean.getId()%>"></td>
-					<td><%=index++%></td>
-					<td><%=bean.getName()%></td>
-					<td><%=bean.getDescription()%></td>
-					<td><a href="<%=ORSView.ROLE_CTL + "?id=" + bean.getId()%>">Edit</a></td>
-				</tr>
-				<%
-				}
-				%>
-			</table>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover align-middle">
+							<thead class="table-primary text-center">
+								<tr>
+									<th><input type="checkbox"
+										onclick="document.querySelectorAll('input[name=ids]').forEach(c=>c.checked=this.checked)"></th>
+									<th>S.No</th>
+									<th>Name</th>
+									<th>Description</th>
+									<th>Edit</th>
+								</tr>
+							</thead>
+							<tbody>
+								<%
+								while (it.hasNext()) {
+									RoleBean bean = it.next();
+								%>
+								<tr class="text-center">
+									<td><input type="checkbox" name="ids"
+										value="<%=bean.getId()%>"></td>
+									<td><%=index++%></td>
+									<td><%=bean.getName()%></td>
+									<td><%=bean.getDescription()%></td>
+									<td><a class="btn btn-sm btn-outline-primary"
+										href="<%=ORSView.ROLE_CTL + "?id=" + bean.getId()%>">
+											<i class="fa-solid fa-pen-to-square"></i> Edit
+									</a></td>
+								</tr>
+								<%
+								}
+								%>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="d-flex justify-content-between align-items-center mt-3">
+						<input type="submit" name="operation"
+							class="btn btn-secondary" <%=pageNo == 1 ? "disabled" : ""%>
+							value="<%=BaseCtl.OP_PREVIOUS%>">
+
+						<input type="submit" name="operation" class="btn btn-danger"
+							value="<%=BaseCtl.OP_DELETE%>">
+
+						<input type="submit" name="operation"
+							class="btn btn-secondary" <%=list.size() < 10 ? "disabled" : ""%>
+							value="<%=BaseCtl.OP_NEXT%>">
+					</div>
+
+				</div>
+			</div>
 		</div>
-
-		<table width="100%">
-			<tr>
-				<td><input type="submit" name="operation"
-					<%=pageNo == 1 ? "disabled" : ""%> value="<%=BaseCtl.OP_PREVIOUS%>"></td>
-				<td align="center"><input type="submit" name="operation"
-					value="<%=BaseCtl.OP_DELETE%>"></td>
-				<td align="right"><input type="submit" name="operation"
-					<%=list.size() < 10 ? "disabled" : ""%>
-					value="<%=BaseCtl.OP_NEXT%>"></td>
-			</tr>
-		</table>
 	</form>
 
+	<%@ include file="Footer.jsp"%>
 </body>
 </html>

@@ -1,0 +1,41 @@
+package in.co.rays.proj4.test;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import in.co.rays.proj4.bean.UserBean;
+import in.co.rays.proj4.model.UserModel;
+
+public class TestUserModel {
+
+	public static UserModel model = new UserModel();
+	
+
+	public static void main(String[] args) {
+		testAdd();
+	}
+
+	private static void testAdd() {
+
+		UserBean bean = new UserBean();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+//		bean.setName("KIOSK");
+//		bean.setDescription("KIOSK Role");
+//		bean.setCreatedBy("Tanisha");
+//		bean.setModifiedBy("Tanisha");
+//		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));
+//		bean.setModifiedDateTime(new Timestamp(new Date().getTime()));
+//		
+		bean.setFirst_name("Rahul Sharma");
+		bean.setLast_name("Sharma");
+		bean.setLogin("rahul_sharma");
+		bean.setPassword("Test@123");
+		bean.setDob(sdf.parse("1995-06-15"));
+		
+		
+		model.add(bean);
+
+	}
+}

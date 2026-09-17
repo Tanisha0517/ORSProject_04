@@ -1,56 +1,207 @@
-<%@page import="in.co.rays.proj4.controller.LoginCtl"%>
++<%@page import="in.co.rays.proj4.controller.LoginCtl"%>
 <%@page import="in.co.rays.proj4.util.ServletUtility"%>
 <%@page import="in.co.rays.proj4.controller.BaseCtl"%>
 <%@page import="in.co.rays.proj4.controller.ORSView"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
+
 <body>
+
 	<%@ include file="Header.jsp"%>
+
 	<%
 	String _suc = ServletUtility.getSuccessMessage(request);
 	String _err = ServletUtility.getErrorMessage(request);
 	%>
 
-	<form action="<%=ORSView.LOGIN_CTL%>" method="post">
 
-		<div align="center">
+	<!-- ACADEMIC BACKGROUND -->
 
-			<h1>Login</h1>
+	<div class="position-relative overflow-hidden bg-light"
+		style="min-height: 80vh; padding-top: 50px; padding-bottom: 50px;">
 
-			<h3 style="color: green"><%=_suc%></h3>
-			<h3 style="color: red"><%=_err%></h3>
 
-			<table>
+		<!-- BACKGROUND ACADEMIC ICONS -->
 
-				<tr>
-					<th>Login<font color="red">*</font></th>
-					<td><input type="text" name="login" value=""
-						placeholder="enter your login"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("login", request)%></td>
-				</tr>
+		<i class="bi bi-book position-absolute text-primary"
+			style="font-size: 120px; opacity: 0.06; top: 40px; left: 8%;"> </i> <i
+			class="bi bi-mortarboard-fill position-absolute text-primary"
+			style="font-size: 150px; opacity: 0.06; top: 80px; right: 8%;"> </i>
 
-				<tr>
-					<th>Password<font color="red">*</font></th>
-					<td><input type="password" name="password" value=""
-						placeholder="enter your password"></td>
-					<td style="color: red"><%=ServletUtility.getErrorMessage("password", request)%></td>
-				</tr>
 
-				<tr>
-					<th></th>
-					<td><input type="submit" name="operation"
-						value="<%=LoginCtl.OP_SIGN_IN%>"></td>
-				</tr>
+		<i class="bi bi-laptop position-absolute text-primary"
+			style="font-size: 130px; opacity: 0.05; bottom: 40px; left: 10%;">
+		</i> <i class="bi bi-journal-bookmark-fill position-absolute text-primary"
+			style="font-size: 120px; opacity: 0.05; bottom: 50px; right: 12%;">
+		</i>
 
-			</table>
+
+		<!-- SMALL DECORATIVE CIRCLES -->
+
+		<div class="position-absolute bg-primary rounded-circle"
+			style="width: 180px; height: 180px; opacity: 0.04; top: 20px; left: 35%;">
+		</div>
+
+
+		<div class="position-absolute bg-info rounded-circle"
+			style="width: 220px; height: 220px; opacity: 0.04; bottom: 20px; right: 35%;">
+		</div>
+
+
+		<!-- LOGIN CARD -->
+
+		<div class="container position-relative">
+
+			<div class="row justify-content-center">
+
+				<div class="col-md-5">
+
+
+					<div class="card shadow-lg border-0">
+
+
+						<!-- CARD HEADER -->
+
+						<div class="card-header bg-white text-center py-3">
+
+							<h3 class="mb-0 text-primary">
+
+								<i class="bi bi-box-arrow-in-right"></i> <%=ms.get("login.title") %>
+
+							</h3>
+
+							<small class="text-muted"> <%=ms.get("login.subtitle") %> </small>
+
+						</div>
+
+
+						<!-- CARD BODY -->
+
+						<div class="card-body p-4">
+
+
+							<!-- SUCCESS MESSAGE -->
+
+							<%
+							if (_suc != null && !_suc.isEmpty()) {
+							%>
+
+							<div class="alert alert-success" role="alert">
+
+								<i class="bi bi-check-circle-fill"></i>
+
+								<%=_suc%>
+
+							</div>
+
+							<%
+							}
+							%>
+
+
+							<!-- ERROR MESSAGE -->
+
+							<%
+							if (_err != null && !_err.isEmpty()) {
+							%>
+
+							<div class="alert alert-danger" role="alert">
+
+								<i class="bi bi-exclamation-triangle-fill"></i>
+
+								<%=_err%>
+
+							</div>
+
+							<%
+							}
+							%>
+
+
+							<!-- LOGIN FORM -->
+
+							<form action="<%=ORSView.LOGIN_CTL%>" method="post">
+
+
+								<!-- LOGIN FIELD -->
+
+								<div class="mb-3">
+
+									<label class="form-label fw-bold"> <i
+										class="bi bi-person-circle text-primary"></i> <%=ms.get("login.userid") %> <font
+										color="red">*</font>
+
+									</label> <input type="email" name="login" value=""
+										placeholder="Enter your login" class="form-control">
+
+
+									<div class="text-danger mt-1">
+
+										<%=ServletUtility.getErrorMessage("login", request)%>
+
+									</div>
+
+								</div>
+
+
+								<!-- PASSWORD FIELD -->
+
+								<div class="mb-4">
+
+									<label class="form-label fw-bold"> <i
+										class="bi bi-lock-fill text-warning"></i> <%=ms.get("login.password") %> <font
+										color="red">*</font>
+
+									</label> <input type="password" name="password" value=""
+										placeholder="Enter your password" class="form-control">
+
+
+									<div class="text-danger mt-1">
+
+										<%=ServletUtility.getErrorMessage("password", request)%>
+
+									</div>
+
+								</div>
+
+
+								<!-- LOGIN BUTTON -->
+
+								<div class="text-center">
+
+									<input type="submit" name="operation"
+										value="<%=LoginCtl.OP_SIGN_IN%>" class="btn btn-primary px-4">
+
+								</div>
+
+
+							</form>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
 
 		</div>
 
-	</form>
+	</div>
+
+
 	<%@ include file="Footer.jsp"%>
+
 </body>
 </html>

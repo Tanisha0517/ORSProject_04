@@ -13,9 +13,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Faculty List</title>
+<!-- Bootstrap CSS/JS already loaded via Header.jsp, isliye yahan dobara nahi liya -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body>
+<body class="bg-light">
 
 <%@ include file="Header.jsp"%>
 
@@ -39,133 +42,145 @@
 
 	<form action="<%=ORSView.STUDENT_LIST_CTL%>" method="post">
 
-		<div align="center">
+		<!-- FIX: extra bottom padding taaki fixed/sticky Footer Previous/Delete/Next
+		     buttons ko overlap na kare -->
+		<div class="container pt-5" style="padding-bottom: 100px !important;">
+			<div class="card shadow-sm border-0">
 
-			<h1>Faculty List</h1>
+				<div class="card-header bg-white text-center border-bottom py-4">
+					<h2 class="text-primary fw-bold mb-0">
+						<i class="bi bi-person-workspace"></i> Faculty List
+					</h2>
+				</div>
 
-			<h3 style="color: green"><%=_suc%></h3>
+				<div class="card-body p-4">
 
-			<h3 style="color: red"><%=_err%></h3>
+					<%
+					if (_suc != null && _suc.length() > 0) {
+					%>
+					<div class="alert alert-success text-center py-2"><%=_suc%></div>
+					<%
+					}
+					if (_err != null && _err.length() > 0) {
+					%>
+					<div class="alert alert-danger text-center py-2"><%=_err%></div>
+					<%
+					}
+					%>
 
-			<input type="hidden" name="pageNo" value="<%=pageNo%>"> 
-			
-			<input type="hidden" name="pageSize" value="<%=pageSize%>">
+					<input type="hidden" name="pageNo" value="<%=pageNo%>">
 
-			<table>
+					<input type="hidden" name="pageSize" value="<%=pageSize%>">
 
-				<tr>
+					<div class="row g-2 mb-4">
+						<div class="col-md-8">
+							<input type="text" name="firstName" value=""
+								class="form-control" placeholder="search by firstName">
+						</div>
+						<div class="col-md-2">
+							<input type="submit" name="operation"
+								class="btn btn-primary w-100" value="<%=BaseCtl.OP_SEARCH%>">
+						</div>
+					</div>
 
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover align-middle">
 
-					<td><input type="text" name="firstName" value=""
-						placeholder="search by firstName"></td>
+							<thead class="table-primary text-center">
+								<tr>
 
-					<td><input type="submit" name="operation"
-						value="<%=BaseCtl.OP_SEARCH%>"></td>
+									<th><input type="checkbox"
+										onclick="document.querySelectorAll('input[name=ids]').forEach(c=>c.checked=this.checked)"></th>
 
-				</tr>
+									<th>S.No</th>
 
-			</table>
+									<th>College Name</th>
 
-			<table border="1px" width="100%">
+									<th>FirstName</th>
 
-				<tr style="background-color: skyblue">
+									<th>LastName</th>
 
-					<th><input type="checkbox"
-						onclick="document.querySelectorAll('input[name=ids]').forEach(c=>c.checked=this.checked)"></th>
+									<th>Email</th>
 
-					<th>S.No</th>
+									<th>Mobile No</th>
 
-					<th>College Name</th>
+									<th>Address</th>
 
-					<th>FirstName</th>
+									<th>Gender</th>
 
-					<th>LastName</th>
-					
-					<th>Email</th>
-					
-					<th>Mobile No</th>
-					
-					<th>Address</th>
-					
-					<th>Gender</th>
+									<th>DOB</th>
 
-					<th>DOB</th>
-					
-					<th>Edit</th>
+									<th>Edit</th>
 
-					
+								</tr>
+							</thead>
 
-					
+							<tbody>
+								<%
 
-				</tr>
+								while (it.hasNext()) {
 
-				<%
+									FacultyBean bean = it.next();
 
-				while (it.hasNext()) {
+								%>
 
-					FacultyBean bean = it.next();
+								<tr class="text-center">
 
-				%>
+									<td><input type="checkbox" name="ids"
+										value="<%=bean.getId()%>"></td>
 
-				<tr align="center" style="background-color: lightgrey">
+									<td><%=index++%></td>
 
-					<td><input type="checkbox" name="ids"
-						value="<%=bean.getId()%>"></td>
+									<td><%=bean.getCollegeName()%></td>
 
-					<td><%=index++%></td>
+									<td><%=bean.getFirstName()%></td>
 
-					<td><%=bean.getCollegeName()%></td>
+									<td><%=bean.getLastName()%></td>
 
-					<td><%=bean.getFirstName()%></td>
+									<td><%=bean.getEmail()%></td>
 
-					<td><%=bean.getLastName()%></td>
-					
-					<td><%=bean.getEmail()%></td>
-					
-					<td><%=bean.getMobileNo()%></td>
-					
-					<td><%=bean.getAddress()%></td>
-					
-					<td><%=bean.getGender()%></td>
+									<td><%=bean.getMobileNo()%></td>
 
-					<td><%=bean.getDateOfBirth()%></td>
-					
-					<td><a href="<%=ORSView.FACULTY_CTL + "?id=" + bean.getId()%>">Edit</a></td>
+									<td><%=bean.getAddress()%></td>
 
-					
+									<td><%=bean.getGender()%></td>
 
-					
+									<td><%=bean.getDateOfBirth()%></td>
 
-				</tr>
+									<td><a class="btn btn-sm btn-outline-primary"
+										href="<%=ORSView.FACULTY_CTL + "?id=" + bean.getId()%>"><i
+											class="bi bi-pencil-square"></i> Edit</a></td>
 
-				<%
+								</tr>
 
-				}
+								<%
 
-				%>
+								}
 
-			</table>
+								%>
+							</tbody>
 
+						</table>
+					</div>
+
+					<div class="d-flex justify-content-between align-items-center mt-3">
+
+						<input type="submit" name="operation" class="btn btn-secondary"
+							<%=pageNo == 1 ? "disabled" : ""%>
+							value="<%=BaseCtl.OP_PREVIOUS%>">
+
+						<input type="submit" name="operation" class="btn btn-danger"
+							value="<%=BaseCtl.OP_DELETE%>">
+
+						<input type="submit" name="operation" class="btn btn-secondary"
+							<%=list.size() < 10 ? "disabled" : ""%>
+							value="<%=BaseCtl.OP_NEXT%>">
+
+					</div>
+
+				</div>
+			</div>
 		</div>
-
-		<table width="100%">
-
-			<tr>
-
-				<td><input type="submit" name="operation"
-					<%=pageNo == 1 ? "disabled" : ""%>
-					value="<%=BaseCtl.OP_PREVIOUS%>"></td>
-
-				<td align="center"><input type="submit" name="operation"
-					value="<%=BaseCtl.OP_DELETE%>"></td>
-
-				<td align="right"><input type="submit" name="operation"
-					<%=list.size() < 10 ? "disabled" : ""%>
-					value="<%=BaseCtl.OP_NEXT%>"></td>
-
-			</tr>
-
-		</table>
 
 	</form>
 

@@ -26,6 +26,9 @@ public interface ORSView {
 	public String COURSE_LIST_VIEW = PAGE_FOLDER + "/CourseListView.jsp";
 	public String SUBJECT_VIEW = PAGE_FOLDER + "/SubjectView.jsp";
 	public String SUBJECT_LIST_VIEW = PAGE_FOLDER + "/SubjectListView.jsp";
+	public String TIMETABLE_VIEW = PAGE_FOLDER + "/TimeTableView.jsp";
+	public String TIMETABLE_LIST_VIEW = PAGE_FOLDER + "/TimeTableListView.jsp";
+	
 	public String USER_REGISTRATION_VIEW = PAGE_FOLDER + "/UserRegistrationView.jsp";
 	public String LOGIN_VIEW = PAGE_FOLDER + "/LoginView.jsp";
 	public String WELCOME_VIEW = PAGE_FOLDER + "/Welcome.jsp";
@@ -52,6 +55,8 @@ public interface ORSView {
 	public String COURSE_LIST_CTL = APP_CONTEXT + "/ctl/CourseListCtl";
 	public String SUBJECT_CTL = APP_CONTEXT + "/ctl/SubjectCtl";
 	public String SUBJECT_LIST_CTL = APP_CONTEXT + "/ctl/SubjectListCtl";
+	public String TIMETABLE_CTL = APP_CONTEXT + "/ctl/TimeTableCtl";
+	public String TIMETABLE_LIST_CTL = APP_CONTEXT + "/ctl/TimeTableListCtl";
 	public String USER_REGISTRATION_CTL = APP_CONTEXT + "/UserRegistrationCtl";
 	public String LOGIN_CTL = APP_CONTEXT + "/LoginCtl";
 	public String WELCOME_CTL = APP_CONTEXT + "/WelcomeCtl";

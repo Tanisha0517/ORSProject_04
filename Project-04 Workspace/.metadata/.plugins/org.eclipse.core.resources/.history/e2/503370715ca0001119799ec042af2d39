@@ -1,0 +1,20 @@
+package in.co.rays.proj4.test;
+
+import in.co.rays.proj4.bean.FacultyBean;
+import in.co.rays.proj4.model.FacultyModel;
+
+public class TestFacultyModel {
+
+	public static FacultyModel model = new FacultyModel();
+
+	public static void main(String[] args) throws Exception {
+		testAdd();
+	}
+
+	private static void testAdd() throws Exception {
+		FacultyBean bean = new FacultyBean();
+		
+		bean.set
+		model.add(bean);
+	}
+}

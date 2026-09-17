@@ -8,6 +8,7 @@ import in.co.rays.proj4.exception.DuplicateRecordException;
 import in.co.rays.proj4.model.BaseModel;
 import in.co.rays.proj4.util.DataUtility;
 import in.co.rays.proj4.util.DataValidator;
+import in.co.rays.proj4.util.MessageSource;
 import in.co.rays.proj4.util.ServletUtility;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -116,6 +117,8 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		getMessageSource(request);
+		
 		preload(request);
 
 		if ("POST".equals(request.getMethod())) {
@@ -137,5 +140,12 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	protected abstract String getView();
 
 	protected abstract M getModel();
+	
+	public MessageSource getMessageSource(HttpServletRequest request) {
+
+		MessageSource messagesource = MessageSource.getInstance();
+		return messagesource;
+	}
+
 
 }

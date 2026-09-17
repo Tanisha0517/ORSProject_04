@@ -1,0 +1,31 @@
+package in.co.rays.proj4.test;
+
+import in.co.rays.proj4.bean.FacultyBean;
+import in.co.rays.proj4.model.FacultyModel;
+
+public class TestFacultyModel {
+
+	public static FacultyModel model = new FacultyModel();
+
+	public static void main(String[] args) throws Exception {
+		testAdd();
+	}
+
+	private static void testAdd() throws Exception {
+		FacultyBean bean = new FacultyBean();
+		
+		bean.setCollegeId(0);
+		bean.setCollegeName(null);
+		bean.setFirstName(null);
+		bean.setLastName(null);
+		bean.setEmail(null);
+		bean.setMobileNo(null);
+		bean.setAddress(null);
+		bean.setGender(null);
+		bean.setCreatedBy(null);
+		bean.setModifiedBy(null);
+		bean.setCreatedDateTime(null);
+		bean.setModifiedDateTime(null);
+		model.add(bean);
+	}
+}

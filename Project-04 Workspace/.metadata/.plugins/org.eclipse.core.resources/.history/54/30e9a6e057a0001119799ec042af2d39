@@ -1,0 +1,28 @@
+package in.co.rays.proj4.test;
+
+import in.co.rays.proj4.bean.SubjectBean;
+import in.co.rays.proj4.model.SubjectModel;
+
+public class TestSubjectModel {
+
+	public static SubjectModel model = new SubjectModel();
+
+	public static void main(String[] args) throws Exception {
+		testAdd();
+	}
+
+	private static void testAdd() throws Exception {
+
+		SubjectBean bean = new SubjectBean();
+
+		bean.setName(null);
+		bean.setDescription(null);
+		bean.setCourseId(0);
+		bean.setCreatedBy(null);
+		bean.setModifiedBy(null);
+		bean.setCreatedDateTime(null);
+		bean.setModifiedDateTime(null);
+		model.add(bean);
+
+	}
+}
