@@ -121,10 +121,17 @@
 
                             <h2 class="fw-bold mb-3">
 
-                                Hello Guest !
-                                <%=isLogin ? "(" + userBean.getFirstName() + ")" : ""%>
+                               <% if (isLogin) { %>
 
-                            </h2>
+                               Hello <%= userBean.getFirstName() %> !
+
+                               <% } else { %>
+
+                               Hello Guest !
+
+                               <% } %>
+
+                             </h2>
 
 
                             <p class="text-secondary">

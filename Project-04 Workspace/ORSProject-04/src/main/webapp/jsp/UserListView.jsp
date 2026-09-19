@@ -40,6 +40,19 @@
 					</h2>
 				</div>
 
+                <!-- PDF Button - Top Right -->
+					
+					<div class="position-absolute top-0 end-0 mt-2 me-3">
+					
+						<a href="<%=ORSView.USER_REPORT_CTL%>?type=pdf"
+							class="btn btn-outline-danger btn-sm px-3">
+							
+							 <i class="bi bi-file-earmark-pdf me-1"></i> PDF
+							 
+						</a>
+						<!-- target=blank -->
+						
+					</div>
 				<div class="card-body p-4">
 
 					<%
@@ -77,7 +90,9 @@
 						<table class="table table-bordered table-hover align-middle">
 							<thead class="table-primary text-center">
 								<tr>
-									<th><input type="checkbox"
+									<!-- FIX: id="selectAll" add kiya taaki row checkbox ka
+									     onclick isse reference kar sake -->
+									<th><input type="checkbox" id="selectAll"
 										onclick="document.querySelectorAll('input[name=ids]').forEach(c=>c.checked=this.checked)"></th>
 									<th>S.No</th>
 									<th>Photo</th>
@@ -97,8 +112,13 @@
 									RoleBean rbean = rmodel.findByPK(bean.getRoleId());
 								%>
 								<tr class="text-center">
-									<td><input type="checkbox" name="ids"
-										value="<%=bean.getId()%>"></td>
+									<td><input type="checkbox"
+										class="form-check-input"
+										name="ids"
+										value="<%=bean.getId()%>"
+										onclick="document.getElementById('selectAll').checked =
+										document.querySelectorAll('input[name=ids]:checked').length ===
+										document.querySelectorAll('input[name=ids]').length"></td>
 									<td><%=index++%></td>
 									<td><img
 										src="<%=ORSView.UPLOAD_PHOTO_CTL%>?id=<%=bean.getId()%>"

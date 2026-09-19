@@ -1,7 +1,11 @@
+<%@page import="in.co.rays.proj4.util.HTMLUtility"%>
+<%@page import="java.util.HashMap"%>
 <%@page import="in.co.rays.proj4.controller.UserRegistrationCtl"%>
 <%@page import="in.co.rays.proj4.util.ServletUtility"%>
 <%@page import="in.co.rays.proj4.controller.BaseCtl"%>
 <%@page import="in.co.rays.proj4.controller.ORSView"%>
+<%@page import="in.co.rays.proj4.util.DataUtility"%>
+
 
 <!DOCTYPE html>
 
@@ -30,8 +34,16 @@
     String _suc = ServletUtility.getSuccessMessage(request);
 
     String _err = ServletUtility.getErrorMessage(request);
+    
+    HashMap <String,String> map = new HashMap<String,String>();
+    map.put("male","male");
+    map.put("female","female");
 
     %>
+    
+    <jsp:useBean id="bean" class="in.co.rays.proj4.bean.UserBean"
+		scope="request"></jsp:useBean>
+    
 
 
     <!-- REGISTRATION BACKGROUND -->
@@ -171,7 +183,7 @@
 
                                         <input type="text"
                                                name="firstName"
-                                               value=""
+                                               value="<%=DataUtility.getStringData(bean.getFirstName())%>"
                                                placeholder="Enter your first name"
                                                class="form-control">
 
@@ -200,7 +212,7 @@
 
                                         <input type="text"
                                                name="lastName"
-                                               value=""
+                                               value="<%=DataUtility.getStringData(bean.getLastName())%>"
                                                placeholder="Enter your last name"
                                                class="form-control">
 
@@ -233,7 +245,7 @@
 
                                     <input type="email"
                                            name="login"
-                                           value=""
+                                           value="<%=DataUtility.getStringData(bean.getLogin())%>"
                                            placeholder="Enter valid login ID"
                                            class="form-control">
 
@@ -265,7 +277,7 @@
 
                                         <input type="password"
                                                name="password"
-                                               value=""
+                                               value="<%=DataUtility.getStringData(bean.getPassword())%>"
                                                placeholder="Enter password"
                                                class="form-control">
 
@@ -294,7 +306,7 @@
 
                                         <input type="password"
                                                name="confirmPassword"
-                                               value=""
+                                               value="<%=DataUtility.getStringData(bean.getConfirmPassword())%>"
                                                placeholder="Re-enter your password"
                                                class="form-control">
 
@@ -326,22 +338,7 @@
                                         </label>
 
 
-                                        <select class="form-control"
-                                                name="gender">
-
-                                            <option selected value="">
-                                                -------Select-------
-                                            </option>
-
-                                            <option value="female">
-                                                Female
-                                            </option>
-
-                                            <option value="male">
-                                                Male
-                                            </option>
-
-                                        </select>
+                                     <%=HTMLUtility.getList("gender", DataUtility.getStringData(bean.getGender()), map) %>
 
 
                                         <div class="text-danger mt-1">

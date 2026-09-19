@@ -461,16 +461,48 @@ String locale = ms.getLanguage();
 
         </ul>
 
+       <!-- TIME TABLE DROPDOWN -->
 
-        <!-- USER NAME -->
+            <li class="nav-item dropdown">
 
-        <span class="navbar-text text-white me-3">
+                <a class="nav-link dropdown-toggle"
+                   href="#"
+                   id="timetableDropdown"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">
 
-            <b>
-                <%=welcomeMsg + userBean.getFirstName() + " (" + roleName + ")"%>
-            </b>
+                 <b>
+                    <%=welcomeMsg + userBean.getFirstName() + " (" + roleName + ")"%>
+                 </b>
 
-        </span>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-dark">
+
+                    <li>
+                        <a class="dropdown-item"
+                           href="<%=ORSView.MY_PROFILE_CTL%>">
+
+                            My Profile
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item"
+                           href="<%=ORSView.CHANGE_PASSWORD_CTL%>">
+
+                           Change Password
+
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+        </ul>
 
 
         <!-- LOGOUT -->

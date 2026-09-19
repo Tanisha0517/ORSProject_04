@@ -3,10 +3,14 @@ package in.co.rays.proj4.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import in.co.rays.proj4.bean.UserBean;
 import in.co.rays.proj4.exception.ApplicationException;
 import in.co.rays.proj4.exception.DuplicateRecordException;
+import in.co.rays.proj4.util.EmailBuilder;
+import in.co.rays.proj4.util.EmailMessage;
+import in.co.rays.proj4.util.EmailUtility;
 import in.co.rays.proj4.util.JDBCDataSource;
 
 public class UserModel extends BaseModel<UserBean> {
@@ -100,6 +104,7 @@ public class UserModel extends BaseModel<UserBean> {
 			pstmt.close();
 
 		} catch (SQLException e) {
+			e.printStackTrace();
 			JDBCDataSource.trnRollBack(conn);
 		} finally {
 			JDBCDataSource.closeConnection(conn);
@@ -112,8 +117,8 @@ public class UserModel extends BaseModel<UserBean> {
 	}
 
 	public UserBean authenticate(String login, String password) throws ApplicationException {
-		UserBean bean = findByLogin(login); //usi m humne findByLogin method ko call kia h usko bean m hold kr dia h 
-		
+		UserBean bean = findByLogin(login); // usi m humne findByLogin method ko call kia h usko bean m hold kr dia h
+
 		if (bean != null && bean.getPassword().equals(password)) {
 			return bean;
 		} else {
@@ -150,7 +155,7 @@ public class UserModel extends BaseModel<UserBean> {
 
 		return sql.toString();
 	}
-	
+
 	public void updatePhoto(long id, String photo) throws ApplicationException {
 		Connection conn = null;
 
@@ -175,6 +180,84 @@ public class UserModel extends BaseModel<UserBean> {
 		}
 	}
 
+	public UserBean changePassword(String newPassword, String oldPassword, String login) {
+
+		UserBean bean = findByLogin(login);
+
+		if (bean != null && bean.getPassword().equals(oldPassword)) {
+			bean.setPassword(newPassword);
+			update(bean);
+
+			HashMap<String, String> map = new HashMap<String, String>();
+			EmailMessage msg = new EmailMessage();
+
+			map.put("login", bean.getLogin());
+			map.put("password", bean.getPassword());
+			map.put("firstName", bean.getFirstName());
+			map.put("lastName", bean.getLastName());
+
+			msg.setTo(map.get("login"));
+			msg.setSubject("Password Changed");
+			msg.setMessage(EmailBuilder.getChangePasswordMessage(map));
+			msg.setMessageType(EmailMessage.HTML_MSG);
+
+			EmailUtility.sendMail(msg);
+
+			return bean;
+		}
+
+		return null;
+
+	}
+
+	public UserBean forgotPassword(String login) {
+
+		UserBean bean = findByLogin(login);
+
+		if (bean != null) {
+
+			HashMap<String, String> map = new HashMap<String, String>();
+			EmailMessage msg = new EmailMessage();
+
+			map.put("login", bean.getLogin());
+			map.put("password", bean.getPassword());
+			map.put("firstName", bean.getFirstName());
+			map.put("lastName", bean.getLastName());
+
+			msg.setTo(map.get("login"));
+			msg.setSubject("Password Changed");
+			msg.setMessage(EmailBuilder.getForgetPasswordMessage(map));
+			msg.setMessageType(EmailMessage.HTML_MSG);
+
+			EmailUtility.sendMail(msg);
+
+			return bean;
+		}
+
+		return null;
+
+	}
+
+	public long register(UserBean bean) {
+
+		long pk = add(bean);
+
+		HashMap<String, String> map = new HashMap<String, String>();
+		EmailMessage msg = new EmailMessage();
+
+		map.put("login", bean.getLogin());
+		map.put("password", bean.getPassword());
+
+		msg.setTo(map.get("login"));
+		msg.setSubject("User Rgistration Information");
+		msg.setMessage(EmailBuilder.getUserRegistrationMessage(map));
+		msg.setMessageType(EmailMessage.HTML_MSG);
+
+		EmailUtility.sendMail(msg);
+		System.out.println("mail send successfully");
+
+		return pk;
+	}
 
 	@Override
 	public String getTable() {

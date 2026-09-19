@@ -1,16 +1,26 @@
-+<%@page import="in.co.rays.proj4.controller.LoginCtl"%>
+<%@page import="in.co.rays.proj4.util.DataUtility"%>
+<%@page import="in.co.rays.proj4.controller.LoginCtl"%>
+
+
+
 <%@page import="in.co.rays.proj4.util.ServletUtility"%>
+
 <%@page import="in.co.rays.proj4.controller.BaseCtl"%>
+
 <%@page import="in.co.rays.proj4.controller.ORSView"%>
 
 <!DOCTYPE html>
+
 <html>
+
 <head>
 
 <meta charset="ISO-8859-1">
+
 <title>Login</title>
 
 <!-- Bootstrap Icons -->
+
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -22,8 +32,13 @@
 
 	<%
 	String _suc = ServletUtility.getSuccessMessage(request);
+
 	String _err = ServletUtility.getErrorMessage(request);
+	
+
 	%>
+	<jsp:useBean id="bean" class="in.co.rays.proj4.bean.UserBean"
+		scope="request"></jsp:useBean>
 
 
 	<!-- ACADEMIC BACKGROUND -->
@@ -77,11 +92,13 @@
 
 							<h3 class="mb-0 text-primary">
 
-								<i class="bi bi-box-arrow-in-right"></i> <%=ms.get("login.title") %>
+								<i class="bi bi-box-arrow-in-right"></i>
+								<%=ms.get("login.title")%>
 
 							</h3>
 
-							<small class="text-muted"> <%=ms.get("login.subtitle") %> </small>
+							<small class="text-muted"> <%=ms.get("login.subtitle")%>
+							</small>
 
 						</div>
 
@@ -92,16 +109,23 @@
 
 
 							<!-- SUCCESS MESSAGE -->
+							<!-- FIX: alert-dismissible + btn-close add kiya taaki right side me
+							     cross (X) button aaye jisse click karke success message
+							     (jaise "Logout successfully") band kar sakein. -->
 
 							<%
 							if (_suc != null && !_suc.isEmpty()) {
 							%>
 
-							<div class="alert alert-success" role="alert">
+							<div class="alert alert-success alert-dismissible fade show"
+								role="alert">
 
 								<i class="bi bi-check-circle-fill"></i>
 
 								<%=_suc%>
+
+								<button type="button" class="btn-close" data-bs-dismiss="alert"
+									aria-label="Close"></button>
 
 							</div>
 
@@ -111,16 +135,24 @@
 
 
 							<!-- ERROR MESSAGE -->
+							<!-- FIX: alert-dismissible + btn-close add kiya taaki right side me
+							     cross (X) button aaye jisse click karke error message band kar sakein.
+							     data-bs-dismiss="alert" Bootstrap JS (jo Header.jsp se already load
+							     hota hai) ko batata hai ki click par is alert ko fade-out karke hata de. -->
 
 							<%
 							if (_err != null && !_err.isEmpty()) {
 							%>
 
-							<div class="alert alert-danger" role="alert">
+							<div class="alert alert-danger alert-dismissible fade show"
+								role="alert">
 
 								<i class="bi bi-exclamation-triangle-fill"></i>
 
 								<%=_err%>
+
+								<button type="button" class="btn-close" data-bs-dismiss="alert"
+									aria-label="Close"></button>
 
 							</div>
 
@@ -139,10 +171,11 @@
 								<div class="mb-3">
 
 									<label class="form-label fw-bold"> <i
-										class="bi bi-person-circle text-primary"></i> <%=ms.get("login.userid") %> <font
-										color="red">*</font>
+										class="bi bi-person-circle text-primary"></i> <%=ms.get("login.userid")%>
 
-									</label> <input type="email" name="login" value=""
+										<font color="red">*</font>
+
+									</label> <input type="email" name="login" value="<%= DataUtility.getStringData(bean.getLogin()) %>"
 										placeholder="Enter your login" class="form-control">
 
 
@@ -160,10 +193,11 @@
 								<div class="mb-4">
 
 									<label class="form-label fw-bold"> <i
-										class="bi bi-lock-fill text-warning"></i> <%=ms.get("login.password") %> <font
-										color="red">*</font>
+										class="bi bi-lock-fill text-warning"></i> <%=ms.get("login.password")%>
 
-									</label> <input type="password" name="password" value=""
+										<font color="red">*</font>
+
+									</label> <input type="password" name="password" value="<%= DataUtility.getStringData(bean.getPassword()) %>"
 										placeholder="Enter your password" class="form-control">
 
 
@@ -186,6 +220,17 @@
 								</div>
 
 
+								<!-- FORGOT PASSWORD LINK -->
+								<!-- YE LOGIN BUTTON KE NICHE ADD KIYA HAI -->
+
+								<div class="text-center mt-3">
+
+									<a href="<%=ORSView.FORGET_PASSWORD_CTL%>"
+										class="text-decoration-none"> Forgot Password? </a>
+
+								</div>
+
+
 							</form>
 
 						</div>
@@ -204,4 +249,5 @@
 	<%@ include file="Footer.jsp"%>
 
 </body>
+
 </html>

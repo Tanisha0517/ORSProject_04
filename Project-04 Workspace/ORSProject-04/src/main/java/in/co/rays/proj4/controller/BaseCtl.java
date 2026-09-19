@@ -109,6 +109,7 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 			model.add(bean);
 			ServletUtility.setSuccessMessage("Data is successfully saved", request);
 		}
+		ServletUtility.setBean(bean, request);
 		ServletUtility.forward(getView(), request, response);
 
 	}
@@ -118,11 +119,13 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 			throws ServletException, IOException {
 
 		getMessageSource(request);
-		
+
 		preload(request);
 
 		if ("POST".equals(request.getMethod())) {
 			if (validate(request) == false) {
+				BaseBean bean = populateBean(request);
+				ServletUtility.setBean(bean, request);
 				ServletUtility.forward(getView(), request, response);
 				return;
 			}
@@ -140,12 +143,11 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	protected abstract String getView();
 
 	protected abstract M getModel();
-	
+
 	public MessageSource getMessageSource(HttpServletRequest request) {
 
 		MessageSource messagesource = MessageSource.getInstance();
 		return messagesource;
 	}
-
 
 }

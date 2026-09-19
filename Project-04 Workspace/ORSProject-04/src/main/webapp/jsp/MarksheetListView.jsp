@@ -41,6 +41,19 @@
 						<i class="bi bi-file-earmark-text-fill"></i> MarkSheet List
 					</h2>
 				</div>
+				
+				<!-- PDF Button - Top Right -->
+					
+					<div class="position-absolute top-0 end-0 mt-2 me-3">
+					
+						<a href="<%=ORSView.MARKSHEET_REPORT_CTL%>?type=pdf"
+							class="btn btn-outline-danger btn-sm px-3">
+							
+							 <i class="bi bi-file-earmark-pdf me-1"></i> PDF
+							 
+						</a>
+						
+					</div>
 
 				<div class="card-body p-4">
 
