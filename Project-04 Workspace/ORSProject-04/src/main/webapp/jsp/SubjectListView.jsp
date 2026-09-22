@@ -72,6 +72,12 @@
 							 
 						</a>
 						
+						 <a href="<%=ORSView.SUBJECT_REPORT_CTL%>?type=doc"
+                             class="btn btn-outline-primary btn-sm px-3">
+                               
+                               <i class="bi bi-file-earmark-word me-1"></i> Doc
+                         </a>
+						
 					</div>
 
 				<div class="card-body p-4">
@@ -111,7 +117,7 @@
 						<table class="table table-bordered table-hover align-middle">
 							<thead class="table-primary text-center">
 								<tr>
-									<th><input type="checkbox"
+									<th><input type="checkbox" id="selectAll"
 										onclick="document.querySelectorAll('input[name=ids]').forEach(c=>c.checked=this.checked)"></th>
 									<th>S.No</th>
 									<th>Name</th>
@@ -126,8 +132,13 @@
 									SubjectBean bean = it.next();
 								%>
 								<tr class="text-center">
-									<td><input type="checkbox" name="ids"
-										value="<%=bean.getId()%>"></td>
+									<td><input type="checkbox"
+										class="form-check-input"
+										name="ids"
+										value="<%=bean.getId()%>"
+										onclick="document.getElementById('selectAll').checked =
+										document.querySelectorAll('input[name=ids]:checked').length ===
+										document.querySelectorAll('input[name=ids]').length"></td>
 									<td><%=index++%></td>
 									<td><%=bean.getName()%></td>
 									<td><%=bean.getDescription()%></td>

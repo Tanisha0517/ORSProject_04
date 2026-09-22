@@ -43,7 +43,25 @@
 					</h2>
 				</div>
 
+              
                <!-- PDF Button - Top Right -->
+					
+					<div class="position-absolute top-0 end-0 mt-2 me-3">
+					
+						<a href="<%=ORSView.TIMETABLE_REPORT_CTL%>?type=pdf"
+							class="btn btn-outline-danger btn-sm px-3">
+							
+							 <i class="bi bi-file-earmark-pdf me-1"></i> PDF
+							 
+						</a>
+						
+						 <a href="<%=ORSView.TIMETABLE_REPORT_CTL%>?type=doc"
+                             class="btn btn-outline-primary btn-sm px-3">
+                               
+                               <i class="bi bi-file-earmark-word me-1"></i> Doc
+                         </a>
+						
+					</div>
 					
 					
 				<div class="card-body p-4">
@@ -113,8 +131,13 @@
 									String subjectName = (sbean != null) ? sbean.getName() : "-";
 								%>
 								<tr class="text-center">
-									<td><input type="checkbox" name="ids"
-										value="<%=bean.getId()%>"></td>
+									<td><input type="checkbox"
+										class="form-check-input"
+										name="ids"
+										value="<%=bean.getId()%>"
+										onclick="document.getElementById('selectAll').checked =
+										document.querySelectorAll('input[name=ids]:checked').length ===
+										document.querySelectorAll('input[name=ids]').length"></td>
 									<td><%=index++%></td>
 									<td><img
 										src="<%=ORSView.UPLOAD_PHOTO_CTL%>?id=<%=bean.getId()%>"

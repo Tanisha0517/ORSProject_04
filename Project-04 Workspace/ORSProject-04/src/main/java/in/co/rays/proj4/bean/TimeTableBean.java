@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
+/**
+ * @author Tanisha
+ */
 public class TimeTableBean extends BaseBean {
 
 	private String semester;

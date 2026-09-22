@@ -3,6 +3,9 @@ package in.co.rays.proj4.bean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author Tanisha
+ */
 public class CourseBean extends BaseBean {
 
 	private String name;

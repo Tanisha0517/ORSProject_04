@@ -52,6 +52,13 @@
 						</a>
 						<!-- target=blank -->
 						
+						 <a href="<%=ORSView.USER_REPORT_CTL%>?type=doc"
+                             class="btn btn-outline-primary btn-sm px-3">
+                               
+                               <i class="bi bi-file-earmark-word me-1"></i> Doc
+                         </a>
+						
+						
 					</div>
 				<div class="card-body p-4">
 

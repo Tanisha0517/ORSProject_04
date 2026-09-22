@@ -152,6 +152,7 @@ public class UserModel extends BaseModel<UserBean> {
 			}
 
 		}
+		//select * from st_user where 1=1 and first_name like 'a%" and last_name like 'b%' limit 0,10;(0-initial index 10- no of records)
 
 		return sql.toString();
 	}

@@ -1,608 +1,412 @@
 <%@page import="in.co.rays.proj4.util.MessageSource"%>
+
 <%@page import="in.co.rays.proj4.controller.ORSView"%>
+
 <%@page import="in.co.rays.proj4.bean.UserBean"%>
-<%@ page language="java"
-contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
+
 <html>
+
 <head>
 
 <meta charset="UTF-8">
 
 <title>ORS Project</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-rel="stylesheet"
-integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-crossorigin="anonymous">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
 
 </head>
 
 <body>
 
-<%
+	<%
+	MessageSource ms = MessageSource.getInstance();
 
-MessageSource ms = MessageSource.getInstance();
+	UserBean userBean = (UserBean) session.getAttribute("user");
 
-UserBean userBean = (UserBean) session.getAttribute("user");
+	String roleName = (String) session.getAttribute("role");
 
-String roleName = (String) session.getAttribute("role");
+	boolean isLogin = userBean != null;
 
-boolean isLogin = userBean != null;
+	String welcomeMsg = "Hi, ";
 
-String welcomeMsg = "Hi, ";
-
-String locale = ms.getLanguage();
-
-%>
+	String locale = ms.getLanguage();
+	%>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <div class="container-fluid">
-
-
-        <!-- LOGO -->
-
-        <div class="bg-white rounded-3 p-1 shadow-sm me-3">
-
-            <img src="<%=ORSView.APP_CONTEXT%>/img/customLogo.jpg"
-                 width="140"
-                 height="45"
-                 class="rounded-3"
-                 alt="ORS Logo">
-
-        </div>
+		<div class="container-fluid">
 
 
+			<!-- LOGO -->
 
-        <!-- Language Dropdown -->
+			<div class="bg-white rounded-3 p-1 shadow-sm me-3">
+
+				<img src="<%=ORSView.APP_CONTEXT%>/img/customLogo.jpg" width="140"
+					height="45" class="rounded-3" alt="ORS Logo">
+
+			</div>
+
+
+			<!-- Language Dropdown -->
+
 			<td style="width: 120px; text-align: center;">
 
 				<form style="margin: 0;">
-					<select name="lang" onchange="this.form.submit()"> <%-- onchange ek event h --%>
-					
+
+					<select name="lang" onchange="this.form.submit()">
+
+						<%-- onchange ek event h --%>
+
 						<option value="en" <%=("en".equals(locale)) ? "selected" : ""%>>English</option>
+
 						<option value="hi" <%=("hi".equals(locale)) ? "selected" : ""%>>Hindi</option>
 
 					</select>
+
 				</form>
 
 			</td>
-        ,
-        <!-- MOBILE MENU BUTTON -->
 
-        <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarContent"
-                aria-controls="navbarContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
 
-            <span class="navbar-toggler-icon"></span>
+			<!-- MOBILE MENU BUTTON -->
 
-        </button>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarContent"
+				aria-controls="navbarContent" aria-expanded="false"
+				aria-label="Toggle navigation">
 
+				<span class="navbar-toggler-icon"></span>
 
-        <div class="collapse navbar-collapse" id="navbarContent">
+			</button>
 
 
-        <%
-        if (isLogin) {
-        %>
+			<div class="collapse navbar-collapse" id="navbarContent">
 
 
-        <!-- ================= MENU ================= -->
+				<%
+				if (isLogin) {
+				%>
 
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+				<!-- ================= MENU ================= -->
 
-            <!-- ROLE DROPDOWN -->
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-            <li class="nav-item dropdown">
 
-                <a class="nav-link dropdown-toggle"
-                   href="#"
-                   id="roleDropdown"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
+					<!-- ROLE DROPDOWN -->
 
-                    Role
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="roleDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                </a>
+							Role </a>
 
-                <ul class="dropdown-menu dropdown-menu-dark">
+						<ul class="dropdown-menu dropdown-menu-dark">
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.ROLE_CTL%>">
+							<li><a class="dropdown-item" href="<%=ORSView.ROLE_CTL%>">
 
-                            Add Role
+									Add Role </a></li>
 
-                        </a>
-                    </li>
+							<li><a class="dropdown-item"
+								href="<%=ORSView.ROLE_LIST_CTL%>"> Role List </a></li>
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.ROLE_LIST_CTL%>">
+						</ul></li>
 
-                            Role List
 
-                        </a>
-                    </li>
+					<!-- USER DROPDOWN -->
 
-                </ul>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="userDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-            </li>
+							User </a>
 
+						<ul class="dropdown-menu dropdown-menu-dark">
 
-            <!-- USER DROPDOWN -->
+							<li><a class="dropdown-item" href="<%=ORSView.USER_CTL%>">
 
-            <li class="nav-item dropdown">
+									Add User </a></li>
 
-                <a class="nav-link dropdown-toggle"
-                   href="#"
-                   id="userDropdown"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
+							<li><a class="dropdown-item"
+								href="<%=ORSView.USER_LIST_CTL%>"> User List </a></li>
 
-                    User
+						</ul></li>
 
-                </a>
 
-                <ul class="dropdown-menu dropdown-menu-dark">
+					<!-- COLLEGE DROPDOWN -->
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.USER_CTL%>">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="collegeDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                            Add User
+							College </a>
 
-                        </a>
-                    </li>
+						<ul class="dropdown-menu dropdown-menu-dark">
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.USER_LIST_CTL%>">
+							<li><a class="dropdown-item" href="<%=ORSView.COLLEGE_CTL%>">
 
-                            User List
+									Add College </a></li>
 
-                        </a>
-                    </li>
+							<li><a class="dropdown-item"
+								href="<%=ORSView.COLLEGE_LIST_CTL%>"> College List </a></li>
 
-                </ul>
+						</ul></li>
 
-            </li>
 
+					<!-- STUDENT DROPDOWN -->
 
-            <!-- COLLEGE DROPDOWN -->
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="studentDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-            <li class="nav-item dropdown">
+							Student </a>
 
-                <a class="nav-link dropdown-toggle"
-                   href="#"
-                   id="collegeDropdown"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
+						<ul class="dropdown-menu dropdown-menu-dark">
 
-                    College
+							<li><a class="dropdown-item" href="<%=ORSView.STUDENT_CTL%>">
 
-                </a>
+									Add Student </a></li>
 
-                <ul class="dropdown-menu dropdown-menu-dark">
+							<li><a class="dropdown-item"
+								href="<%=ORSView.STUDENT_LIST_CTL%>"> Student List </a></li>
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.COLLEGE_CTL%>">
+						</ul></li>
 
-                            Add College
 
-                        </a>
-                    </li>
+					<!-- MARKSHEET DROPDOWN -->
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.COLLEGE_LIST_CTL%>">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="marksheetDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                            College List
+							MarkSheet </a>
 
-                        </a>
-                    </li>
+						<ul class="dropdown-menu dropdown-menu-dark">
 
-                </ul>
+							<li><a class="dropdown-item"
+								href="<%=ORSView.MARKSHEET_CTL%>"> Add MarkSheet </a></li>
 
-            </li>
+							<li><a class="dropdown-item"
+								href="<%=ORSView.MARKSHEET_LIST_CTL%>"> MarkSheet List </a></li>
 
+						</ul></li>
 
-            <!-- STUDENT DROPDOWN -->
 
-            <li class="nav-item dropdown">
+					<!-- COURSE DROPDOWN -->
 
-                <a class="nav-link dropdown-toggle"
-                   href="#"
-                   id="studentDropdown"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="courseDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                    Student
+							Course </a>
 
-                </a>
+						<ul class="dropdown-menu dropdown-menu-dark">
 
-                <ul class="dropdown-menu dropdown-menu-dark">
+							<li><a class="dropdown-item" href="<%=ORSView.COURSE_CTL%>">
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.STUDENT_CTL%>">
+									Add Course </a></li>
 
-                            Add Student
+							<li><a class="dropdown-item"
+								href="<%=ORSView.COURSE_LIST_CTL%>"> Course List </a></li>
 
-                        </a>
-                    </li>
+						</ul></li>
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.STUDENT_LIST_CTL%>">
 
-                            Student List
+					<!-- SUBJECT DROPDOWN -->
 
-                        </a>
-                    </li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="subjectDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                </ul>
+							Subject </a>
 
-            </li>
+						<ul class="dropdown-menu dropdown-menu-dark">
 
+							<li><a class="dropdown-item" href="<%=ORSView.SUBJECT_CTL%>">
 
-            <!-- MARKSHEET DROPDOWN -->
+									Add Subject </a></li>
 
-            <li class="nav-item dropdown">
+							<li><a class="dropdown-item"
+								href="<%=ORSView.SUBJECT_LIST_CTL%>"> Subject List </a></li>
 
-                <a class="nav-link dropdown-toggle"
-                   href="#"
-                   id="marksheetDropdown"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
+						</ul></li>
 
-                    MarkSheet
 
-                </a>
+					<!-- FACULTY DROPDOWN -->
 
-                <ul class="dropdown-menu dropdown-menu-dark">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="facultyDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.MARKSHEET_CTL%>">
+							Faculty </a>
 
-                            Add MarkSheet
+						<ul class="dropdown-menu dropdown-menu-dark">
 
-                        </a>
-                    </li>
+							<li><a class="dropdown-item" href="<%=ORSView.FACULTY_CTL%>">
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.MARKSHEET_LIST_CTL%>">
+									Add Faculty </a></li>
 
-                            MarkSheet List
+							<li><a class="dropdown-item"
+								href="<%=ORSView.FACULTY_LIST_CTL%>"> Faculty List </a></li>
 
-                        </a>
-                    </li>
+						</ul></li>
 
-                </ul>
 
-            </li>
+					<!-- TIME TABLE DROPDOWN -->
 
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="timetableDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-            <!-- COURSE DROPDOWN -->
+							Time Table </a>
 
-            <li class="nav-item dropdown">
+						<ul class="dropdown-menu dropdown-menu-dark">
 
-                <a class="nav-link dropdown-toggle"
-                   href="#"
-                   id="courseDropdown"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
+							<li><a class="dropdown-item"
+								href="<%=ORSView.TIMETABLE_CTL%>"> Add Time Table </a></li>
 
-                    Course
+							<li><a class="dropdown-item"
+								href="<%=ORSView.TIMETABLE_LIST_CTL%>"> Time Table List </a></li>
 
-                </a>
+						</ul></li>
 
-                <ul class="dropdown-menu dropdown-menu-dark">
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.COURSE_CTL%>">
+					<!-- MODULE DROPDOWN -->
 
-                            Add Course
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="moduleDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                        </a>
-                    </li>
+							Module </a>
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.COURSE_LIST_CTL%>">
+						<ul class="dropdown-menu dropdown-menu-dark">
 
-                            Course List
+							<li><a class="dropdown-item" href="<%=ORSView.FOOD_CTL%>">
 
-                        </a>
-                    </li>
+									Add Food </a></li>
 
-                </ul>
+							<li><a class="dropdown-item"
+								href="<%=ORSView.FOOD_LIST_CTL%>"> Food List </a></li>
 
-            </li>
+						</ul></li>
 
+				</ul>
 
-            <!-- SUBJECT DROPDOWN -->
 
-            <li class="nav-item dropdown">
+				<!-- My Account DROPDOWN -->
 
-                <a class="nav-link dropdown-toggle"
-                   href="#"
-                   id="subjectDropdown"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="timetableDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                    Subject
+						<b> <%=welcomeMsg + userBean.getFirstName() + " (" + roleName + ")"%>
+					</b>
 
-                </a>
+				</a>
 
-                <ul class="dropdown-menu dropdown-menu-dark">
+					<ul class="dropdown-menu dropdown-menu-dark">
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.SUBJECT_CTL%>">
+						<li><a class="dropdown-item"
+							href="<%=ORSView.MY_PROFILE_CTL + "?id=" + userBean.getId()%>">
 
-                            Add Subject
+								My Profile </a></li>
 
-                        </a>
-                    </li>
+						<li><a class="dropdown-item"
+							href="<%=ORSView.CHANGE_PASSWORD_CTL%>"> Change Password </a></li>
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.SUBJECT_LIST_CTL%>">
+					</ul></li>
 
-                            Subject List
 
-                        </a>
-                    </li>
+				<!-- JAVADOC -->
 
-                </ul>
+				<a class="btn btn-outline-light btn-sm me-2"
+					href="<%=ORSView.JAVA_DOC_VIEW%>"
+					target="_blank"> JavaDoc
 
-            </li>
+				</a>
 
 
-            <!-- FACULTY DROPDOWN -->
+				<!-- LOGOUT -->
 
-            <li class="nav-item dropdown">
+				<a class="btn btn-outline-light btn-sm"
+					href="<%=ORSView.LOGIN_CTL%>?operation=logout"> Logout </a>
 
-                <a class="nav-link dropdown-toggle"
-                   href="#"
-                   id="facultyDropdown"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
 
-                    Faculty
+				<%
+				}
+				%>
 
-                </a>
 
-                <ul class="dropdown-menu dropdown-menu-dark">
+				<%
+				if (!isLogin) {
+				%>
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.FACULTY_CTL%>">
 
-                            Add Faculty
+				<!-- ================= GUEST MENU ================= -->
 
-                        </a>
-                    </li>
+				<ul class="navbar-nav ms-auto align-items-lg-center">
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.FACULTY_LIST_CTL%>">
 
-                            Faculty List
+					<!-- WELCOME -->
 
-                        </a>
-                    </li>
+					<li class="nav-item"><a
+						class="btn btn-primary btn-sm me-2 px-3"
+						href="<%=ORSView.WELCOME_CTL%>"> Welcome </a></li>
 
-                </ul>
 
-            </li>
+					<!-- LOGIN -->
 
+					<li class="nav-item"><a
+						class="btn btn-primary btn-sm me-2 px-3"
+						href="<%=ORSView.LOGIN_CTL%>"> Login </a></li>
 
-            <!-- TIME TABLE DROPDOWN -->
 
-            <li class="nav-item dropdown">
+					<!-- SIGN UP -->
 
-                <a class="nav-link dropdown-toggle"
-                   href="#"
-                   id="timetableDropdown"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
+					<li class="nav-item"><a class="btn btn-primary btn-sm px-3"
+						href="<%=ORSView.USER_REGISTRATION_CTL%>"> Sign Up </a></li>
 
-                    Time Table
 
-                </a>
+				</ul>
 
-                <ul class="dropdown-menu dropdown-menu-dark">
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.TIMETABLE_CTL%>">
+				<%
+				}
+				%>
 
-                            Add Time Table
 
-                        </a>
-                    </li>
+			</div>
 
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.TIMETABLE_LIST_CTL%>">
+		</div>
 
-                            Time Table List
+	</nav>
 
-                        </a>
-                    </li>
 
-                </ul>
+	<!-- BOOTSTRAP JAVASCRIPT -->
 
-            </li>
+	<!-- FIX: pehle popper.min.js aur bootstrap.min.js alag-alag load ho rahe the,
+	     aur bootstrap.min.js ka integrity hash galat tha (bundle wala hash lag gaya tha).
+	     Integrity mismatch hone par browser SRI check fail karke poori script silently
+	     block kar deta hai — isi wajah se dropdown click par khulta nahi tha.
+	     FIX: dono ko hata kar ek hi bootstrap.bundle.min.js use kiya (Popper already
+	     isme included hota hai) aur integrity attribute hata diya taaki mismatch na ho. -->
 
-        </ul>
-
-       <!-- TIME TABLE DROPDOWN -->
-
-            <li class="nav-item dropdown">
-
-                <a class="nav-link dropdown-toggle"
-                   href="#"
-                   id="timetableDropdown"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
-
-                 <b>
-                    <%=welcomeMsg + userBean.getFirstName() + " (" + roleName + ")"%>
-                 </b>
-
-                </a>
-
-                <ul class="dropdown-menu dropdown-menu-dark">
-
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.MY_PROFILE_CTL%>">
-
-                            My Profile
-
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="dropdown-item"
-                           href="<%=ORSView.CHANGE_PASSWORD_CTL%>">
-
-                           Change Password
-
-                        </a>
-                    </li>
-
-                </ul>
-
-            </li>
-
-        </ul>
-
-
-        <!-- LOGOUT -->
-
-        <a class="btn btn-outline-light btn-sm"
-           href="<%=ORSView.LOGIN_CTL%>?operation=logout">
-
-            Logout
-
-        </a>
-
-
-        <%
-
-        }
-
-        %>
-
-
-        <%
-
-        if (!isLogin) {
-
-        %>
-
-
-        <!-- ================= GUEST MENU ================= -->
-
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-
-
-            <!-- WELCOME -->
-
-            <li class="nav-item">
-
-                <a class="btn btn-primary btn-sm me-2 px-3"
-                   href="<%=ORSView.WELCOME_CTL%>">
-
-                    Welcome
-
-                </a>
-
-            </li>
-
-
-            <!-- LOGIN -->
-
-            <li class="nav-item">
-
-                <a class="btn btn-primary btn-sm me-2 px-3"
-                   href="<%=ORSView.LOGIN_CTL%>">
-
-                    Login
-
-                </a>
-
-            </li>
-
-
-            <!-- SIGN UP -->
-
-            <li class="nav-item">
-
-                <a class="btn btn-primary btn-sm px-3"
-                   href="<%=ORSView.USER_REGISTRATION_CTL%>">
-
-                    Sign Up
-
-                </a>
-
-            </li>
-
-
-        </ul>
-
-
-        <%
-
-        }
-
-        %>
-
-
-        </div>
-
-    </div>
-
-</nav>
-
-
-<!-- BOOTSTRAP JAVASCRIPT -->
-<!-- FIX: pehle popper.min.js aur bootstrap.min.js alag-alag load ho rahe the,
-     aur bootstrap.min.js ka integrity hash galat tha (bundle wala hash lag gaya tha).
-     Integrity mismatch hone par browser SRI check fail karke poori script silently
-     block kar deta hai — isi wajah se dropdown click par khulta nahi tha.
-     FIX: dono ko hata kar ek hi bootstrap.bundle.min.js use kiya (Popper already
-     isme included hota hai) aur integrity attribute hata diya taaki mismatch na ho. -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
+		
+	</script>
 
 
 </body>
+
 </html>

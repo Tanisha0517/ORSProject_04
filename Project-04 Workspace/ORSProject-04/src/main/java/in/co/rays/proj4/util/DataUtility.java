@@ -131,5 +131,13 @@ public class DataUtility {
 			return 0;
 		}
 	}
+	
+	public static double getDouble(String val) {
+	    try {
+	        return Double.parseDouble(val);
+	    } catch (Exception e) {
+	        return 0;
+	    }
+	}
 
 }

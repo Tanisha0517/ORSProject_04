@@ -4,6 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
+/**
+ * @author Tanisha
+ */
 public class StudentBean extends BaseBean {
 
 	private String firstName;

@@ -4,11 +4,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
+/**
+ * @author Tanisha
+ */
 public abstract class BaseBean implements DropdownListBean {
 
 	protected long id;
 	protected String createdBy;
-	protected String modifiedBy;
+	protected String modifiedBy; 
 	protected Timestamp createdDateTime; // Timestamp has = data time minute second
 	protected Timestamp modifiedDateTime;
 
@@ -54,7 +57,7 @@ public abstract class BaseBean implements DropdownListBean {
 
 	public void setResultset(ResultSet rs) {
 		try {
-			this.setId(rs.getLong("ID"));
+			this.setId(rs.getLong("ID")); //Database ke ResultSet se ID lo aur current Bean object ke id variable me store karo.
 			this.setCreatedBy(rs.getString("CREATED_BY"));
 			this.setModifiedBy(rs.getString("MODIFIED_BY"));
 			this.setCreatedDateTime(rs.getTimestamp("CREATED_DATETIME"));

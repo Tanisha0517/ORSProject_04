@@ -3,6 +3,9 @@ package in.co.rays.proj4.bean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author Tanisha
+ */
 public class MarksheetBean extends BaseBean {
 
 	private String rollNo;

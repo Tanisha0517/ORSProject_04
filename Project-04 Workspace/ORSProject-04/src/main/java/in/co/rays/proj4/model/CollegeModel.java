@@ -118,13 +118,11 @@ public class CollegeModel extends BaseModel<CollegeBean> {
 
 	@Override
 	public String getTable() {
-		// TODO Auto-generated method stub
 		return "st_college";
 	};
 
 	@Override
 	public CollegeBean getBean() {
-		// TODO Auto-generated method stub
 		return new CollegeBean();
 	}
 
