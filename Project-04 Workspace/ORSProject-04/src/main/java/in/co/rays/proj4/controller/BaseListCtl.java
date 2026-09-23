@@ -46,7 +46,7 @@ public abstract class BaseListCtl<B extends BaseBean, M extends BaseModel> exten
 		M model = getModel();
 
 		if (OP_DELETE.equals(op)) {
-			String[] ids = request.getParameterValues("ids");
+			String[] ids = request.getParameterValues("ids"); //ids ko string array m store kia h
 			if (ids != null && ids.length > 0) {
 				for (String id : ids) {
 					model.delete(DataUtility.getInt(id));

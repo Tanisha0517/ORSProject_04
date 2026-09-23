@@ -2,7 +2,7 @@ package in.co.rays.proj4.controller;
 
 public interface ORSView {
 
-	public String APP_CONTEXT = "/ORSProject-04";
+	public String APP_CONTEXT = "/ORSProject-04"; // constant, field, variable
 
 	public String PAGE_FOLDER = "/jsp";
 
@@ -30,7 +30,9 @@ public interface ORSView {
 	public String TIMETABLE_LIST_VIEW = PAGE_FOLDER + "/TimeTableListView.jsp";
 	public String FOOD_VIEW = PAGE_FOLDER + "/FoodView.jsp";
 	public String FOOD_LIST_VIEW = PAGE_FOLDER + "/FoodListView.jsp";
-	
+	public String GYM_VIEW = PAGE_FOLDER + "/GymView.jsp";
+	public String GYM_LIST_VIEW = PAGE_FOLDER + "/GymListView.jsp";
+
 	public String USER_REGISTRATION_VIEW = PAGE_FOLDER + "/UserRegistrationView.jsp";
 	public String LOGIN_VIEW = PAGE_FOLDER + "/LoginView.jsp";
 	public String WELCOME_VIEW = PAGE_FOLDER + "/Welcome.jsp";
@@ -68,12 +70,12 @@ public interface ORSView {
 	public String MY_PROFILE_CTL = APP_CONTEXT + "/ctl/MyProfileCtl";
 	public String FORGET_PASSWORD_CTL = APP_CONTEXT + "/ForgetPasswordCtl";
 	public String MARKSHEET_MERIT_LIST_CTL = APP_CONTEXT + "/ctl/MarksheetMeritListCtl";
-	
 	public String FOOD_CTL = APP_CONTEXT + "/ctl/FoodCtl";
 	public String FOOD_LIST_CTL = APP_CONTEXT + "/ctl/FoodListCtl";
+	public String GYM_CTL = APP_CONTEXT + "/ctl/GymCtl";
+	public String GYM_LIST_CTL = APP_CONTEXT + "/ctl/GymListCtl";
 	public String UPLOAD_PHOTO_CTL = APP_CONTEXT + "/ctl/uploadphoto";
-	
-    
+
 	public String FACULTY_VIEW = PAGE_FOLDER + "/FacultyView.jsp";
 	public String FACULTY_LIST_VIEW = PAGE_FOLDER + "/FacultyListView.jsp";
 	public String FACULTY_CTL = APP_CONTEXT + "/ctl/FacultyCtl";
@@ -90,8 +92,6 @@ public interface ORSView {
 	public String PRODUCT_CTL = APP_CONTEXT + "/ctl/ProductCtl";
 	public String PRODUCT_LIST_CTL = APP_CONTEXT + "/ctl/ProductListCtl";
 	public String TIMETABLE_REPORT_CTL = APP_CONTEXT + "/ctl/TimeTableReportCtl";
-	
-	
 
 	public String COURSE_REPORT_VIEW = "/reports/CourseListReport.jrxml";
 	public String STUDENT_REPORT_VIEW = "/reports/StudentListReport.jrxml";
