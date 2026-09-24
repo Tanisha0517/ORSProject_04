@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.HashMap;
 
+import org.apache.log4j.Logger;
+
 import in.co.rays.proj4.bean.UserBean;
 import in.co.rays.proj4.exception.ApplicationException;
 import in.co.rays.proj4.exception.DuplicateRecordException;
@@ -15,13 +17,18 @@ import in.co.rays.proj4.util.JDBCDataSource;
 
 public class UserModel extends BaseModel<UserBean> {
 
+	private static Logger log = Logger.getLogger(UserModel.class);
+
 	@Override
 	public long add(UserBean bean) throws ApplicationException, DuplicateRecordException {
+
+		log.debug("Entering add() method for login: " + bean.getLogin());
 
 		Connection conn = null;
 		UserBean existbean = findByLogin(bean.getLogin());
 
 		if (existbean != null) {
+			log.warn("Duplicate login ID found: " + bean.getLogin());
 			throw new DuplicateRecordException("Login Id already exists");
 		}
 
@@ -29,6 +36,9 @@ public class UserModel extends BaseModel<UserBean> {
 
 			conn = JDBCDataSource.getConnection();
 			conn.setAutoCommit(false);
+
+			log.debug("Inserting new user into ST_USER table");
+
 			PreparedStatement pstmt = conn
 					.prepareStatement("INSERT INTO ST_USER VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			pstmt.setInt(1, nextPK());
@@ -54,7 +64,10 @@ public class UserModel extends BaseModel<UserBean> {
 			pstmt.executeUpdate();
 			conn.commit();
 
+			log.info("User added successfully with login: " + bean.getLogin());
+
 		} catch (SQLException e) {
+			log.error("Error while adding user: " + bean.getLogin(), e);
 			e.printStackTrace();
 			JDBCDataSource.trnRollBack(conn);
 		} finally {
@@ -67,16 +80,21 @@ public class UserModel extends BaseModel<UserBean> {
 	@Override
 	public void update(UserBean bean) throws ApplicationException, DuplicateRecordException {
 
+		log.debug("Entering update() method for user ID: " + bean.getId());
+
 		Connection conn = null;
 		UserBean existbean = findByLogin(bean.getLogin());
 
 		if (existbean != null && !(existbean.getId() == bean.getId())) {
+			log.warn("Duplicate login ID found while updating: " + bean.getLogin());
 			throw new DuplicateRecordException("LoginId is already exist");
 		}
 
 		try {
 			conn = JDBCDataSource.getConnection();
-			conn.setAutoCommit(false); // Begin transaction
+			conn.setAutoCommit(false);
+
+			log.debug("Updating user details for user ID: " + bean.getId());
 
 			PreparedStatement pstmt = conn.prepareStatement(
 					"UPDATE ST_USER SET FIRST_NAME=?,LAST_NAME=?,LOGIN=?,PASSWORD=?,DOB=?,MOBILE_NO=?,ROLE_ID=?,UNSUCCESSFUL_LOGIN=?,GENDER=?,LAST_LOGIN=?,USER_LOCK=?,REGISTERED_IP=?,LAST_LOGIN_IP=?,CREATED_BY=?,MODIFIED_BY=?,CREATED_DATETIME=?,MODIFIED_DATETIME=? WHERE ID=?");
@@ -100,10 +118,13 @@ public class UserModel extends BaseModel<UserBean> {
 			pstmt.setLong(18, bean.getId());
 			pstmt.executeUpdate();
 
-			conn.commit(); // End transaction
+			conn.commit();
 			pstmt.close();
 
+			log.info("User updated successfully with ID: " + bean.getId());
+
 		} catch (SQLException e) {
+			log.error("Error while updating user ID: " + bean.getId(), e);
 			e.printStackTrace();
 			JDBCDataSource.trnRollBack(conn);
 		} finally {
@@ -112,22 +133,39 @@ public class UserModel extends BaseModel<UserBean> {
 	}
 
 	public UserBean findByLogin(String login) throws ApplicationException {
+
+		log.debug("Searching user by login: " + login);
+
 		UserBean bean = findByUniqueColumn("login", login);
+
+		if (bean != null) {
+			log.info("User found with login: " + login);
+		} else {
+			log.debug("No user found with login: " + login);
+		}
+
 		return bean;
 	}
 
 	public UserBean authenticate(String login, String password) throws ApplicationException {
-		UserBean bean = findByLogin(login); // usi m humne findByLogin method ko call kia h usko bean m hold kr dia h
+
+		log.debug("Authenticating user with login: " + login);
+
+		UserBean bean = findByLogin(login);
 
 		if (bean != null && bean.getPassword().equals(password)) {
+			log.info("User authenticated successfully: " + login);
 			return bean;
 		} else {
+			log.warn("Authentication failed for login: " + login);
 			return null;
 		}
 	}
 
 	@Override
 	public String getWhereClause(UserBean bean) {
+
+		log.debug("Building WHERE clause for UserBean");
 
 		StringBuffer sql = new StringBuffer("");
 
@@ -150,29 +188,38 @@ public class UserModel extends BaseModel<UserBean> {
 			if (bean.getDob() != null && bean.getDob().getTime() > 0) {
 				sql.append(" and dob like '" + new java.sql.Date(bean.getDob().getTime()) + "%'");
 			}
-
 		}
-		//select * from st_user where 1=1 and first_name like 'a%" and last_name like 'b%' limit 0,10;(0-initial index 10- no of records)
+
+		log.debug("WHERE clause created: " + sql.toString());
 
 		return sql.toString();
 	}
 
 	public void updatePhoto(long id, String photo) throws ApplicationException {
+
+		log.debug("Updating photo for user ID: " + id);
+
 		Connection conn = null;
 
 		try {
 			conn = JDBCDataSource.getConnection();
-			conn.setAutoCommit(false); // Begin transaction
+			conn.setAutoCommit(false);
+
 			PreparedStatement pstmt = conn.prepareStatement("UPDATE ST_USER SET PHOTO = ? WHERE ID = ?");
 			pstmt.setString(1, photo);
 			pstmt.setLong(2, id);
 			pstmt.executeUpdate();
-			conn.commit(); // End transaction
+			conn.commit();
 			pstmt.close();
+
+			log.info("User photo updated successfully for ID: " + id);
+
 		} catch (Exception e) {
+			log.error("Error while updating photo for user ID: " + id, e);
 			try {
 				conn.rollback();
 			} catch (Exception ex) {
+				log.fatal("Critical error during updatePhoto rollback for ID: " + id, ex);
 				throw new ApplicationException("Exception : updatePhoto rollback exception " + ex.getMessage());
 			}
 			throw new ApplicationException("Exception in updating User Photo");
@@ -183,9 +230,14 @@ public class UserModel extends BaseModel<UserBean> {
 
 	public UserBean changePassword(String newPassword, String oldPassword, String login) {
 
+		log.debug("Changing password for login: " + login);
+
 		UserBean bean = findByLogin(login);
 
 		if (bean != null && bean.getPassword().equals(oldPassword)) {
+
+			log.info("Old password verified for login: " + login);
+
 			bean.setPassword(newPassword);
 			update(bean);
 
@@ -204,14 +256,19 @@ public class UserModel extends BaseModel<UserBean> {
 
 			EmailUtility.sendMail(msg);
 
+			log.info("Password changed and email sent successfully for login: " + login);
+
 			return bean;
 		}
 
-		return null;
+		log.warn("Password change failed for login: " + login);
 
+		return null;
 	}
 
 	public UserBean forgotPassword(String login) {
+
+		log.debug("Processing forgot password request for login: " + login);
 
 		UserBean bean = findByLogin(login);
 
@@ -232,14 +289,19 @@ public class UserModel extends BaseModel<UserBean> {
 
 			EmailUtility.sendMail(msg);
 
+			log.info("Forgot password email sent successfully for login: " + login);
+
 			return bean;
 		}
 
-		return null;
+		log.warn("Forgot password request failed. User not found: " + login);
 
+		return null;
 	}
 
 	public long register(UserBean bean) {
+
+		log.debug("Registering new user with login: " + bean.getLogin());
 
 		long pk = add(bean);
 
@@ -257,16 +319,20 @@ public class UserModel extends BaseModel<UserBean> {
 		EmailUtility.sendMail(msg);
 		System.out.println("mail send successfully");
 
+		log.info("User registered and registration email sent successfully: " + bean.getLogin());
+
 		return pk;
 	}
 
 	@Override
 	public String getTable() {
+		log.debug("Returning User table name: st_user");
 		return "st_user";
 	}
 
 	@Override
 	public UserBean getBean() {
+		log.debug("Creating new UserBean object");
 		return new UserBean();
 	}
 

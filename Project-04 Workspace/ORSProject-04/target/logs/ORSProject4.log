@@ -1,0 +1,5 @@
+2026-09-23 18:40:14 DEBUG TestLogForJ:11 - debug message..
+2026-09-23 18:40:14 INFO  TestLogForJ:12 - info message..
+2026-09-23 18:40:14 WARN  TestLogForJ:13 - warn message..
+2026-09-23 18:40:14 ERROR TestLogForJ:14 - error message..
+2026-09-23 18:40:14 FATAL TestLogForJ:15 - fatal message..

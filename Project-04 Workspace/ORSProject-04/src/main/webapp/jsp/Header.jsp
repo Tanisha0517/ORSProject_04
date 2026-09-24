@@ -305,6 +305,13 @@
                             
                             <li><a class="dropdown-item"
 								href="<%=ORSView.GYM_LIST_CTL%>"> Gym Member List </a></li>
+								
+							 <li><a class="dropdown-item"
+								href="<%=ORSView.PARKING_CTL%>"> Add Parking </a></li>
+                            
+                            
+                            <li><a class="dropdown-item"
+								href="<%=ORSView.PARKING_LIST_CTL%>"> Parking List </a></li>
                             
 						</ul></li>
 

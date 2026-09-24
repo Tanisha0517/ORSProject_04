@@ -42,7 +42,7 @@ public abstract class BaseListCtl<B extends BaseBean, M extends BaseModel> exten
 		int pageNo = DataUtility.getInt(request.getParameter("pageNo"));
 		int pageSize = DataUtility.getInt(request.getParameter("pageSize"));
 
-		BaseBean bean = populateBean(request);
+		BaseBean bean = populateBean(request);//userlistctl ki call hogi
 		M model = getModel();
 
 		if (OP_DELETE.equals(op)) {
@@ -53,7 +53,7 @@ public abstract class BaseListCtl<B extends BaseBean, M extends BaseModel> exten
 					ServletUtility.setSuccessMessage("records deleted successfully", request);
 				}
 			} else {
-				ServletUtility.setErrorMessage("select at least one record", request);
+				ServletUtility.setErrorMessage("select at least one record", request); //msg , request 
 			}
 		}
 
