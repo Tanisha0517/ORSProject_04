@@ -74,8 +74,8 @@ public class UserCtl extends BaseCtl<UserBean, UserModel> {
 			request.setAttribute("login", "login is required");
 			pass = false;
 
-		} else if (!request.getParameter("login").matches("[A-Za-z][A-Za-z0-9_]*")) {
-			request.setAttribute("login", "login is not in valid formate");
+		} else if (!DataValidator.isEmail(request.getParameter("login"))) {
+			request.setAttribute("login", "login is not in valid format");
 			pass = false;
 		}
 

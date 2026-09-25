@@ -281,7 +281,7 @@ public class UserModel extends BaseModel<UserBean> {
 			map.put("password", bean.getPassword());
 			map.put("firstName", bean.getFirstName());
 			map.put("lastName", bean.getLastName());
-
+				
 			msg.setTo(map.get("login"));
 			msg.setSubject("Password Changed");
 			msg.setMessage(EmailBuilder.getForgetPasswordMessage(map));

@@ -299,20 +299,29 @@
 								href="<%=ORSView.FOOD_LIST_CTL%>"> Food List </a></li>
 
 
-                            <li><a class="dropdown-item"
-								href="<%=ORSView.GYM_CTL%>"> Add Gym Member </a></li>
-                            
-                            
-                            <li><a class="dropdown-item"
+							<li><a class="dropdown-item" href="<%=ORSView.GYM_CTL%>">
+									Add Gym Member </a></li>
+
+
+							<li><a class="dropdown-item"
 								href="<%=ORSView.GYM_LIST_CTL%>"> Gym Member List </a></li>
-								
-							 <li><a class="dropdown-item"
-								href="<%=ORSView.PARKING_CTL%>"> Add Parking </a></li>
-                            
-                            
-                            <li><a class="dropdown-item"
+
+							<li><a class="dropdown-item" href="<%=ORSView.PARKING_CTL%>">
+									Add Parking </a></li>
+
+
+							<li><a class="dropdown-item"
 								href="<%=ORSView.PARKING_LIST_CTL%>"> Parking List </a></li>
-                            
+
+
+							<li><a class="dropdown-item" href="<%=ORSView.VOTING_CTL%>">
+									Add Voter </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.VOTING_LIST_CTL%>"> Voter List </a></li>
+
+
 						</ul></li>
 
 				</ul>
@@ -345,10 +354,7 @@
 				<!-- JAVADOC -->
 
 				<a class="btn btn-outline-light btn-sm me-2"
-					href="<%=ORSView.JAVA_DOC_VIEW%>"
-					target="_blank"> JavaDoc
-
-				</a>
+					href="<%=ORSView.JAVA_DOC_VIEW%>" target="_blank"> JavaDoc </a>
 
 
 				<!-- LOGOUT -->
