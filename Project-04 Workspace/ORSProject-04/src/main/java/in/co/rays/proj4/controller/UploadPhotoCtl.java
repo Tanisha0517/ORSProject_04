@@ -55,12 +55,13 @@ public class UploadPhotoCtl extends HttpServlet {
 		UserBean bean = null;
 
 		try {
-			bean = model.findByPK(id);
+			bean = model.findByPK(id); // userModel ki findBypk method call hui , aur database se user ki photo ka nam
+										// get kia
 		} catch (ApplicationException e) {
 			e.printStackTrace();
 		}
 
-		String basePath = PropertyReader.getValue("photoPath");
+		String basePath = PropertyReader.getValue("photoPath"); // se humne image folder ka path get kia
 
 		File photoFile = null;
 
@@ -68,6 +69,8 @@ public class UploadPhotoCtl extends HttpServlet {
 		if (bean != null && DataValidator.isNotNull(bean.getPhoto())) {
 
 			photoFile = new File(basePath, bean.getPhoto());
+			// agr user ki phtoo available h toh file ka object bnaya aur image ka path pass
+			// kia
 
 			if (photoFile.exists()) {
 
@@ -77,10 +80,11 @@ public class UploadPhotoCtl extends HttpServlet {
 					contentType = "application/octet-stream";
 				}
 
-				response.setContentType(contentType);
+				response.setContentType(contentType); // isse image ka content type set kia aur
 
-				FileInputStream fis = new FileInputStream(photoFile);
-				OutputStream os = response.getOutputStream();
+				FileInputStream fis = new FileInputStream(photoFile); // fileInputStream ka object bnaya aur image ko
+																		// read kia
+				OutputStream os = response.getOutputStream(); // object bnaya
 
 				byte[] buffer = new byte[4096];
 				int bytes;
@@ -173,6 +177,7 @@ public class UploadPhotoCtl extends HttpServlet {
 
 			// Update photo name in database
 			model.updatePhoto(id, fileName);
+			response.setStatus(HttpServletResponse.SC_OK);
 
 			System.out.println("image successfully uploaded");
 

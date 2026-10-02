@@ -320,6 +320,14 @@
 
 							<li><a class="dropdown-item"
 								href="<%=ORSView.VOTING_LIST_CTL%>"> Voter List </a></li>
+								
+								
+							<li><a class="dropdown-item" href="<%=ORSView.HOSPITAL_CTL%>">
+									Add Hospital </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.HOSPITAL_LIST_CTL%>"> Hospital List </a></li>
 
 
 						</ul></li>

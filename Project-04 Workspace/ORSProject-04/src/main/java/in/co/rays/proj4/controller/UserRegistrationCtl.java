@@ -102,6 +102,7 @@ public class UserRegistrationCtl extends BaseCtl<UserBean, UserModel> {
 			}
 		}
 
+		ServletUtility.setBean(bean, request);
 		ServletUtility.forward(getView(), request, response);
 	}
 

@@ -150,28 +150,18 @@
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label class="form-label fw-bold"><i
-										class="bi bi-person-badge-fill text-primary"></i> Role <span
+										class="bi -person-badge-fill text-primary"></i> Role <span
 										class="text-danger">*</span></label>
-									<%
-									String roleHtml = HTMLUtility.getList("roleId",
-											DataUtility.getStringData(bean.getRoleId()), roleList);
-									roleHtml = roleHtml.replaceFirst("<select",
-											"<select class=\"form-control\"");
-									%>
-									<%=roleHtml%>
+									<%=HTMLUtility.getList("roleId",DataUtility.getStringData(bean.getRoleId()), roleList)%>
+									
 									<small class="text-danger"><%=ServletUtility.getErrorMessage("roleId", request)%></small>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label class="form-label fw-bold"><i
 										class="bi bi-gender-ambiguous text-success"></i> Gender <span
 										class="text-danger">*</span></label>
-									<%
-									String genderHtml = HTMLUtility.getList("gender",
-											DataUtility.getStringData(bean.getGender()), map);
-									genderHtml = genderHtml.replaceFirst("<select",
-											"<select class=\"form-control\"");
-									%>
-									<%=genderHtml%>
+									<%=HTMLUtility.getList("gender",DataUtility.getStringData(bean.getGender()), map)%>
+									
 									<small class="text-danger"><%=ServletUtility.getErrorMessage("gender", request)%></small>
 								</div>
 							</div>

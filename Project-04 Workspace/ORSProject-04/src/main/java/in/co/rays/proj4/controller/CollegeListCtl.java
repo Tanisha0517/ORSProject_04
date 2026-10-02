@@ -1,4 +1,4 @@
-package in.co.rays.proj4.controller;
+ package in.co.rays.proj4.controller;
 
 import in.co.rays.proj4.bean.CollegeBean;
 import in.co.rays.proj4.bean.RoleBean;

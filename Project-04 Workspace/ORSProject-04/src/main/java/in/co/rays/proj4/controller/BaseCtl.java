@@ -15,8 +15,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
-
 /**
  * BaseCtl is an abstract base controller class.
  * It provides common functionality that can be reused
@@ -52,9 +50,8 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	public static final String MSG_ERROR = "error";
 
 	/**
-	 * Validates the data received from the client request.
-	 * Child controllers can override this method
-	 * to provide their own validation logic.
+	 * Validates the data received from the client request. Child controllers can
+	 * override this method to provide their own validation logic.
 	 *
 	 * @param request HTTP request containing form data
 	 * @return true if data is valid, otherwise false
@@ -64,9 +61,8 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	}
 
 	/**
-	 * Loads required data before processing the request.
-	 * Child controllers can override this method to load
-	 * dropdown values or other required data.
+	 * Loads required data before processing the request. Child controllers can
+	 * override this method to load dropdown values or other required data.
 	 *
 	 * @param request HTTP request in which preload data is stored
 	 */
@@ -75,10 +71,8 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	}
 
 	/**
-	 * Populates a bean object using data received from
-	 * the HTTP request.
-	 * Child controllers override this method to create
-	 * and populate their specific bean.
+	 * Populates a bean object using data received from the HTTP request. Child
+	 * controllers override this method to create and populate their specific bean.
 	 *
 	 * @param request HTTP request containing form data
 	 * @return populated bean object
@@ -88,14 +82,13 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	}
 
 	/**
-	 * Populates common audit information into the DTO/Bean.
-	 * It sets createdBy, modifiedBy, createdDateTime and
-	 * modifiedDateTime values.
+	 * Populates common audit information into the DTO/Bean. It sets createdBy,
+	 * modifiedBy, createdDateTime and modifiedDateTime values.
 	 *
-	 * If no logged-in user is available, "root" is used
-	 * as the createdBy and modifiedBy value.
+	 * If no logged-in user is available, "root" is used as the createdBy and
+	 * modifiedBy value.
 	 *
-	 * @param dto bean/DTO whose common information is populated
+	 * @param dto     bean/DTO whose common information is populated
 	 * @param request HTTP request containing user and form data
 	 * @return updated DTO/Bean
 	 */
@@ -134,16 +127,14 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	}
 
 	/**
-	 * Handles GET requests.
-	 * It retrieves the operation and ID from the request,
-	 * finds the corresponding record using the model,
-	 * stores the bean in the request and forwards the request
-	 * to the appropriate view.
+	 * Handles GET requests. It retrieves the operation and ID from the request,
+	 * finds the corresponding record using the model, stores the bean in the
+	 * request and forwards the request to the appropriate view.
 	 *
-	 * @param request HTTP request received from the client
+	 * @param request  HTTP request received from the client
 	 * @param response HTTP response sent to the client
 	 * @throws ServletException if a servlet-related error occurs
-	 * @throws IOException if an input/output error occurs
+	 * @throws IOException      if an input/output error occurs
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -154,7 +145,7 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 		long id = DataUtility.getLong(request.getParameter("id"));
 
 		if (id > 0 || op != null) {
-			BaseBean bean = getModel().findByPK(id);
+			BaseBean bean = getModel().findByPK(id);// findbypk user ka data return kregi
 			ServletUtility.setBean(bean, request);
 		}
 
@@ -162,34 +153,31 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	}
 
 	/**
-	 * Handles POST requests.
-	 * It populates the bean from request data and performs
+	 * Handles POST requests. It populates the bean from request data and performs
 	 * either add or update operation depending on the ID.
 	 *
-	 * If ID is greater than zero, the existing record is updated.
-	 * If ID is zero, a new record is added.
+	 * If ID is greater than zero, the existing record is updated. If ID is zero, a
+	 * new record is added.
 	 *
-	 * @param request HTTP request received from the client
+	 * @param request  HTTP request received from the client
 	 * @param response HTTP response sent to the client
 	 * @throws ServletException if a servlet-related error occurs
-	 * @throws IOException if an input/output error occurs
+	 * @throws IOException      if an input/output error occurs
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		long id = DataUtility.getLong(request.getParameter("id"));
 
-		B bean = populateBean(request);
-		M model = getModel();
+		B bean = populateBean(request);// populate bean method m user k data ko bean m set kia
+		M model = getModel(); // getModel method se usermodel ka object create kia
 
 		if (id > 0) {
 			model.update(bean);
-			ServletUtility.setSuccessMessage(
-					"Data is successfully updated", request);
+			ServletUtility.setSuccessMessage("Data is successfully updated", request);
 		} else {
 			model.add(bean);
-			ServletUtility.setSuccessMessage(
-					"Data is successfully saved", request);
+			ServletUtility.setSuccessMessage("Data is successfully saved", request);
 		}
 
 		ServletUtility.setBean(bean, request);
@@ -199,32 +187,29 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	/**
 	 * Processes every request before it reaches doGet() or doPost().
 	 *
-	 * This method loads the message source and preload data.
-	 * For POST requests, it also performs validation.
-	 * If validation fails, the request is forwarded back to the view
-	 * with the entered bean data.
+	 * This method loads the message source and preload data. For POST requests, it
+	 * also performs validation. If validation fails, the request is forwarded back
+	 * to the view with the entered bean data.
 	 *
-	 * It also handles DuplicateRecordException thrown during
-	 * request processing.
+	 * It also handles DuplicateRecordException thrown during request processing.
 	 *
-	 * @param request HTTP request received from the client
+	 * @param request  HTTP request received from the client
 	 * @param response HTTP response sent to the client
 	 * @throws ServletException if a servlet-related error occurs
-	 * @throws IOException if an input/output error occurs
+	 * @throws IOException      if an input/output error occurs
 	 */
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		getMessageSource(request);
+		BaseBean bean = populateBean(request);
 
 		preload(request);
 
 		if ("POST".equals(request.getMethod())) {
 
 			if (validate(request) == false) {
-
-				BaseBean bean = populateBean(request);
 
 				ServletUtility.setBean(bean, request);
 
@@ -235,10 +220,12 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 		}
 
 		try {
+
 			super.service(request, response);
 
 		} catch (DuplicateRecordException e) {
-
+			e.printStackTrace();
+			ServletUtility.setBean(bean, request);
 			ServletUtility.setErrorMessage(e.getMessage(), request);
 
 			ServletUtility.forward(getView(), request, response);
@@ -246,26 +233,23 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 	}
 
 	/**
-	 * Returns the JSP view associated with the controller.
-	 * Child controllers must override this method and
-	 * return their respective view path.
+	 * Returns the JSP view associated with the controller. Child controllers must
+	 * override this method and return their respective view path.
 	 *
 	 * @return view path of the controller
 	 */
 	protected abstract String getView();
 
 	/**
-	 * Returns the model associated with the controller.
-	 * Child controllers must override this method and
-	 * return their respective model object.
+	 * Returns the model associated with the controller. Child controllers must
+	 * override this method and return their respective model object.
 	 *
 	 * @return model object used by the controller
 	 */
 	protected abstract M getModel();
 
 	/**
-	 * Gets the MessageSource instance used for retrieving
-	 * application messages.
+	 * Gets the MessageSource instance used for retrieving application messages.
 	 *
 	 * @param request HTTP request
 	 * @return MessageSource singleton instance

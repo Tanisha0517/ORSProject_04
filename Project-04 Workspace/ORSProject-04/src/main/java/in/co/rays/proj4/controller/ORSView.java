@@ -36,6 +36,8 @@ public interface ORSView {
 	public String PARKING_LIST_VIEW = PAGE_FOLDER + "/ParkingListView.jsp";
 	public String VOTING_VIEW = PAGE_FOLDER + "/VotingView.jsp";
 	public String VOTING_LIST_VIEW = PAGE_FOLDER + "/VotingListView.jsp";
+	public String HOSPITAL_VIEW = PAGE_FOLDER + "/HospitalView.jsp";
+	public String HOSPITAL_LIST_VIEW = PAGE_FOLDER + "/HospitalListView.jsp";
 
 	public String USER_REGISTRATION_VIEW = PAGE_FOLDER + "/UserRegistrationView.jsp";
 	public String LOGIN_VIEW = PAGE_FOLDER + "/LoginView.jsp";
@@ -88,6 +90,8 @@ public interface ORSView {
 	public String FACULTY_LIST_CTL = APP_CONTEXT + "/ctl/FacultyListCtl";
 	public String VOTING_CTL = APP_CONTEXT + "/ctl/VotingCtl";
 	public String VOTING_LIST_CTL = APP_CONTEXT + "/ctl/VotingListCtl";
+	public String HOSPITAL_CTL = APP_CONTEXT + "/ctl/HospitalCtl";
+	public String HOSPITAL_LIST_CTL = APP_CONTEXT + "/ctl/HospitalListCtl";
 
 	public String STUDENT_REPORT_CTL = APP_CONTEXT + "/ctl/StudentReportCtl";
 	public String COLLEGE_REPORT_CTL = APP_CONTEXT + "/ctl/CollegeReportCtl";
@@ -102,6 +106,7 @@ public interface ORSView {
 	public String TIMETABLE_REPORT_CTL = APP_CONTEXT + "/ctl/TimeTableReportCtl";
 	public String GYM_REPORT_CTL = APP_CONTEXT + "/ctl/GymReportCtl";
 	public String VOTING_REPORT_CTL = APP_CONTEXT + "/ctl/VotingReportCtl";
+	public String HOSPITAL_REPORT_CTL = APP_CONTEXT + "/ctl/HospitalReportCtl";
 
 	public String COURSE_REPORT_VIEW = "/reports/CourseListReport.jrxml";
 	public String STUDENT_REPORT_VIEW = "/reports/StudentListReport.jrxml";
@@ -114,5 +119,6 @@ public interface ORSView {
 	public String TIMETABLE_REPORT_VIEW = "/reports/TimeTableListReport.jrxml";
 	public String GYM_REPORT_VIEW = "/reports/GymListReport.jrxml";
 	public String VOTING_REPORT_VIEW = "/reports/VotingListReport.jrxml";
+	public String HOSPITAL_REPORT_VIEW = "/reports/HospitalListReport.jrxml";
 
 }

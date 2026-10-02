@@ -85,7 +85,7 @@ public class UserModel extends BaseModel<UserBean> {
 		Connection conn = null;
 		UserBean existbean = findByLogin(bean.getLogin());
 
-		if (existbean != null && !(existbean.getId() == bean.getId())) {
+		if (existbean != null && bean.getId() != existbean.getId()) {
 			log.warn("Duplicate login ID found while updating: " + bean.getLogin());
 			throw new DuplicateRecordException("LoginId is already exist");
 		}
@@ -281,7 +281,7 @@ public class UserModel extends BaseModel<UserBean> {
 			map.put("password", bean.getPassword());
 			map.put("firstName", bean.getFirstName());
 			map.put("lastName", bean.getLastName());
-				
+
 			msg.setTo(map.get("login"));
 			msg.setSubject("Password Changed");
 			msg.setMessage(EmailBuilder.getForgetPasswordMessage(map));

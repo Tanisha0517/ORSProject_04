@@ -108,7 +108,7 @@
 									<th>Login</th>
 									<th>DOB</th>
 									<th>RoleName</th>
-									<th>Edit</th>
+									<th>Edit</th> <!-- 1. Edit ka col bnaya -->
 								</tr>
 							</thead>
 							<tbody>
@@ -139,7 +139,7 @@
 									<td><%=rbean.getName()%></td>
 									<td><a class="btn btn-sm btn-outline-primary"
 										href="<%=ORSView.USER_CTL + "?id=" + bean.getId()%>"><i
-											class="bi bi-pencil-square"></i> Edit</a></td>
+											class="bi bi-pencil-square"></i> Edit</a></td><!-- 2. Edit -->
 								</tr>
 								<%
 								}
