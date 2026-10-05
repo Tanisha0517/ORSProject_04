@@ -328,6 +328,14 @@
 
 							<li><a class="dropdown-item"
 								href="<%=ORSView.HOSPITAL_LIST_CTL%>"> Hospital List </a></li>
+								
+								
+							<li><a class="dropdown-item" href="<%=ORSView.MOVIE_CTL%>">
+									Add Movie </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.MOVIE_LIST_CTL%>"> Movie List </a></li>
 
 
 						</ul></li>
