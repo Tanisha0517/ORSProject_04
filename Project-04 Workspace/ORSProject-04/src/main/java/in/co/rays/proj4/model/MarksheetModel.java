@@ -112,7 +112,13 @@ public class MarksheetModel extends BaseModel<MarksheetBean> {
 		return bean;
 
 	}
+	
+	public MarksheetBean getMarksheet(String rollNo) throws ApplicationException {
 
+		MarksheetBean bean = findByRollNo(rollNo);
+
+		return bean;
+	}
 	@Override
 	public String getWhereClause(MarksheetBean bean) {
 		StringBuffer sql = new StringBuffer("");

@@ -169,9 +169,9 @@
 							<div class="mb-4">
 								<label class="form-label fw-bold"><i
 									class="bi bi-calendar-event-fill text-primary"></i> DOB <span
-									class="text-danger">*</span></label> <input type="date"
+									class="text-danger">*</span></label> <input type="text" id="udatee"
 									name="dob" class="form-control"
-									value="<%=DataUtility.getStringData(bean.getDob())%>">
+									value="<%=DataUtility.getDateString(bean.getDob())%>">
 								<small class="text-danger"><%=ServletUtility.getErrorMessage("dob", request)%></small>
 							</div>
 

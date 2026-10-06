@@ -139,5 +139,13 @@ public class DataUtility {
 	        return 0;
 	    }
 	}
+	
+	public static boolean getBoolean(String val) {
+	    try {
+	        return Boolean.parseBoolean(val);
+	    } catch (Exception e) {
+	        return false;
+	    }
+	}
 
 }

@@ -23,6 +23,24 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 
+
+<!-- jQuery UI -->
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+	$(function() {
+		$("#udatee").datepicker({
+			changeMonth : true,
+			changeYear : true,
+			yearRange : '1980:2020',
+		});
+	});
+</script>
 </head>
 
 <body>
@@ -199,6 +217,8 @@
 							<li><a class="dropdown-item"
 								href="<%=ORSView.MARKSHEET_LIST_CTL%>"> MarkSheet List </a></li>
 
+                            <li><a class="dropdown-item"
+								href="<%=ORSView.GET_MARKSHEET_CTL%>"> Get MarkSheet </a></li>
 						</ul></li>
 
 
@@ -336,6 +356,15 @@
 
 							<li><a class="dropdown-item"
 								href="<%=ORSView.MOVIE_LIST_CTL%>"> Movie List </a></li>
+								
+								
+							<li><a class="dropdown-item" href="<%=ORSView.RESTAURANT_CTL%>">
+									Add Restaurant </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.RESTAURANT_LIST_CTL%>"> Restaurant List </a></li>
+							
 
 
 						</ul></li>
