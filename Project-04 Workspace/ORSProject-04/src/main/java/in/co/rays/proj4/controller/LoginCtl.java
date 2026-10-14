@@ -110,4 +110,5 @@ public class LoginCtl extends BaseCtl<UserBean, UserModel> {
 		return new UserModel();
 	}
 
+	
 }

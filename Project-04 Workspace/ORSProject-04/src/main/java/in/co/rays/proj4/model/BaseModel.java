@@ -109,7 +109,8 @@ public abstract class BaseModel<T extends BaseBean> {
 			rs.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Exception: in findByUniqueColumn, " + column + " " + e.getMessage());
+			throw new ApplicationException("Error in findby unique column: " + e.getMessage());
+//			System.out.println("Exception: in findByUniqueColumn, " + column + " " + e.getMessage());
 		} finally {
 			JDBCDataSource.closeConnection(conn);
 		}
@@ -130,7 +131,7 @@ public abstract class BaseModel<T extends BaseBean> {
 			pageNo = (pageNo - 1) * pageSize; // <==== index formula
 			sql.append(" Limit " + pageNo + ", " + pageSize);
 		}
-		System.out.println("sql===> " + sql.toString()); //Complete query
+		System.out.println("sql===> " + sql.toString()); // Complete query
 		try {
 			conn = JDBCDataSource.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql.toString());

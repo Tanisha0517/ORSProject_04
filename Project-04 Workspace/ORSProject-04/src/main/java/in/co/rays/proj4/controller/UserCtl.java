@@ -169,4 +169,10 @@ public class UserCtl extends BaseCtl<UserBean, UserModel> {
 	protected UserModel getModel() {
 		return new UserModel();
 	}
+
+//	@Override
+//	protected String getView(String op) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 }

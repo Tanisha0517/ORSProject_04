@@ -1,0 +1,52 @@
+{
+  "conversationId": "32e339e4-cf71-407c-8ace-09f892d19298",
+  "title": "hii",
+  "requesterUsername": "Tanisha0517",
+  "responderUsername": "GitHub Copilot",
+  "turns": [
+    {
+      "message": {
+        "text": "hii"
+      },
+      "references": [],
+      "ignoredSkills": [],
+      "userLanguage": "en",
+      "source": "panel",
+      "model": "Auto",
+      "chatMode": "Ask",
+      "needToolCallConfirmation": true,
+      "turnId": "5e61d5b4-cd65-438a-9e3a-f8c12b8d1b5f",
+      "role": "user",
+      "timestamp": "2026-10-09T10:41:43.295204800Z"
+    },
+    {
+      "reply": {
+        "annotations": [],
+        "references": [],
+        "hideText": false,
+        "notifications": [],
+        "followups": [],
+        "errorMessages": [
+          {
+            "error": {
+              "message": "No model configuration found",
+              "code": -1
+            }
+          }
+        ],
+        "editAgentRounds": [],
+        "panelMessages": [],
+        "steps": [],
+        "agentMessages": [],
+        "data": {},
+        "modelName": "auto",
+        "billingMultiplier": 0.0
+      },
+      "turnId": "5e61d5b4-cd65-438a-9e3a-f8c12b8d1b5f",
+      "role": "copilot",
+      "timestamp": "2026-10-09T10:41:43.657676200Z"
+    }
+  ],
+  "creationDate": "2026-10-09T10:41:43.208778500Z",
+  "lastMessageDate": "2026-10-09T10:41:44.216161700Z"
+}

@@ -1,0 +1,459 @@
+!SESSION 2026-10-09 16:02:31.765 -----------------------------------------------
+eclipse.buildId=4.40.0.20260604-0652
+java.version=21.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2026-10-09 16:03:21.011
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2026-10-09 16:05:01.878
+!MESSAGE Logback config file: D:\Project-04 Workspace\ORSProject-04\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.101.20251017-1242.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2026-10-09 16:05:26.112
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Tanisha'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2026-10-09 16:06:13.528
+!MESSAGE Unexpected interrupt while waiting on ECF browse request
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireSharedNanos(AbstractQueuedSynchronizer.java:1167)
+	at java.base/java.util.concurrent.CountDownLatch.await(CountDownLatch.java:276)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileInfoReader.getLastModified(FileInfoReader.java:85)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.getLastModified(RepositoryTransport.java:281)
+	at org.eclipse.oomph.p2.internal.core.CachingTransport.delegateGetLastModified(CachingTransport.java:427)
+	at org.eclipse.oomph.p2.internal.core.CachingTransport.getLastModified(CachingTransport.java:364)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.getLastModified(CacheManager.java:287)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:238)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.getLocalFile(CompositeArtifactRepositoryFactory.java:75)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:100)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:94)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:853)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:126)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:447)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:230)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.loadRepository(CachingRepositoryManager.java:586)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:128)
+	at org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager.loadRepository(IArtifactRepositoryManager.java:136)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:495)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:158)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:79)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:127)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:94)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:853)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:126)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:447)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:230)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.loadRepository(CachingRepositoryManager.java:586)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:128)
+	at org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager.loadRepository(IArtifactRepositoryManager.java:136)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:495)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:158)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:79)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:127)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:94)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:853)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:126)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:447)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:230)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.loadRepository(CachingRepositoryManager.java:586)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:128)
+	at org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager.loadRepository(IArtifactRepositoryManager.java:136)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.lambda$10(MarketplaceCatalog.java:330)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2026-10-09 16:07:08.465
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.microsoft.copilot.eclipse.branding,0.21.0.202608060743 from repository https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2026-10-09 16:07:08.465
+!MESSAGE No digest algorithm is available to verify download of org.eclipse.update.feature,com.microsoft.copilot.eclipse.feature,0.21.0.202608060743 from repository https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2026-10-09 16:07:08.467
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.microsoft.copilot.eclipse.core,0.21.0.202608060743 from repository https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2026-10-09 16:07:08.468
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.microsoft.copilot.eclipse.core.agent.win32,0.21.0.202608060743 from repository https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2026-10-09 16:07:09.392
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.microsoft.copilot.eclipse.ui,0.21.0.202608060743 from repository https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2026-10-09 16:07:09.392
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.microsoft.copilot.eclipse.terminal.api,0.21.0.202608060743 from repository https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2026-10-09 16:07:09.765
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.microsoft.copilot.eclipse.ui.jobs,0.21.0.202608060743 from repository https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/.
+!SESSION 2026-10-09 16:07:42.155 -----------------------------------------------
+eclipse.buildId=4.40.0.20260604-0652
+java.version=21.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2026-10-09 16:07:52.301
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2026-10-09 16:08:26.578
+!MESSAGE Logback config file: D:\Project-04 Workspace\ORSProject-04\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.101.20251017-1242.xml
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-09 16:08:38.504
+!MESSAGE [Info] Starting language server with binary lsp agent.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-09 16:08:38.510
+!MESSAGE [Info] Found native binary in fragment bundle: com.microsoft.copilot.eclipse.core.agent.win32
+
+!ENTRY org.eclipse.egit.ui 2 0 2026-10-09 16:08:38.662
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Tanisha'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-09 16:08:45.029
+!MESSAGE [Info] Binary agent started successfully.
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:49.643
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[ripgrep] Using tmpFolder for ripgrep: C:\Users\Tanisha\.cache\pkg\72dc6f288b8f13e22da7572a55f576ac335b8402e617b8aaf91f8dbf72adf1a0
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:49.644
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[lsp] GitHub Copilot Language Server 1.527.0 initialized
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:49.645
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[ripgrep] Set GITHUB_COPILOT_RIPGREP_PATH_OVERRIDE=C:\Users\Tanisha\.cache\pkg\72dc6f288b8f13e22da7572a55f576ac335b8402e617b8aaf91f8dbf72adf1a0\rg.exe
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:49.646
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[ripgrep] Resolved ripgrep path: C:\Users\Tanisha\.cache\pkg\72dc6f288b8f13e22da7572a55f576ac335b8402e617b8aaf91f8dbf72adf1a0\rg.exe
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:49.938
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[certificates] Removed 10 expired certificates
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:49.940
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[UndiciFetcher] Root certificate set changed; resetting Undici dispatchers. { certificateCount: 181 }
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:49.941
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:49.942
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:49.942
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[default] Policy watcher started for GitHub Copilot Plugin
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:49.961
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[UndiciFetcher] HTTP settings changed; resetting Undici dispatchers. {
+  proxy: 'none',
+  noProxyCount: 0,
+  proxyStrictSSL: true,
+  hasProxyAuthorization: false,
+  hasProxyKerberosServicePrincipal: false
+}
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:49.964
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:50.626
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[GithubAvailableEmbeddingTypes] Got embeddings. Primary: metis-1024-I16-Binary. Deprecated: 
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:50.815
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[UndiciFetcher] Root certificate set changed; resetting Undici dispatchers. { certificateCount: 181 }
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:51.881
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AutoModelService] Auto model cache cleared due to token update
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:51.881
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[CopilotMCP] MCP state changed from false to true
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:51.887
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:51.888
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:51.888
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:51.889
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:51.890
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[BackgroundAgent] GitHub identity changed, clearing cached sessions {
+  hadPrevious: false,
+  hasCurrent: true,
+  cachedSessionCount: 0,
+  remoteDelegateCount: 0
+}
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:08:51.892
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:00.333
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:06.458
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] signOutEditor: editorId=eclipse
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:06.459
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:06.460
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=true autoAdoptAttempted=false
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:06.462
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] checkAndUpdateStatus: no session found, priming token
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:06.463
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:06.464
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=true autoAdoptAttempted=false
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:08.475
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=true autoAdoptAttempted=false
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:08.476
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:08.477
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:08.478
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=true autoAdoptAttempted=false
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:08.480
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] checkAndUpdateStatus: no session found, priming token
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:22.339
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=true autoAdoptAttempted=false
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:22.340
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:22.341
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:22.342
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=true autoAdoptAttempted=false
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:09:22.343
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] checkAndUpdateStatus: no session found, priming token
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:21.413
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] signInEditor: persisted editorId=eclipse tokenId=1 rewrite=true
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:21.414
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: resolved from transient session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:21.415
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: resolved from transient session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:22.851
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AutoModelService] Auto model cache cleared due to token update
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:22.852
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[BackgroundAgent] GitHub identity changed, clearing cached sessions {
+  hadPrevious: true,
+  hasCurrent: true,
+  cachedSessionCount: 0,
+  remoteDelegateCount: 0
+}
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:22.852
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: resolved from transient session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:22.853
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: resolved from transient session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:22.856
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: resolved from transient session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:28.348
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: resolved from transient session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:44.046
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AutoModelService] Fetched auto model for active in 401ms: mai-code-1.1-flash
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-10-09 16:11:44.048
+!MESSAGE [LS:GitHub Copilot Language Server][Error]	[chat] No model configuration found for families: mai-code-1.1-flash. Available models: [{"billing":{"restricted_to":["pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":25,"cache_write_1h_price":2000,"cache_write_price":1250,"context_max":200000,"input_price":1000,"output_price":5000},"long_context":{"cache_price":25,"cache_write_1h_price":2000,"cache_write_price":1250,"context_max":936000,"input_price":1000,"output_price":5000}}},"capabilities":{"family":"claude-fable-5.1","limits":{"max_context_window_tokens":1000000,"max_non_streaming_output_tokens":16000,"max_output_tokens":64000,"max_prompt_tokens":936000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"adaptive_thinking":true,"max_thinking_budget":32000,"min_thinking_budget":1024,"parallel_tool_calls":true,"reasoning_effort":["low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"claude-fable-5.1","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"very_high","name":"Claude Fable 5.1","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest Claude Fable 5.1 model from Anthropic. [Learn more about how GitHub Copilot serves Claude Fable 5.1](https://gh.io/copilot-claude-opus)."},"preview":false,"supported_endpoints":["/v1/messages","/chat/completions"],"vendor":"Anthropic","version":"claude-fable-5.1","warning_text":{"data_retention":"When Claude Fable 5.1 is used, Anthropic retains data, including prompts and outputs, by default to operate safety classifiers that detect harmful use. Certain eligible Copilot Business and Copilot Enterprise customers may be approved for Zero Data Retention access. To learn whether your organization qualifies, contact your GitHub account team. GitHub Support cannot determine eligibility or enable access."}},{"billing":{"restricted_to":["pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":100,"cache_write_1h_price":2000,"cache_write_price":1250,"context_max":200000,"input_price":1000,"output_price":5000},"long_context":{"cache_price":100,"cache_write_1h_price":2000,"cache_write_price":1250,"context_max":936000,"input_price":1000,"output_price":5000}}},"capabilities":{"family":"claude-fable-5","limits":{"max_context_window_tokens":1000000,"max_non_streaming_output_tokens":16000,"max_output_tokens":64000,"max_prompt_tokens":936000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"adaptive_thinking":true,"max_thinking_budget":32000,"min_thinking_budget":1024,"parallel_tool_calls":true,"reasoning_effort":["low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"claude-fable-5","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"very_high","name":"Claude Fable 5","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest Claude Fable 5 model from Anthropic. [Learn more about how GitHub Copilot serves Claude Fable 5](https://gh.io/copilot-claude-opus)."},"preview":false,"supported_endpoints":["/v1/messages","/chat/completions"],"vendor":"Anthropic","version":"claude-fable-5","warning_text":{"data_retention":"When Claude Fable 5 is used, Anthropic retains data, including prompts and outputs, by default to operate safety classifiers that detect harmful use. Certain eligible Copilot Business and Copilot Enterprise customers may be approved for Zero Data Retention access. To learn whether your organization qualifies, contact your GitHub account team. GitHub Support cannot determine eligibility or enable access."}},{"billing":{"restricted_to":["pro","pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":1,"cache_write_1h_price":20,"cache_write_price":12,"context_max":100000,"input_price":10,"output_price":50},"long_context":{"cache_price":5,"cache_write_1h_price":100,"cache_write_price":62,"context_max":936000,"input_price":50,"output_price":250}}},"capabilities":{"family":"claude-haiku-5.5","limits":{"max_context_window_tokens":1000000,"max_non_streaming_output_tokens":16000,"max_output_tokens":128000,"max_prompt_tokens":936000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":5,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"adaptive_thinking":true,"parallel_tool_calls":true,"reasoning_effort":["low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"claude-haiku-5.5","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"lightweight","model_picker_enabled":false,"model_picker_price_category":"low","name":"Claude Haiku 5.5","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest Claude Haiku 5.5 model from Anthropic. [Learn more about how GitHub Copilot serves Claude Haiku 5.5](https://gh.io/copilot-claude-opus)."},"preview":false,"supported_endpoints":["/v1/messages","/chat/completions"],"vendor":"Anthropic","version":"claude-haiku-5.5"},{"billing":{"restricted_to":["pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":100,"cache_write_1h_price":2000,"cache_write_price":1250,"context_max":200000,"input_price":1000,"output_price":5000},"long_context":{"cache_price":100,"cache_write_1h_price":2000,"cache_write_price":1250,"context_max":936000,"input_price":1000,"output_price":5000}}},"capabilities":{"family":"claude-opus-4.8-fast","limits":{"max_context_window_tokens":1000000,"max_non_streaming_output_tokens":16000,"max_output_tokens":64000,"max_prompt_tokens":936000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"adaptive_thinking":true,"max_thinking_budget":32000,"min_thinking_budget":1024,"parallel_tool_calls":true,"reasoning_effort":["low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"claude-opus-4.8-fast","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"very_high","name":"Claude Opus 4.8 (fast mode)","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest Claude Opus 4.8 fast model from Anthropic. [Learn more about how GitHub Copilot serves Claude Opus 4.8 fast](https://gh.io/copilot-claude-opus)."},"preview":true,"supported_endpoints":["/v1/messages","/chat/completions"],"vendor":"Anthropic","version":"claude-opus-4.8-fast"},{"billing":{"restricted_to":["pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":50,"cache_write_1h_price":1000,"cache_write_price":625,"context_max":200000,"input_price":500,"output_price":2500},"long_context":{"cache_price":50,"cache_write_1h_price":1000,"cache_write_price":625,"context_max":936000,"input_price":500,"output_price":2500}}},"capabilities":{"family":"claude-opus-4.8","limits":{"max_context_window_tokens":1000000,"max_non_streaming_output_tokens":16000,"max_output_tokens":64000,"max_prompt_tokens":936000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"adaptive_thinking":true,"max_thinking_budget":32000,"min_thinking_budget":1024,"parallel_tool_calls":true,"reasoning_effort":["low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"claude-opus-4.8","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"high","name":"Claude Opus 4.8","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest Claude Opus 4.8 model from Anthropic. [Learn more about how GitHub Copilot serves Claude Opus 4.8](https://gh.io/copilot-claude-opus)."},"preview":false,"supported_endpoints":["/v1/messages","/chat/completions"],"vendor":"Anthropic","version":"claude-opus-4.8"},{"billing":{"restricted_to":["pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":20,"cache_write_price":500,"context_max":200000,"input_price":400,"output_price":2000},"long_context":{"cache_price":20,"cache_write_price":500,"context_max":1000000,"input_price":400,"output_price":2000}}},"capabilities":{"family":"claude-opus-5.5","limits":{"max_context_window_tokens":1000000,"max_non_streaming_output_tokens":16000,"max_output_tokens":128000,"max_prompt_tokens":1000000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"adaptive_thinking":true,"parallel_tool_calls":true,"reasoning_effort":["low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"claude-opus-5.5","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"high","name":"Claude Opus 5.5","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest Claude Opus 5.5 model from Anthropic. [Learn more about how GitHub Copilot serves Claude Opus 5.5](https://gh.io/copilot-claude-opus)."},"preview":false,"supported_endpoints":["/v1/messages","/chat/completions"],"vendor":"Anthropic","version":"claude-opus-5.5"},{"billing":{"restricted_to":["pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":50,"cache_write_1h_price":1000,"cache_write_price":625,"context_max":200000,"input_price":500,"output_price":2500},"long_context":{"cache_price":50,"cache_write_1h_price":1000,"cache_write_price":625,"context_max":936000,"input_price":500,"output_price":2500}}},"capabilities":{"family":"claude-opus-5","limits":{"max_context_window_tokens":1000000,"max_non_streaming_output_tokens":16000,"max_output_tokens":64000,"max_prompt_tokens":936000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"adaptive_thinking":true,"max_thinking_budget":32000,"min_thinking_budget":1024,"parallel_tool_calls":true,"reasoning_effort":["low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"claude-opus-5","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"high","name":"Claude Opus 5","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest Claude Opus 5 model from Anthropic. [Learn more about how GitHub Copilot serves Claude Opus 5](https://gh.io/copilot-claude-opus)."},"preview":false,"supported_endpoints":["/v1/messages","/chat/completions"],"vendor":"Anthropic","version":"claude-opus-5"},{"billing":{"restricted_to":["pro","pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":10,"cache_write_1h_price":400,"cache_write_price":250,"context_max":200000,"input_price":200,"output_price":1000},"long_context":{"cache_price":10,"cache_write_1h_price":400,"cache_write_price":250,"context_max":936000,"input_price":200,"output_price":1000}}},"capabilities":{"family":"claude-sonnet-5.5","limits":{"max_context_window_tokens":1000000,"max_non_streaming_output_tokens":16000,"max_output_tokens":128000,"max_prompt_tokens":936000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":5,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"adaptive_thinking":true,"parallel_tool_calls":true,"reasoning_effort":["low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"claude-sonnet-5.5","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"versatile","model_picker_enabled":false,"model_picker_price_category":"medium","name":"Claude Sonnet 5.5","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest Claude model from Anthropic. [Learn more about how GitHub Copilot serves Claude](https://gh.io/copilot-claude-opus)."},"preview":false,"supported_endpoints":["/v1/messages","/chat/completions"],"vendor":"Anthropic","version":"claude-sonnet-5.5"},{"billing":{"restricted_to":["pro","pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":20,"cache_write_1h_price":400,"cache_write_price":250,"context_max":200000,"input_price":200,"output_price":1000},"long_context":{"cache_price":20,"cache_write_1h_price":400,"cache_write_price":250,"context_max":936000,"input_price":200,"output_price":1000}}},"capabilities":{"family":"claude-sonnet-5","limits":{"max_context_window_tokens":1000000,"max_non_streaming_output_tokens":16000,"max_output_tokens":64000,"max_prompt_tokens":936000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":5,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"adaptive_thinking":true,"max_thinking_budget":32000,"min_thinking_budget":1024,"parallel_tool_calls":true,"reasoning_effort":["low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"claude-sonnet-5","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"versatile","model_picker_enabled":false,"model_picker_price_category":"medium","name":"Claude Sonnet 5","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest Claude model from Anthropic. [Learn more about how GitHub Copilot serves Claude](https://gh.io/copilot-claude-opus)."},"preview":false,"supported_endpoints":["/v1/messages","/chat/completions"],"vendor":"Anthropic","version":"claude-sonnet-5"},{"billing":{"restricted_to":["free","edu","pro","pro_plus","individual_trial","max"],"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"search-agent","limits":{"max_context_window_tokens":260000,"max_output_tokens":16000,"max_prompt_tokens":244000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"copilot-search-a","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"low","name":"Copilot Agent A","object":"model","preview":true,"supported_endpoints":["/chat/completions"],"vendor":"Fireworks","version":"copilot-search-a"},{"billing":{"restricted_to":["free","edu","pro","pro_plus","individual_trial","max"],"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"search-agent","limits":{"max_context_window_tokens":260000,"max_output_tokens":16000,"max_prompt_tokens":244000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"copilot-search-b","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"low","name":"Copilot Search B","object":"model","preview":true,"supported_endpoints":["/chat/completions"],"vendor":"Fireworks","version":"copilot-search-b"},{"billing":{"restricted_to":["free","edu","pro","pro_plus","individual_trial","max"],"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"search-agent","limits":{"max_context_window_tokens":260000,"max_output_tokens":16000,"max_prompt_tokens":244000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"copilot-search-c","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"low","name":"Copilot Search C","object":"model","preview":true,"supported_endpoints":["/chat/completions"],"vendor":"Fireworks","version":"copilot-search-c"},{"billing":{"restricted_to":["free","edu","pro","pro_plus","individual_trial","max"],"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"exec-agent","limits":{"max_context_window_tokens":260000,"max_output_tokens":16000,"max_prompt_tokens":244000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"exec-agent-a","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"low","name":"Exec Agent A","object":"model","preview":true,"supported_endpoints":["/chat/completions"],"vendor":"Fireworks","version":"exec-agent-a"},{"billing":{"restricted_to":["free","edu","pro","pro_plus","individual_trial","max"],"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"exec-agent","limits":{"max_context_window_tokens":260000,"max_output_tokens":16000,"max_prompt_tokens":244000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"exec-agent-b","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"low","name":"Exec Agent B","object":"model","preview":true,"supported_endpoints":["/chat/completions"],"vendor":"Fireworks","version":"exec-agent-b"},{"billing":{"restricted_to":["free","edu","pro","pro_plus","individual_trial","max"],"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"exec-agent","limits":{"max_context_window_tokens":260000,"max_output_tokens":16000,"max_prompt_tokens":244000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"exec-agent-c","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"low","name":"Exec Agent C","object":"model","preview":true,"supported_endpoints":["/chat/completions"],"vendor":"Fireworks","version":"exec-agent-c"},{"billing":{"restricted_to":["pro","pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":7,"cache_write_price":0,"context_max":200000,"input_price":75,"output_price":375},"long_context":{"cache_price":7,"cache_write_price":0,"context_max":936000,"input_price":75,"output_price":375}}},"capabilities":{"family":"gemini-3.7-flash","limits":{"max_context_window_tokens":1000000,"max_output_tokens":64000,"max_prompt_tokens":936000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":10,"supported_media_types":["image/jpeg","image/png","image/webp","image/heic","image/heif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["low","medium","high"],"streaming":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gemini-3.7-flash","info_messages":[{"code":"model_pending_deprecation","message":"Gemini 3.7 Flash has a planned deprecation date of 2026-10-19."}],"is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"versatile","model_picker_enabled":false,"model_picker_price_category":"low","name":"Gemini 3.7 Flash","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest Gemini 3.7 Flash model from Google. [Learn more about how GitHub Copilot serves Gemini 3.7 Flash](https://docs.github.com/en/copilot/reference/ai-models/model-hosting#google-models)."},"preview":false,"supported_endpoints":["/chat/completions"],"vendor":"Google","version":"gemini-3.7-flash"},{"billing":{"restricted_to":["pro","pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":7,"cache_write_price":0,"context_max":200000,"input_price":75,"output_price":375},"long_context":{"cache_price":7,"cache_write_price":0,"context_max":983040,"input_price":75,"output_price":375}}},"capabilities":{"family":"gemini-3.8-flash","limits":{"max_context_window_tokens":1048576,"max_output_tokens":65536,"max_prompt_tokens":983040,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":10,"supported_media_types":["image/jpeg","image/png","image/webp","image/heic","image/heif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["low","medium","high"],"streaming":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gemini-3.8-flash","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"versatile","model_picker_enabled":false,"model_picker_price_category":"low","name":"Gemini 3.8 Flash","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest Gemini 3.8 Flash model from Google. [Learn more about how GitHub Copilot serves Gemini 3.8 Flash](https://docs.github.com/en/copilot/reference/ai-models/model-hosting#google-models)."},"preview":false,"supported_endpoints":["/chat/completions"],"vendor":"Google","version":"gemini-3.8-flash"},{"billing":{"restricted_to":["pro","pro_plus","individual_trial","edu","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":7,"cache_write_price":0,"context_max":272000,"input_price":75,"output_price":450}}},"capabilities":{"family":"gpt-5.4-mini","limits":{"max_context_window_tokens":400000,"max_output_tokens":128000,"max_prompt_tokens":272000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["none","low","medium","high","xhigh"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-5.4-mini","info_messages":[{"code":"model_pending_deprecation","message":"GPT-5.4 mini has a planned deprecation date of 2026-10-19."}],"is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"lightweight","model_picker_enabled":false,"model_picker_price_category":"low","name":"GPT-5.4 mini","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest GPT-5.4 mini model from OpenAI. [Learn more about how GitHub Copilot serves GPT-5.4 mini](https://gh.io/copilot-openai)."},"preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"OpenAI","version":"gpt-5.4-mini"},{"billing":{"restricted_to":["pro","pro_plus","individual_trial","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":25,"cache_write_price":0,"context_max":272000,"input_price":250,"output_price":1500},"long_context":{"cache_price":50,"cache_write_price":0,"context_max":922000,"input_price":500,"output_price":2250}}},"capabilities":{"family":"gpt-5.4","limits":{"max_context_window_tokens":1050000,"max_output_tokens":128000,"max_prompt_tokens":922000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["none","low","medium","high","xhigh"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-5.4","info_messages":[{"code":"model_pending_deprecation","message":"GPT-5.4 has a planned deprecation date of 2026-10-19."}],"is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT-5.4","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest GPT-5.4 model from OpenAI. [Learn more about how GitHub Copilot serves GPT-5.4](https://gh.io/copilot-openai)."},"preview":false,"supported_endpoints":["/responses","/chat/completions","ws:/responses"],"vendor":"OpenAI","version":"gpt-5.4"},{"billing":{"restricted_to":["pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":50,"cache_write_price":0,"context_max":272000,"input_price":500,"output_price":3000},"long_context":{"cache_price":100,"cache_write_price":0,"context_max":922000,"input_price":1000,"output_price":4500}}},"capabilities":{"family":"gpt-5.5","limits":{"max_context_window_tokens":1050000,"max_output_tokens":128000,"max_prompt_tokens":922000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["none","low","medium","high","xhigh"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-5.5","info_messages":[{"code":"model_pending_deprecation","message":"GPT-5.5 has a planned deprecation date of 2026-10-19."}],"is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"high","name":"GPT-5.5","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest GPT-5.5 model from OpenAI. [Learn more about how GitHub Copilot serves GPT-5.5](https://gh.io/copilot-openai)."},"preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"OpenAI","version":"gpt-5.5"},{"billing":{"restricted_to":["free","edu","pro","pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":2,"cache_write_price":25,"context_max":200000,"input_price":20,"output_price":120},"long_context":{"cache_price":4,"cache_write_price":50,"context_max":922000,"input_price":40,"output_price":180}}},"capabilities":{"family":"gpt-5.6-luna","limits":{"max_context_window_tokens":1050000,"max_output_tokens":128000,"max_prompt_tokens":922000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["none","low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-5.6-luna","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"lightweight","model_picker_enabled":false,"model_picker_price_category":"low","name":"GPT-5.6 Luna","object":"model","policy":{"state":"enabled","terms":"Enable access to the latest GPT-5.6 Luna model from OpenAI. [Learn more about how GitHub Copilot serves GPT-5.6 Luna](https://gh.io/copilot-openai)."},"preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"OpenAI","version":"gpt-5.6-luna"},{"billing":{"restricted_to":["pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":40,"cache_write_price":500,"context_max":272000,"input_price":400,"output_price":2000},"long_context":{"cache_price":80,"cache_write_price":1000,"context_max":922000,"input_price":800,"output_price":3000}}},"capabilities":{"family":"gpt-5.6-sol","limits":{"max_context_window_tokens":1050000,"max_output_tokens":128000,"max_prompt_tokens":922000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["none","low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-5.6-sol","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"high","name":"GPT-5.6 Sol","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest GPT-5.6 Sol model from OpenAI. [Learn more about how GitHub Copilot serves GPT-5.6 Sol](https://gh.io/copilot-openai)."},"preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"OpenAI","version":"gpt-5.6-sol"},{"billing":{"restricted_to":["pro","pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":20,"cache_write_price":250,"context_max":272000,"input_price":200,"output_price":1200},"long_context":{"cache_price":40,"cache_write_price":500,"context_max":922000,"input_price":400,"output_price":1800}}},"capabilities":{"family":"gpt-5.6-terra","limits":{"max_context_window_tokens":1050000,"max_output_tokens":128000,"max_prompt_tokens":922000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["none","low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-5.6-terra","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"versatile","model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT-5.6 Terra","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest GPT-5.6 Terra model from OpenAI. [Learn more about how GitHub Copilot serves GPT-5.6 Terra](https://gh.io/copilot-openai)."},"preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"OpenAI","version":"gpt-5.6-terra"},{"billing":{"restricted_to":["pro","pro_plus","business","enterprise","max"],"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-5.6-luna-utility","limits":{"max_context_window_tokens":1050000,"max_output_tokens":128000,"max_prompt_tokens":922000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["none","low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-5.6-luna-utility","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"low","name":"GPT-5.6 Luna Utility","object":"model","preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"OpenAI","version":"gpt-5.6-luna-utility"},{"billing":{"restricted_to":["pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":10,"cache_write_price":250,"context_max":272000,"input_price":200,"output_price":1000},"long_context":{"cache_price":20,"cache_write_price":500,"context_max":922000,"input_price":400,"output_price":1500}}},"capabilities":{"family":"gpt-6.1-sol","limits":{"max_context_window_tokens":1050000,"max_output_tokens":128000,"max_prompt_tokens":922000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["none","low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-6.1-sol","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT-6.1 Sol","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest GPT-6.1 Sol model from OpenAI. [Learn more about how GitHub Copilot serves GPT-6.1 Sol](https://gh.io/copilot-openai)."},"preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"OpenAI","version":"gpt-6.1-sol"},{"billing":{"restricted_to":["pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":100,"cache_write_price":1250,"context_max":272000,"input_price":1000,"output_price":5000},"long_context":{"cache_price":200,"cache_write_price":2500,"context_max":1050000,"input_price":2000,"output_price":7500}}},"capabilities":{"family":"gpt-6-astra","limits":{"max_context_window_tokens":1050000,"max_output_tokens":128000,"max_prompt_tokens":1050000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-6-astra","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"very_high","name":"GPT-6 Astra","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest GPT-6 Astra model from OpenAI. [Learn more about how GitHub Copilot serves GPT-6 Astra](https://gh.io/copilot-openai)."},"preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"OpenAI","version":"gpt-6-astra"},{"billing":{"restricted_to":["free","edu","pro","pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":1,"cache_write_price":12,"context_max":272000,"input_price":10,"output_price":50},"long_context":{"cache_price":2,"cache_write_price":25,"context_max":872000,"input_price":20,"output_price":75}}},"capabilities":{"family":"gpt-6-luna","limits":{"max_context_window_tokens":1000000,"max_output_tokens":128000,"max_prompt_tokens":872000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["none","low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-6-luna","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"lightweight","model_picker_enabled":false,"model_picker_price_category":"low","name":"GPT-6 Luna","object":"model","policy":{"state":"enabled","terms":"Enable access to the latest GPT-6 Luna model from OpenAI. [Learn more about how GitHub Copilot serves GPT-6 Luna](https://gh.io/copilot-openai)."},"preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"OpenAI","version":"gpt-6-luna"},{"billing":{"restricted_to":["pro_plus","business","enterprise","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":20,"cache_write_price":250,"context_max":272000,"input_price":200,"output_price":1000},"long_context":{"cache_price":40,"cache_write_price":500,"context_max":872000,"input_price":400,"output_price":1500}}},"capabilities":{"family":"gpt-6-sol","limits":{"max_context_window_tokens":1000000,"max_output_tokens":128000,"max_prompt_tokens":872000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["none","low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-6-sol","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT-6 Sol","object":"model","policy":{"state":"disabled","terms":"Enable access to the latest GPT-6 Sol model from OpenAI. [Learn more about how GitHub Copilot serves GPT-6 Sol](https://gh.io/copilot-openai)."},"preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"OpenAI","version":"gpt-6-sol"},{"billing":{"restricted_to":["free","pro","pro_plus","individual_trial","edu","max","business","enterprise"],"token_prices":{"batch_size":1000000,"default":{"cache_price":30,"cache_write_price":0,"context_max":917504,"input_price":300,"output_price":1500}}},"capabilities":{"family":"kimi-k3","limits":{"max_context_window_tokens":1048576,"max_output_tokens":131072,"max_prompt_tokens":917504,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["low","high","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"kimi-k3","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"powerful","model_picker_enabled":false,"model_picker_price_category":"medium","name":"Kimi K3","object":"model","policy":{"state":"enabled","terms":"Enable access to Kimi K3 from Moonshot AI."},"preview":false,"supported_endpoints":["/chat/completions"],"vendor":"Moonshot AI","version":"kimi-k3"},{"billing":{"restricted_to":["free","edu","individual_trial","pro","pro_plus","max","business","enterprise"],"token_prices":{"batch_size":1000000,"default":{"cache_price":2,"cache_write_price":25,"context_max":128000,"input_price":20,"output_price":120}}},"capabilities":{"family":"oswe-vscode-modelD","limits":{"max_context_window_tokens":256000,"max_output_tokens":128000,"max_prompt_tokens":128000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["low","medium","high"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"mai-code-1.1-flash","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"lightweight","model_picker_enabled":false,"model_picker_price_category":"low","name":"MAI-Code-1.1-Flash","object":"model","policy":{"state":"enabled","terms":""},"preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"Microsoft","version":"mai-code-1.1-flash"},{"billing":{"restricted_to":["free","edu","individual_trial","pro","pro_plus","max"],"token_prices":{"batch_size":1000000,"default":{"cache_price":2,"cache_write_price":25,"context_max":128000,"input_price":20,"output_price":120}}},"capabilities":{"family":"oswe-vscode-modelD","limits":{"max_context_window_tokens":256000,"max_output_tokens":128000,"max_prompt_tokens":128000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["low","medium","high"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"mai-code-1-flash-4th","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"lightweight","model_picker_enabled":false,"model_picker_price_category":"low","name":"MAI-Code-1.1-Flash","object":"model","policy":{"state":"enabled","terms":""},"preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"Microsoft","version":"mai-code-1-flash-4th"},{"billing":{"restricted_to":["free","edu","pro","pro_plus","individual_trial","max"],"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"trajectory-compaction","limits":{"max_context_window_tokens":262144,"max_output_tokens":16384,"max_prompt_tokens":245760},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"trajectory-compaction","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"low","name":"Trajectory Compaction","object":"model","preview":true,"supported_endpoints":["/chat/completions"],"vendor":"Fireworks","version":"trajectory-compaction"},{"billing":{"token_prices":{"batch_size":1000000,"default":{"cache_price":2,"cache_write_price":0,"input_price":25,"output_price":200}}},"capabilities":{"family":"gpt-5-mini","limits":{"max_context_window_tokens":264000,"max_output_tokens":64000,"max_prompt_tokens":128000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["low","medium","high"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-5-mini","info_messages":[{"code":"model_pending_deprecation","message":"GPT-5 mini has a planned deprecation date of 2026-10-19."}],"is_chat_default":false,"is_chat_fallback":true,"model_picker_category":"lightweight","model_picker_enabled":false,"model_picker_price_category":"low","name":"GPT-5 mini","object":"model","policy":{"state":"enabled","terms":"Enable access to the latest GPT-5 mini model from OpenAI. [Learn more about how GitHub Copilot serves GPT-5 mini](https://gh.io/copilot-openai)."},"preview":false,"supported_endpoints":["/chat/completions","/responses","ws:/responses"],"vendor":"Azure OpenAI","version":"gpt-5-mini"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-4o-mini","limits":{"max_context_window_tokens":128000,"max_output_tokens":4096,"max_prompt_tokens":64000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-4o-mini-2024-07-18","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"low","name":"GPT-4o mini","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-4o-mini-2024-07-18"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-4o","limits":{"max_context_window_tokens":128000,"max_output_tokens":16384,"max_prompt_tokens":64000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-4o-2024-11-20","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT-4o","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-4o-2024-11-20"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-4o","limits":{"max_context_window_tokens":128000,"max_output_tokens":16384,"max_prompt_tokens":64000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-4o-2024-08-06","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"high","name":"GPT-4o","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-4o-2024-08-06"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"text-embedding-3-small","limits":{"max_inputs":512},"object":"model_capabilities","supports":{"dimensions":true},"tokenizer":"cl100k_base","type":"embeddings"},"id":"text-embedding-3-small","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"name":"Embedding V3 small","object":"model","preview":false,"vendor":"Azure OpenAI","version":"text-embedding-3-small"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"text-embedding-3-small","object":"model_capabilities","supports":{"dimensions":true},"tokenizer":"cl100k_base","type":"embeddings"},"id":"text-embedding-3-small-inference","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"name":"Embedding V3 small (Inference)","object":"model","preview":false,"vendor":"Azure OpenAI","version":"text-embedding-3-small"},{"billing":{"token_prices":{"batch_size":1000000,"default":{"cache_price":10,"cache_write_price":125,"input_price":100,"output_price":500}}},"capabilities":{"family":"claude-haiku-4.5","limits":{"max_context_window_tokens":144000,"max_non_streaming_output_tokens":16000,"max_output_tokens":32000,"max_prompt_tokens":128000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":5,"supported_media_types":["image/jpeg","image/png","image/webp","application/pdf"]}},"object":"model_capabilities","supports":{"max_thinking_budget":32000,"min_thinking_budget":1024,"parallel_tool_calls":true,"streaming":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"claude-haiku-4.5","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"lightweight","model_picker_enabled":false,"model_picker_price_category":"low","name":"Claude Haiku 4.5","object":"model","policy":{"state":"enabled","terms":"Enable access to the latest Claude Haiku 4.5 model from Anthropic. [Learn more about how GitHub Copilot serves Claude Haiku 4.5](https://gh.io/copilot-anthropic)."},"preview":false,"supported_endpoints":["/chat/completions","/v1/messages"],"vendor":"Anthropic","version":"claude-haiku-4.5"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-4.1","limits":{"max_context_window_tokens":128000,"max_output_tokens":16384,"max_prompt_tokens":64000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-4.1-2025-04-14","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT-4.1","object":"model","policy":{"state":"enabled","terms":"Enable access to the latest GPT-4.1 model from OpenAI. [Learn more about how GitHub Copilot serves GPT-4.1](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task#gpt-41)."},"preview":false,"vendor":"Azure OpenAI","version":"gpt-4.1-2025-04-14"},{"auto":true,"billing":{"restricted_to":["free"],"token_prices":{"batch_size":1000000,"default":{"cache_price":2,"cache_write_price":25,"context_max":200000,"input_price":20,"output_price":120},"long_context":{"cache_price":4,"cache_write_price":50,"context_max":922000,"input_price":40,"output_price":180}}},"capabilities":{"family":"gpt-5.6-luna","limits":{"max_context_window_tokens":1050000,"max_output_tokens":128000,"max_prompt_tokens":922000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"reasoning_effort":["none","low","medium","high","xhigh","max"],"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-5.6-luna-free-auto","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"lightweight","model_picker_enabled":false,"model_picker_price_category":"low","name":"GPT-5.6 Luna","object":"model","preview":false,"supported_endpoints":["/responses","ws:/responses"],"vendor":"OpenAI","version":"gpt-5.6-luna-free-auto"},{"billing":{"token_prices":{"batch_size":1000000,"default":{"cache_price":50,"cache_write_price":0,"input_price":200,"output_price":800}}},"capabilities":{"family":"gpt-4.1","object":"model_capabilities","supports":{"streaming":true},"tokenizer":"o200k_base","type":"completion"},"id":"gpt-41-copilot","is_chat_default":false,"is_chat_fallback":false,"model_picker_category":"versatile","model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT-4.1 Copilot","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-41-copilot"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-3.5-turbo","limits":{"max_context_window_tokens":16384,"max_output_tokens":4096,"max_prompt_tokens":16384},"object":"model_capabilities","supports":{"streaming":true,"tool_calls":true},"tokenizer":"cl100k_base","type":"chat"},"id":"gpt-3.5-turbo-0613","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT 3.5 Turbo","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-3.5-turbo-0613"},{"billing":{"token_prices":{"batch_size":1000000,"default":{"cache_price":125,"cache_write_price":0,"input_price":250,"output_price":1000}}},"capabilities":{"family":"gpt-4","limits":{"max_context_window_tokens":32768,"max_output_tokens":4096,"max_prompt_tokens":32768},"object":"model_capabilities","supports":{"streaming":true,"tool_calls":true},"tokenizer":"cl100k_base","type":"chat"},"id":"gpt-4","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT 4","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-4-0613"},{"billing":{"token_prices":{"batch_size":1000000,"default":{"cache_price":125,"cache_write_price":0,"input_price":250,"output_price":1000}}},"capabilities":{"family":"gpt-4","limits":{"max_context_window_tokens":32768,"max_output_tokens":4096,"max_prompt_tokens":32768},"object":"model_capabilities","supports":{"streaming":true,"tool_calls":true},"tokenizer":"cl100k_base","type":"chat"},"id":"gpt-4-0613","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT 4","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-4-0613"},{"billing":{"token_prices":{"batch_size":1000000,"default":{"cache_price":0,"cache_write_price":0,"input_price":1000,"output_price":3000}}},"capabilities":{"family":"gpt-4-turbo","limits":{"max_context_window_tokens":128000,"max_output_tokens":4096,"max_prompt_tokens":64000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"cl100k_base","type":"chat"},"id":"gpt-4-0125-preview","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"very_high","name":"GPT 4 Turbo","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-4-0125-preview"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-4o","limits":{"max_context_window_tokens":128000,"max_output_tokens":4096,"max_prompt_tokens":64000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-4o-2024-05-13","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT-4o","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-4o-2024-05-13"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-4o","limits":{"max_context_window_tokens":128000,"max_output_tokens":4096,"max_prompt_tokens":64000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-4-o-preview","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"high","name":"GPT-4o","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-4o-2024-05-13"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-4.1","limits":{"max_context_window_tokens":128000,"max_output_tokens":16384,"max_prompt_tokens":64000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif","application/pdf"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"structured_outputs":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-4.1","info_messages":[{"code":"model_pending_deprecation","message":"GPT-4.1 has a planned deprecation date of 2026-06-01."}],"is_chat_default":true,"is_chat_fallback":false,"model_picker_category":"versatile","model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT-4.1","object":"model","policy":{"state":"enabled","terms":"Enable access to the latest GPT-4.1 model from OpenAI. [Learn more about how GitHub Copilot serves GPT-4.1](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task#gpt-41)."},"preview":false,"vendor":"Azure OpenAI","version":"gpt-4.1-2025-04-14"},{"billing":{"restricted_to":["pro","pro_plus","max","business","enterprise","individual_trial","edu"],"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-3.5-turbo","limits":{"max_context_window_tokens":16384,"max_output_tokens":4096,"max_prompt_tokens":16384},"object":"model_capabilities","supports":{"streaming":true,"tool_calls":true},"tokenizer":"cl100k_base","type":"chat"},"id":"gpt-3.5-turbo","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT 3.5 Turbo","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-3.5-turbo-0613"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-4o-mini","limits":{"max_context_window_tokens":128000,"max_output_tokens":4096,"max_prompt_tokens":64000},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-4o-mini","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"low","name":"GPT-4o mini","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-4o-mini-2024-07-18"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"gpt-4o","limits":{"max_context_window_tokens":128000,"max_output_tokens":4096,"max_prompt_tokens":64000,"vision":{"max_prompt_image_size":3145728,"max_prompt_images":1,"supported_media_types":["image/jpeg","image/png","image/webp","image/gif"]}},"object":"model_capabilities","supports":{"parallel_tool_calls":true,"streaming":true,"tool_calls":true,"vision":true},"tokenizer":"o200k_base","type":"chat"},"id":"gpt-4o","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"model_picker_price_category":"medium","name":"GPT-4o","object":"model","preview":false,"vendor":"Azure OpenAI","version":"gpt-4o-2024-11-20"},{"billing":{"token_prices":{"batch_size":0,"default":{"cache_price":0,"cache_write_price":0,"input_price":0,"output_price":0}}},"capabilities":{"family":"text-embedding-ada-002","limits":{"max_inputs":512},"object":"model_capabilities","supports":{},"tokenizer":"cl100k_base","type":"embeddings"},"id":"text-embedding-ada-002","is_chat_default":false,"is_chat_fallback":false,"model_picker_enabled":false,"name":"Embedding V2 Ada","object":"model","preview":false,"vendor":"Azure OpenAI","version":"text-embedding-3-small"}]
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-10-09 16:11:44.050
+!MESSAGE [LS:GitHub Copilot Language Server][Error]	[chat] Error processing turn 5e61d5b4-cd65-438a-9e3a-f8c12b8d1b5f Error: No model configuration found
+    at qKe.getBestChatModelConfig (C:\snapshot\copilot-language-server-internal\dist\main.js:2436:12998)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async t.resolveModelConfiguration (C:\snapshot\copilot-language-server-internal\dist\main.js:2582:6346)
+    at async ModelPickerUtils.getModelConfigurationById (C:\snapshot\copilot-language-server-internal\dist\main.js:2582:9562)
+    at async fPe.processWithModelAndToolCall (C:\snapshot\copilot-language-server-internal\dist\main.js:3765:17405)
+    at async fPe.process (C:\snapshot\copilot-language-server-internal\dist\main.js:3765:15760)
+    at async handleConversationCreateChecked (C:\snapshot\copilot-language-server-internal\dist\main.js:4111:12692)
+    at async tr.messageHandler (C:\snapshot\copilot-language-server-internal\dist\main.js:4237:89134)
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-10-09 16:11:44.051
+!MESSAGE [LS:GitHub Copilot Language Server][Error]	[agenticTurnProcessor] Error in processing turn 5e61d5b4-cd65-438a-9e3a-f8c12b8d1b5f Error: No model configuration found
+    at qKe.getBestChatModelConfig (C:\snapshot\copilot-language-server-internal\dist\main.js:2436:12998)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async t.resolveModelConfiguration (C:\snapshot\copilot-language-server-internal\dist\main.js:2582:6346)
+    at async ModelPickerUtils.getModelConfigurationById (C:\snapshot\copilot-language-server-internal\dist\main.js:2582:9562)
+    at async fPe.processWithModelAndToolCall (C:\snapshot\copilot-language-server-internal\dist\main.js:3765:17405)
+    at async fPe.process (C:\snapshot\copilot-language-server-internal\dist\main.js:3765:15760)
+    at async handleConversationCreateChecked (C:\snapshot\copilot-language-server-internal\dist\main.js:4111:12692)
+    at async tr.messageHandler (C:\snapshot\copilot-language-server-internal\dist\main.js:4237:89134)
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:44.356
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AutoModelService] Fetched auto model for standby in 321ms: mai-code-1.1-flash
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-09 16:11:44.752
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AutoModelService] Fetched auto model for reserve in 717ms: mai-code-1.1-flash
+!SESSION 2026-10-12 11:43:39.002 -----------------------------------------------
+eclipse.buildId=4.40.0.20260604-0652
+java.version=21.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2026-10-12 11:45:14.893
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2026-10-12 11:45:41.216
+!MESSAGE Logback config file: D:\Project-04 Workspace\ORSProject-04\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.101.20251017-1242.xml
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-12 11:45:54.865
+!MESSAGE [Info] Starting language server with binary lsp agent.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-12 11:45:54.870
+!MESSAGE [Info] Found native binary in fragment bundle: com.microsoft.copilot.eclipse.core.agent.win32
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-12 11:45:54.932
+!MESSAGE [Info] Binary agent started successfully.
+
+!ENTRY org.eclipse.egit.ui 2 0 2026-10-12 11:45:55.011
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Tanisha'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:57.810
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[ripgrep] Using tmpFolder for ripgrep: C:\Users\Tanisha\.cache\pkg\72dc6f288b8f13e22da7572a55f576ac335b8402e617b8aaf91f8dbf72adf1a0
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:57.811
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[ripgrep] Set GITHUB_COPILOT_RIPGREP_PATH_OVERRIDE=C:\Users\Tanisha\.cache\pkg\72dc6f288b8f13e22da7572a55f576ac335b8402e617b8aaf91f8dbf72adf1a0\rg.exe
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:57.811
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[lsp] GitHub Copilot Language Server 1.527.0 initialized
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:57.811
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[ripgrep] Resolved ripgrep path: C:\Users\Tanisha\.cache\pkg\72dc6f288b8f13e22da7572a55f576ac335b8402e617b8aaf91f8dbf72adf1a0\rg.exe
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:58.031
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[certificates] Removed 10 expired certificates
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:58.032
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[UndiciFetcher] Root certificate set changed; resetting Undici dispatchers. { certificateCount: 181 }
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:58.032
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:58.033
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:58.033
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[default] Policy watcher started for GitHub Copilot Plugin
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:58.044
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[UndiciFetcher] HTTP settings changed; resetting Undici dispatchers. {
+  proxy: 'none',
+  noProxyCount: 0,
+  proxyStrictSSL: true,
+  hasProxyAuthorization: false,
+  hasProxyKerberosServicePrincipal: false
+}
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:58.046
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:58.858
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[GithubAvailableEmbeddingTypes] Got embeddings. Primary: metis-1024-I16-Binary. Deprecated: 
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:58.980
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[UndiciFetcher] Root certificate set changed; resetting Undici dispatchers. { certificateCount: 181 }
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:59.675
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AutoModelService] Auto model cache cleared due to token update
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:59.676
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[CopilotMCP] MCP state changed from false to true
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:59.681
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:59.681
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:59.682
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:59.682
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:59.683
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[BackgroundAgent] GitHub identity changed, clearing cached sessions {
+  hadPrevious: false,
+  hasCurrent: true,
+  cachedSessionCount: 0,
+  remoteDelegateCount: 0
+}
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-12 11:45:59.684
+!MESSAGE [LS:GitHub Copilot Language Server][Info]	[AuthManager] resolveSession: persisted store resolved a session
+
+!ENTRY org.eclipse.core.jobs 4 2 2026-10-12 11:46:05.476
+!MESSAGE An internal error occurred during: "https://www.eclipse.org/setups/setups.zip".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.osgi.framework.BundleContext.createFilter(String)" because "context" is null
+	at org.osgi.util.tracker.ServiceTracker.<init>(ServiceTracker.java:190)
+	at org.osgi.util.tracker.ServiceTracker.<init>(ServiceTracker.java:253)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.getLogService(Activator.java:202)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.log(Activator.java:213)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.hardClose(HttpClientRetrieveFileTransfer.java:200)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:199)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 2 2 2026-10-12 11:46:05.971
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.oomph.internal.ui.EarlyStart$1 RUNNING
+	 at java.base/jdk.internal.misc.Unsafe.park(Native Method)
+	 at java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:221)
+	 at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(AbstractQueuedSynchronizer.java:788)
+	 at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1133)
+	 at java.base/java.util.concurrent.CountDownLatch.await(CountDownLatch.java:230)
+	 at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl$FileTransferListener.await(ECFURIHandlerImpl.java:996)
+	 at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl$ConnectionHandler.process(ECFURIHandlerImpl.java:1728)
+	 at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl.createInputStream(ECFURIHandlerImpl.java:318)
+	 at org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl.createInputStream(ExtensibleURIConverterImpl.java:358)
+	 at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1314)
+	 at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.handleArchiveRedirection(SetupCoreUtil.java:708)
+	 at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.configureResourceSet(SetupCoreUtil.java:486)
+	 at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.configureResourceSet(SetupCoreUtil.java:268)
+	 at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.createResourceSet(SetupCoreUtil.java:262)
+	 at org.eclipse.oomph.setup.ui.recorder.RecorderManager.<clinit>(RecorderManager.java:114)
+	 at org.eclipse.oomph.setup.ui.SetupUIPlugin.performStartup(SetupUIPlugin.java:230)
+	 at org.eclipse.oomph.setup.ui.EarlyStartup.earlyStartup(EarlyStartup.java:23)
+	 at org.eclipse.oomph.internal.ui.EarlyStart.run(EarlyStart.java:119)
+	 at org.eclipse.oomph.internal.ui.EarlyStart$1.run(EarlyStart.java:98)
+	 at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
