@@ -334,14 +334,7 @@
 								href="<%=ORSView.PARKING_LIST_CTL%>"> Parking List </a></li>
 
 
-							<li><a class="dropdown-item" href="<%=ORSView.VOTING_CTL%>">
-									Add Voter </a></li>
-
-
-							<li><a class="dropdown-item"
-								href="<%=ORSView.VOTING_LIST_CTL%>"> Voter List </a></li>
-
-
+							
 							<li><a class="dropdown-item"
 								href="<%=ORSView.HOSPITAL_CTL%>"> Add Hospital </a></li>
 
@@ -372,21 +365,31 @@
 
 							<li><a class="dropdown-item"
 								href="<%=ORSView.BANK_LIST_CTL%>"> Bank List </a></li>
-								
-							
-							<li><a class="dropdown-item" href="<%=ORSView.ONLINEEXAMINATION_CTL%>">
-									Add Online Exam </a></li>
 
 
 							<li><a class="dropdown-item"
-								href="<%=ORSView.ONLINEEXAMINATION_LIST_CTL%>"> Online Exam List </a></li>
-								
+								href="<%=ORSView.ONLINEEXAMINATION_CTL%>"> Add Online Exam </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.ONLINEEXAMINATION_LIST_CTL%>"> Online Exam
+									List </a></li>
+
 							<li><a class="dropdown-item" href="<%=ORSView.EVENT_CTL%>">
 									Add Event </a></li>
 
 
 							<li><a class="dropdown-item"
-								href="<%=ORSView.EVENT_LIST_CTL%>"> Event List  </a></li>
+								href="<%=ORSView.EVENT_LIST_CTL%>"> Event List </a></li>
+
+
+							<li><a class="dropdown-item" href="<%=ORSView.BOOK_CTL%>">
+									Add Book </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.BOOK_LIST_CTL%>"> Book List </a></li>
+
 
 
 						</ul></li>

@@ -44,6 +44,7 @@ public final class MessageSource {
 		return rb.getLocale().getLanguage();
 	}
 
+	//
 	public String get(String key) {
 		String val = "";
 		try {

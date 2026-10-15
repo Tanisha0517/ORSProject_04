@@ -53,14 +53,16 @@
 						<%
 						if (_suc != null && _suc.length() > 0) {
 						%>
-						<div class="alert alert-success"><i
-							class="bi bi-check-circle-fill"></i> <%=_suc%></div>
+						<div class="alert alert-success">
+							<i class="bi bi-check-circle-fill"></i>
+							<%=_suc%></div>
 						<%
 						}
 						if (_err != null && _err.length() > 0) {
 						%>
-						<div class="alert alert-danger"><i
-							class="bi bi-exclamation-triangle-fill"></i> <%=_err%></div>
+						<div class="alert alert-danger">
+							<i class="bi bi-exclamation-triangle-fill"></i>
+							<%=_err%></div>
 						<%
 						}
 						%>
@@ -75,14 +77,11 @@
 
 								<img src="<%=ORSView.UPLOAD_PHOTO_CTL%>?id=<%=bean.getId()%>"
 									onerror="this.style.display='none';" alt="User Photo"
-									width="90" height="90"
-									class="rounded-circle border mb-2"
-									style="object-fit: cover;"><br>
-
-								<input type="file" name="photo" accept="image/*"
+									width="90" height="90" class="rounded-circle border mb-2"
+									style="object-fit: cover;"><br> <input type="file"
+									name="photo" accept="image/*"
 									class="form-control form-control-sm d-inline-block w-auto mb-2">
-								<br>
-								<input type="submit" value="Upload Photo"
+								<br> <input type="submit" value="Upload Photo"
 									class="btn btn-sm btn-outline-primary">
 							</form>
 						</div>
@@ -102,8 +101,8 @@
 										class="text-danger">*</span></label> <input type="text"
 										name="firstName" class="form-control"
 										value="<%=DataUtility.getStringData(bean.getFirstName())%>"
-										placeholder="enter your firstName">
-									<small class="text-danger"><%=ServletUtility.getErrorMessage("firstName", request)%></small>
+										placeholder="enter your firstName"> <small
+										class="text-danger"><%=ServletUtility.getErrorMessage("firstName", request)%></small>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label class="form-label fw-bold"><i
@@ -111,19 +110,19 @@
 										class="text-danger">*</span></label> <input type="text"
 										name="lastName" class="form-control"
 										value="<%=DataUtility.getStringData(bean.getLastName())%>"
-										placeholder="enter your lastName">
-									<small class="text-danger"><%=ServletUtility.getErrorMessage("lastName", request)%></small>
+										placeholder="enter your lastName"> <small
+										class="text-danger"><%=ServletUtility.getErrorMessage("lastName", request)%></small>
 								</div>
 							</div>
 
 							<div class="mb-3">
 								<label class="form-label fw-bold"><i
 									class="bi bi-person-circle text-info"></i> Login <span
-									class="text-danger">*</span></label> <input type="text"
-									name="login" class="form-control"
+									class="text-danger">*</span></label> <input type="text" name="login"
+									class="form-control"
 									value="<%=DataUtility.getStringData(bean.getLogin())%>"
-									placeholder="enter an email">
-								<small class="text-danger"><%=ServletUtility.getErrorMessage("login", request)%></small>
+									placeholder="enter an email"> <small
+									class="text-danger"><%=ServletUtility.getErrorMessage("login", request)%></small>
 							</div>
 
 							<div class="row">
@@ -133,17 +132,17 @@
 										class="text-danger">*</span></label> <input type="password"
 										name="password" class="form-control"
 										value="<%=DataUtility.getStringData(bean.getPassword())%>"
-										placeholder="enter a password">
-									<small class="text-danger"><%=ServletUtility.getErrorMessage("password", request)%></small>
+										placeholder="enter a password"> <small
+										class="text-danger"><%=ServletUtility.getErrorMessage("password", request)%></small>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label class="form-label fw-bold"><i
-										class="bi bi-shield-lock-fill text-danger"></i> ConfirmPassword
-										<span class="text-danger">*</span></label> <input
+										class="bi bi-shield-lock-fill text-danger"></i>
+										ConfirmPassword <span class="text-danger">*</span></label> <input
 										type="password" name="confirmPassword" class="form-control"
 										value="<%=DataUtility.getStringData(bean.getPassword())%>"
-										placeholder="re-enter your password">
-									<small class="text-danger"><%=ServletUtility.getErrorMessage("confirmPassword", request)%></small>
+										placeholder="re-enter your password"> <small
+										class="text-danger"><%=ServletUtility.getErrorMessage("confirmPassword", request)%></small>
 								</div>
 							</div>
 
@@ -152,16 +151,17 @@
 									<label class="form-label fw-bold"><i
 										class="bi -person-badge-fill text-primary"></i> Role <span
 										class="text-danger">*</span></label>
-									<%=HTMLUtility.getList("roleId",DataUtility.getStringData(bean.getRoleId()), roleList)%>
-									
+									<%=HTMLUtility.getList("roleId", DataUtility.getStringData(bean.getRoleId()), roleList)%>
+
 									<small class="text-danger"><%=ServletUtility.getErrorMessage("roleId", request)%></small>
+
 								</div>
 								<div class="col-md-6 mb-3">
 									<label class="form-label fw-bold"><i
 										class="bi bi-gender-ambiguous text-success"></i> Gender <span
 										class="text-danger">*</span></label>
-									<%=HTMLUtility.getList("gender",DataUtility.getStringData(bean.getGender()), map)%>
-									
+									<%=HTMLUtility.getList("gender", DataUtility.getStringData(bean.getGender()), map)%>
+
 									<small class="text-danger"><%=ServletUtility.getErrorMessage("gender", request)%></small>
 								</div>
 							</div>
