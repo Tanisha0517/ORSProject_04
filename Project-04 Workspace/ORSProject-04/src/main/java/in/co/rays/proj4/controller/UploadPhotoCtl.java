@@ -195,12 +195,7 @@ public class UploadPhotoCtl extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		// Redirect
-		if ("profile".equals(view)) {
-			response.sendRedirect("MyProfileCtl");
-		} else {
-			response.sendRedirect("UserCtl?id=" + id);
-		}
+		ServletUtility.forward(getView(), request, response);
 	}
 
 	public String getView() {
