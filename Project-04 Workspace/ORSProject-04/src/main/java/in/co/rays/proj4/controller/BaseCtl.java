@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
+
 import in.co.rays.proj4.bean.BaseBean;
 import in.co.rays.proj4.bean.UserBean;
 import in.co.rays.proj4.exception.ApplicationException;
@@ -161,7 +162,8 @@ public abstract class BaseCtl<B extends BaseBean, M extends BaseModel> extends H
 			ServletUtility.forward(getView(), request, response);
 		} catch (ApplicationException e) {
 			e.printStackTrace();
-			System.out.println(e.getMessage() + " ============== database is down ===================");
+//			System.out.println(e.getMessage() + " ============== database is down ===================");
+			e.printStackTrace();
 			ServletUtility.setPageNo(1, request);
 			ServletUtility.setPageSize(10, request);
 			ServletUtility.setList(new ArrayList<BaseBean>(), request);
