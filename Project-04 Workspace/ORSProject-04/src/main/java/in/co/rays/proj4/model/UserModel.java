@@ -222,6 +222,7 @@ public class UserModel extends BaseModel<UserBean> {
 				log.fatal("Critical error during updatePhoto rollback for ID: " + id, ex);
 				throw new ApplicationException("Exception : updatePhoto rollback exception " + ex.getMessage());
 			}
+			e.printStackTrace();
 			throw new ApplicationException("Exception in updating User Photo");
 		} finally {
 			JDBCDataSource.closeConnection(conn);
