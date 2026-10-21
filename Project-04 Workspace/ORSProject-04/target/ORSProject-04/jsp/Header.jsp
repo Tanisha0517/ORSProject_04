@@ -23,6 +23,24 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 
+
+<!-- jQuery UI -->
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+	$(function() {
+		$("#udatee").datepicker({
+			changeMonth : true,
+			changeYear : true,
+			yearRange : '1980:2020',
+		});
+	});
+</script>
 </head>
 
 <body>
@@ -199,6 +217,8 @@
 							<li><a class="dropdown-item"
 								href="<%=ORSView.MARKSHEET_LIST_CTL%>"> MarkSheet List </a></li>
 
+							<li><a class="dropdown-item"
+								href="<%=ORSView.GET_MARKSHEET_CTL%>"> Get MarkSheet </a></li>
 						</ul></li>
 
 
@@ -314,12 +334,70 @@
 								href="<%=ORSView.PARKING_LIST_CTL%>"> Parking List </a></li>
 
 
-							<li><a class="dropdown-item" href="<%=ORSView.VOTING_CTL%>">
-									Add Voter </a></li>
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.HOSPITAL_CTL%>"> Add Hospital </a></li>
 
 
 							<li><a class="dropdown-item"
-								href="<%=ORSView.VOTING_LIST_CTL%>"> Voter List </a></li>
+								href="<%=ORSView.HOSPITAL_LIST_CTL%>"> Hospital List </a></li>
+
+
+							<li><a class="dropdown-item" href="<%=ORSView.MOVIE_CTL%>">
+									Add Movie </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.MOVIE_LIST_CTL%>"> Movie List </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.RESTAURANT_CTL%>"> Add Restaurant </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.RESTAURANT_LIST_CTL%>"> Restaurant List </a></li>
+
+
+							<li><a class="dropdown-item" href="<%=ORSView.BANK_CTL%>">
+									Add Bank </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.BANK_LIST_CTL%>"> Bank List </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.ONLINEEXAMINATION_CTL%>"> Add Online Exam </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.ONLINEEXAMINATION_LIST_CTL%>"> Online Exam
+									List </a></li>
+
+							<li><a class="dropdown-item" href="<%=ORSView.EVENT_CTL%>">
+									Add Event </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.EVENT_LIST_CTL%>"> Event List </a></li>
+
+
+							<li><a class="dropdown-item" href="<%=ORSView.BOOK_CTL%>">
+									Add Book </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.BOOK_LIST_CTL%>"> Book List </a></li>
+
+
+							<li><a class="dropdown-item" href="<%=ORSView.HOSTEL_CTL%>">
+									Add Hostel </a></li>
+
+
+							<li><a class="dropdown-item"
+								href="<%=ORSView.HOSTEL_LIST_CTL%>"> Hostel List </a></li>
+
 
 
 						</ul></li>

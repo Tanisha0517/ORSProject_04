@@ -87,7 +87,7 @@
 						<label class="form-label fw-bold"> <i
 							class="fa-solid fa-align-left text-success"></i> Age <span
 							class="text-danger">*</span>
-						</label> <input type="text" name="age"
+						</label> <input type="number" name="age"
 							class="form-control form-control-lg"
 							value="<%=DataUtility.getStringData(bean.getAge())%>"
 							placeholder="enter age"> <small

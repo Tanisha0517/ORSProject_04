@@ -18,9 +18,13 @@
 
 <title>Change Password</title>
 
+<!-- Bootstrap CSS/JS already loaded via Header.jsp, isliye yahan dobara nahi liya -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 
-<body>
+<body class="bg-light">
 
     <jsp:useBean id="bean" class="in.co.rays.proj4.bean.UserBean"
         scope="request"></jsp:useBean>
@@ -35,103 +39,99 @@
 
     %>
 
+    <!-- FIX: extra bottom padding taaki fixed/sticky Footer Save button ko
+         overlap na kare -->
+    <div class="container pt-5" style="padding-bottom: 100px !important;">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
 
-    <form action="<%=ORSView.CHANGE_PASSWORD_CTL%>" method="post">
+                <div class="card shadow-lg border-0">
 
-        <div align="center">
+                    <div class="card-header bg-white text-center py-3">
+                        <h3 class="mb-1 text-primary">
+                            <i class="bi bi-shield-lock-fill"></i> Change Password
+                        </h3>
+                        <small class="text-muted">Update your ORS account password</small>
+                    </div>
 
-            <h1>Change Password</h1>
+                    <div class="card-body p-4">
 
-            <h3 style="color: green"><%=_suc%></h3>
+                        <!-- SUCCESS MESSAGE -->
+                        <%
+                        if (_suc != null && _suc.length() > 0) {
+                        %>
+                        <div class="alert alert-success alert-dismissible fade show"
+                            role="alert">
+                            <i class="bi bi-check-circle-fill"></i> <%=_suc%>
+                            <button type="button" class="btn-close"
+                                data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <%
+                        }
+                        %>
 
-            <h3 style="color: red"><%=_err%></h3>
+                        <!-- ERROR MESSAGE -->
+                        <%
+                        if (_err != null && _err.length() > 0) {
+                        %>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            role="alert">
+                            <i class="bi bi-exclamation-triangle-fill"></i> <%=_err%>
+                            <button type="button" class="btn-close"
+                                data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <%
+                        }
+                        %>
 
+                        <form action="<%=ORSView.CHANGE_PASSWORD_CTL%>" method="post">
 
-            <table>
+                            <!-- LOGIN -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold"> <i
+                                    class="bi bi-person-circle text-primary"></i>
+                                    <%=ms.get("login.userid")%> <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" name="login" class="form-control"
+                                    value="<%=DataUtility.getStringData(bean.getLogin())%>"
+                                    placeholder="Enter your login">
+                                <small class="text-danger"><%=ServletUtility.getErrorMessage("login", request)%></small>
+                            </div>
 
-                <!-- LOGIN -->
+                            <!-- OLD PASSWORD -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold"> <i
+                                    class="bi bi-lock-fill text-warning"></i> Old Password
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="password" name="oldPassword" class="form-control"
+                                    placeholder="Enter your old password">
+                                <small class="text-danger"><%=ServletUtility.getErrorMessage("oldPassword", request)%></small>
+                            </div>
 
-                <tr>
+                            <!-- NEW PASSWORD -->
+                            <div class="mb-4">
+                                <label class="form-label fw-bold"> <i
+                                    class="bi bi-shield-lock-fill text-danger"></i> New
+                                    Password <span class="text-danger">*</span>
+                                </label>
+                                <input type="password" name="newPassword" class="form-control"
+                                    placeholder="Enter your new password">
+                                <small class="text-danger"><%=ServletUtility.getErrorMessage("newPassword", request)%></small>
+                            </div>
 
-                    <th>
-                        <%=ms.get("login.userid")%>
-                        <font color="red">*</font>
-                    </th>
+                            <!-- SUBMIT BUTTON -->
+                            <div class="text-center">
+                                <input type="submit" name="operation" class="btn btn-primary px-4"
+                                    value="<%=BaseCtl.OP_GO%>">
+                            </div>
 
-                    <td>
-                        <input type="text" name="login"
-                            value="<%=DataUtility.getStringData(bean.getLogin())%>"
-                            placeholder="Enter your login">
-                    </td>
-
-                    <td style="color: red">
-                        <%=ServletUtility.getErrorMessage("login", request)%>
-                    </td>
-
-                </tr>
-
-
-                <!-- OLD PASSWORD -->
-
-                <tr>
-
-                    <th>
-                        Old Password
-                        <font color="red">*</font>
-                    </th>
-
-                    <td>
-                        <input type="password" name="oldPassword"
-                            placeholder="Enter your old password">
-                    </td>
-
-                    <td style="color: red">
-                        <%=ServletUtility.getErrorMessage("oldPassword", request)%>
-                    </td>
-
-                </tr>
-
-
-                <!-- NEW PASSWORD -->
-
-                <tr>
-
-                    <th>
-                        New Password
-                        <font color="red">*</font>
-                    </th>
-
-                    <td>
-                        <input type="password" name="newPassword"
-                            placeholder="Enter your new password">
-                    </td>
-
-                    <td style="color: red">
-                        <%=ServletUtility.getErrorMessage("newPassword", request)%>
-                    </td>
-
-                </tr>
-
-
-                <!-- SUBMIT BUTTON -->
-
-                <tr>
-
-                    <th></th>
-
-                    <td>
-                        <input type="submit" name="operation"
-                            value="<%=BaseCtl.OP_GO%>">
-                    </td>
-
-                </tr>
-
-            </table>
-
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </form>
-
+    </div>
 
     <%@ include file="Footer.jsp"%>
 

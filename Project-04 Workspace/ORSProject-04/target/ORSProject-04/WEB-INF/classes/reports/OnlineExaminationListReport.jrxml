@@ -1,0 +1,142 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio -->
+<jasperReport
+    xmlns="http://jasperreports.sourceforge.net/jasperreports"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+    name="Exam"
+    pageWidth="595"
+    pageHeight="842"
+    columnWidth="555"
+    leftMargin="20"
+    rightMargin="20"
+    topMargin="20"
+    bottomMargin="20">
+
+    <queryString language="SQL">
+        <![CDATA[select * from st_onlineexam]]>
+    </queryString>
+
+    <field name="id" class="java.lang.Integer"/>
+    <field name="subject" class="java.lang.String"/>
+    <field name="totalQuestions" class="java.lang.Integer"/>
+    <field name="duration" class="java.lang.Integer"/>
+    <field name="totalMarks" class="java.lang.Integer"/>
+    <field name="created_by" class="java.lang.String"/>
+    <field name="modified_by" class="java.lang.String"/>
+    <field name="created_datetime" class="java.time.LocalDateTime"/>
+    <field name="modified_datetime" class="java.time.LocalDateTime"/>
+
+    <title>
+        <band height="60">
+            <staticText>
+                <reportElement x="200" y="15" width="180" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Exam Details]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="30">
+            <staticText>
+                <reportElement x="0" y="0" width="45" height="30"/>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="45" y="0" width="65" height="30"/>
+                <text><![CDATA[Subject]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="110" y="0" width="75" height="30"/>
+                <text><![CDATA[Total Questions]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="185" y="0" width="55" height="30"/>
+                <text><![CDATA[Duration]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="240" y="0" width="65" height="30"/>
+                <text><![CDATA[Total Marks]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="305" y="0" width="65" height="30"/>
+                <text><![CDATA[Created By]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="370" y="0" width="65" height="30"/>
+                <text><![CDATA[Modified By]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="435" y="0" width="60" height="30"/>
+                <text><![CDATA[Created Date]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="495" y="0" width="60" height="30"/>
+                <text><![CDATA[Modified Date]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="25">
+            <textField>
+                <reportElement x="0" y="0" width="45" height="25"/>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="45" y="0" width="65" height="25"/>
+                <textFieldExpression><![CDATA[$F{subject}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="110" y="0" width="75" height="25"/>
+                <textFieldExpression><![CDATA[$F{totalQuestions}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="185" y="0" width="55" height="25"/>
+                <textFieldExpression><![CDATA[$F{duration}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="240" y="0" width="65" height="25"/>
+                <textFieldExpression><![CDATA[$F{totalMarks}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="305" y="0" width="65" height="25"/>
+                <textFieldExpression><![CDATA[$F{created_by}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="370" y="0" width="65" height="25"/>
+                <textFieldExpression><![CDATA[$F{modified_by}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="435" y="0" width="60" height="25"/>
+                <textFieldExpression><![CDATA[$F{created_datetime}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="495" y="0" width="60" height="25"/>
+                <textFieldExpression><![CDATA[$F{modified_datetime}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <pageFooter>
+        <band height="25">
+            <textField>
+                <reportElement x="450" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+</jasperReport>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BankListReport" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ec08fc05-d3fb-403c-a2a7-de7adead3674">
+	<field name="bankId" class="java.lang.String"/>
+	<field name="bankName" class="java.lang.String"/>
+	<field name="branchName" class="java.lang.String"/>
+	<field name="ifscCode" class="java.lang.String"/>
+	<field name="address" class="java.lang.String"/>
+	<title>
+		<band height="50">
+			<staticText>
+				<reportElement x="301" y="10" width="200" height="30" uuid="d63590e0-5557-4013-af41-69c4a93f34cb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bank Details]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="d5ce1134-df7d-4d90-ac33-5d277e79068a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Bank ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="160" height="30" uuid="519eed18-4e57-4efb-9d17-154c1e5a7248"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Bank Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="150" height="30" uuid="644a4417-12a4-486e-badb-c90dceb35381"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Branch Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="0" width="140" height="30" uuid="fde483db-13c9-45b1-982d-4027ef3128f7"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[IFSC Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="550" y="0" width="252" height="30" uuid="9a88b11f-8a68-46aa-9914-9244eca8f9f0"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="9838ab47-b9f7-4d7a-8153-271c2ad2ae06"/>
+				<textFieldExpression><![CDATA[$F{bankId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="160" height="30" uuid="228365a4-4524-449b-b647-e78e294b64e1"/>
+				<textFieldExpression><![CDATA[$F{bankName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="150" height="30" uuid="35465a21-77b7-489a-9ce2-77421b4414b7"/>
+				<textFieldExpression><![CDATA[$F{branchName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="140" height="30" uuid="fabf9e5d-bb09-4646-b564-182d7fa9f84d"/>
+				<textFieldExpression><![CDATA[$F{ifscCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="550" y="0" width="252" height="30" uuid="d97af1eb-39ce-4a96-b095-96aa6951eefb"/>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="25">
+			<textField>
+				<reportElement x="700" y="0" width="102" height="20" uuid="df8a29b4-a52c-4875-bc28-55746ce51d56"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
