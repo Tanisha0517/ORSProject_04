@@ -78,8 +78,8 @@
 								<img src="<%=ORSView.UPLOAD_PHOTO_CTL%>?id=<%=bean.getId()%>"
 									onerror="this.style.display='none';" alt="User Photo"
 									width="90" height="90" class="rounded-circle border mb-2"
-									style="object-fit: cover;"><br> <input type="file"
-									name="photo" accept="image/*"
+									style="object-fit: cover;"><br>
+									 <input type="file" name="photo" accept="image/*"
 									class="form-control form-control-sm d-inline-block w-auto mb-2">
 								<br> <input type="submit" value="Upload Photo"
 									class="btn btn-sm btn-outline-primary">
@@ -129,7 +129,8 @@
 								<div class="col-md-6 mb-3">
 									<label class="form-label fw-bold"><i
 										class="bi bi-lock-fill text-warning"></i> Password <span
-										class="text-danger">*</span></label> <input type="password"
+										class="text-danger">*</span></label> 
+										<input type="password"
 										name="password" class="form-control"
 										value="<%=DataUtility.getStringData(bean.getPassword())%>"
 										placeholder="enter a password"> <small
