@@ -391,15 +391,13 @@
 								href="<%=ORSView.BOOK_LIST_CTL%>"> Book List </a></li>
 
 
-						    <li><a class="dropdown-item" href="<%=ORSView.HOSTEL_CTL%>">
-									Add Hostel </a></li>
+							<!--   <li><a class="dropdown-item" href="<%=ORSView.HOSTEL_CTL%>">
+									Add Hostel </a></li> -->
 
 
+							<!--  
 							<li><a class="dropdown-item"
-								href="<%=ORSView.HOSTEL_LIST_CTL%>"> Hostel List </a></li>
-							
-							
-							
+								href="<%=ORSView.HOSTEL_LIST_CTL%>"> Hostel List </a></li> -->
 
 
 						</ul></li>
